@@ -17,6 +17,8 @@ const InnerContainer = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  padding-left: ${props => props.theme.mainTheme.sidePadding};
+  padding-right: ${props => props.theme.mainTheme.sidePadding};
 `;
 
 const InnerContainerComponent = styled.div`
@@ -24,7 +26,6 @@ const InnerContainerComponent = styled.div`
   justify-content: ${props => props.justifyContent};
   flex-grow: 1;
   flex-basis: 0;
-  padding: 16px;
   gap: ${props => props.gap};
 `;
 
