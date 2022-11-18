@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import LogoText from '../common/LogoText';
+import NavBar from './NavBar';
 
 const Container = styled.header`
   padding-top: 24px;
@@ -8,7 +10,7 @@ const Container = styled.header`
 `;
 
 const InnerContainer = styled.div`
-  max-width: ${props => props.theme.maxWidth};
+  max-width: ${props => props.theme.mainTheme.maxWidth};
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -20,44 +22,20 @@ const InnerContainerComponent = styled.div`
   flex-basis: 0;
 `;
 
-const Logo = styled.a`
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 3.052rem;
-`;
-
-const Nav = styled.nav`
-  text-align: center;
-`;
-
-const NavList = styled.ul`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-`;
-
-const NavListItem = styled.li`
-  display: inline;
-  padding: 16px;
-`
-
 const Header = () => {
   return (
     <Container>
       <InnerContainer>
         <InnerContainerComponent>
-          <Logo>
-            Mio
-          </Logo>
+          <LogoText fontSize='3.052rem' 
+                    color={props => props.theme.textPrimary}
+                    text='Mio'/>
         </InnerContainerComponent>
         <InnerContainerComponent>
-          <Nav>
-            <NavList>
-              <NavListItem>Home</NavListItem>
-              <NavListItem>About Us</NavListItem>
-              <NavListItem>Pricing</NavListItem>
-            </NavList>
-          </Nav>
+          <NavBar textColor={props => props.theme.textSecondary}
+                  textColorHover={props => props.theme.textPrimary}
+                  underscoreColor={props => props.theme.mainTheme.accentColor}
+                  items={['Home', 'About Us', 'Pricing']}/>
         </InnerContainerComponent>
         <InnerContainerComponent>
           <a>hello</a>
