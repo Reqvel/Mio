@@ -15,9 +15,12 @@ const NavListItem = styled.li`
   display: inline-block;
   position: relative;
   padding: 16px;
+  margin-right: 24px;
+  font-size: ${props => props.fontSize};
   font-weight: 500;
   cursor: pointer;
   color: ${props => props.textColor};
+  transition: color 0.3s ease;
 
   :hover {
     color: ${props => props.textColorHover};
@@ -42,12 +45,13 @@ const NavListItem = styled.li`
   };
 `;
 
-const NavBar = ({textColor, textColorHover, underscoreColor, items}) => {
+const NavBar = ({fontSize, textColor, textColorHover, underscoreColor, items}) => {
   let navListItems = <></>
 
   if (items?.length) {
     navListItems = items.map( (item, index) =>
         <NavListItem key={index}
+                     fontSize= {fontSize}
                      textColor={textColor}
                      textColorHover={textColorHover}
                      underscoreColor={underscoreColor}>
