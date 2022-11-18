@@ -40,7 +40,7 @@ const Header = () => {
         </InnerContainerComponent>
         <InnerContainerComponent justifyContent='center'>
           <NavBar fontSize='0.8rem'
-                  textColor={props => props.theme.textSecondary}
+                  textColor={props => props.theme.textSubtile}
                   textColorHover={props => props.theme.textPrimary}
                   underscoreColor={props => props.theme.mainTheme.accentColor}
                   items={navBarItems}/>
@@ -48,13 +48,10 @@ const Header = () => {
         <InnerContainerComponent justifyContent='end' gap='12px'>
           <Button fontSize='1rem'
                   textColor={props => props.theme.textPrimary}
-                  buttonColor='transparent'
                   buttonColorHover={props => props.theme.buttonColorHover}
-                  borderColor='transparent'
                   text='Sign In'/>
           <Button fontSize='1rem'
                   textColor={props => props.theme.textPrimary}
-                  buttonColor='transparent'
                   buttonColorHover={props => props.theme.buttonColorHover}
                   borderColor={props => props.theme.buttonBorderColor}
                   text='Sign Up'/>
