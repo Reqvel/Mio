@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { Button } from '../common/Buttons';
 import { ReactComponent as Illustration } from '../../svgs/Illustration.svg';
 
-const Container = styled.div`
+const Wrapper = styled.div`
   padding-top: 48px;
   padding-bottom: 48px;
 `;
 
-const InnerContainer = styled.div`
+const Container = styled.div`
   max-width: ${props => props.theme.mainTheme.maxWidth};
   display: flex;
   gap: 24px;
@@ -18,7 +18,7 @@ const InnerContainer = styled.div`
   padding-right: ${props => props.theme.mainTheme.sidePadding};
 `;
 
-const LeftContainer = styled.div`
+const Left = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,20 +28,20 @@ const LeftContainer = styled.div`
   gap: 36px;
 `;
 
-const RightContainer = styled.div`
+const Right = styled.div`
   flex-grow: 11;
   flex-basis: 0;
   display: flex;
   justify-content: center;
 `;
 
-const TextContainer = styled.div`
+const Text = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
 `;
 
-const H1 = styled.h1`
+const Header = styled.h1`
   margin: 0;
   padding-bottom: 10px;
   font-size: 4.768rem;
@@ -50,7 +50,7 @@ const H1 = styled.h1`
   color: ${props => props.theme.textPrimary};
 `;
 
-const P = styled.p`
+const Details = styled.p`
   margin: 0;
   width: 70%;
   font-size: 1rem;
@@ -59,31 +59,31 @@ const P = styled.p`
 
 const Home = () => {
   return (
-    <Container>
-      <InnerContainer>
-        <LeftContainer>
-            <TextContainer>
-                <H1>
+    <Wrapper>
+      <Container>
+        <Left>
+            <Text>
+                <Header>
                     A simple tool <br/>
                     for social media <br/>
                     management
-                </H1>
-                <P>
+                </Header>
+                <Details>
                     Our Many-In-One social media managment platform allows content creators to plan, track and see ... TODO
-                </P>
-            </TextContainer>
+                </Details>
+            </Text>
             <Button padding='20px 64px'
                     fontSize='1rem'
                     textColor={props => props.theme.textSecondary}
                     buttonColor={props => props.theme.buttonColor}>
               Start Free Trial
             </Button>
-        </LeftContainer>
-        <RightContainer>
+        </Left>
+        <Right>
             <Illustration/>
-        </RightContainer>
-      </InnerContainer>
-    </Container>
+        </Right>
+      </Container>
+    </Wrapper>
   )
 };
 

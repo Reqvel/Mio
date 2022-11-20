@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.button`
+const StyledButton = styled.button`
     padding: ${props => props.padding ? props.padding : '12px 48px'};
     font-size: ${props => props.fontSize};
     font-weight: 600;
@@ -26,13 +26,13 @@ export const Button = ({padding,
                         borderColor, 
                         children}) => {
   return (
-    <Container padding={padding}
+    <StyledButton padding={padding}
                fontSize={fontSize}
                textColor={textColor}
                buttonColor={buttonColor}
                buttonColorHover={buttonColorHover}
                borderColor={borderColor}>
         {children}
-    </Container>
+    </StyledButton>
   )
 };

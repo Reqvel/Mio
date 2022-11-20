@@ -5,19 +5,18 @@ const Nav = styled.nav`
   text-align: center;
 `;
 
-const NavList = styled.ul`
+const List = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
 `;
 
-const NavListItem = styled.li`
+const Item = styled.li`
   display: inline-block;
   position: relative;
   padding: 16px;
   margin-right: 24px;
   font-size: ${props => props.fontSize};
-  font-weight: 500;
   cursor: pointer;
   color: ${props => props.textColor};
   transition: color 0.3s ease;
@@ -45,26 +44,30 @@ const NavListItem = styled.li`
   };
 `;
 
-const NavBar = ({fontSize, textColor, textColorHover, underscoreColor, items}) => {
-  let navListItems = <></>
+const NavBar = ({fontSize, 
+                 textColor, 
+                 textColorHover, 
+                 underscoreColor, 
+                 items}) => {
+  let listItems = <></>
 
   if (items?.length) {
-    navListItems = items.map( (item, index) =>
-        <NavListItem key={index}
+    listItems = items.map( (item, index) =>
+        <Item key={index}
                      fontSize= {fontSize}
                      textColor={textColor}
                      textColorHover={textColorHover}
                      underscoreColor={underscoreColor}>
             {item}
-        </NavListItem>
+        </Item>
     )
   }
 
   return (
     <Nav>
-        <NavList>
-            {navListItems}
-        </NavList>
+        <List>
+            {listItems}
+        </List>
     </Nav>
   )
 };

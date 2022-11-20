@@ -1,16 +1,19 @@
 import styled from 'styled-components'
 
-const Container = styled.a`
+const Text = styled.span`
+  cursor: pointer;
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
+  color: ${props => props.textColor};
   font-size: ${props => props.fontSize};
-  cursor: pointer;
-  color: ${props => props.color};
 `;
 
-const LogoText = ({fontSize, color, text}) => {
+const LogoText = ({fontSize, color, children}) => {
   return (
-    <Container fontSize={fontSize} color={color}>{text}</Container>
+    <Text fontSize={fontSize}
+          textColor={color}>
+      {children}
+    </Text>
   )
 };
 
