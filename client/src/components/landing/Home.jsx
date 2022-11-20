@@ -75,8 +75,9 @@ const Home = () => {
             <Button padding='20px 64px'
                     fontSize='1rem'
                     textColor={props => props.theme.textSecondary}
-                    buttonColor={props => props.theme.buttonColor}
-                    text='Start Free Trial'/>
+                    buttonColor={props => props.theme.buttonColor}>
+              Start Free Trial
+            </Button>
         </LeftContainer>
         <RightContainer>
             <Illustration/>

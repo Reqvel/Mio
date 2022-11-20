@@ -48,13 +48,15 @@ const Header = () => {
         <InnerContainerComponent justifyContent='end' gap='12px'>
           <Button fontSize='1rem'
                   textColor={props => props.theme.textPrimary}
-                  buttonColorHover={props => props.theme.buttonColorHover}
-                  text='Sign In'/>
+                  buttonColorHover={props => props.theme.buttonColorHover}>
+            Sign In
+          </Button>
           <Button fontSize='1rem'
                   textColor={props => props.theme.textPrimary}
                   buttonColorHover={props => props.theme.buttonColorHover}
-                  borderColor={props => props.theme.buttonBorderColor}
-                  text='Sign Up'/>
+                  borderColor={props => props.theme.buttonBorderColor}>
+            Sign Up
+          </Button>
         </InnerContainerComponent>
       </InnerContainer>
     </Container>

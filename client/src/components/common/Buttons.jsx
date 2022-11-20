@@ -24,7 +24,7 @@ export const Button = ({padding,
                         buttonColor, 
                         buttonColorHover, 
                         borderColor, 
-                        text}) => {
+                        children}) => {
   return (
     <Container padding={padding}
                fontSize={fontSize}
@@ -32,7 +32,7 @@ export const Button = ({padding,
                buttonColor={buttonColor}
                buttonColorHover={buttonColorHover}
                borderColor={borderColor}>
-        {text}
+        {children}
     </Container>
   )
 };
