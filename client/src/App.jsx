@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
-import mainTheme from './themes/mainTheme';
+import lightTheme from './themes/lightTheme';
 import AppRoutes from './routes/AppRoutes';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
     <>
       <GlobalStyle/>
       <BrowserRouter>
-        <ThemeProvider theme={mainTheme}>
+        <ThemeProvider theme={lightTheme}>
           <AppRoutes/>
         </ThemeProvider>
       </BrowserRouter>

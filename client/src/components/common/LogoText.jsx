@@ -1,20 +1,20 @@
 import styled from 'styled-components'
 
-const Text = styled.span`
+const LogoText = styled.span`
   cursor: pointer;
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
-  color: ${props => props.textColor};
-  font-size: ${props => props.fontSize};
+  color: ${props => props.theme.textPrimary};
 `;
 
-const LogoText = ({fontSize, color, children}) => {
-  return (
-    <Text fontSize={fontSize}
-          textColor={color}>
-      {children}
-    </Text>
-  )
-};
+export const LogoTextS = styled(LogoText)`
+  font-size: 2.441rem;
+`;
 
-export default LogoText;
+export const LogoTextM = styled(LogoText)`
+  font-size: 3.052rem;
+`;
+
+export const LogoTextL = styled(LogoText)`
+  font-size: 3.815rem;
+`;

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../common/Buttons';
+import Button from '../common/Button';
 import { ReactComponent as Illustration } from '../../svgs/Illustration.svg';
 
 const Wrapper = styled.div`
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 128px;
+  padding-bottom: 128px;
 `;
 
 const Container = styled.div`
@@ -73,7 +73,6 @@ const Home = () => {
                 </Details>
             </Text>
             <Button padding='20px 64px'
-                    fontSize='1rem'
                     textColor={props => props.theme.textSecondary}
                     buttonColor={props => props.theme.buttonColor}>
               Start Free Trial

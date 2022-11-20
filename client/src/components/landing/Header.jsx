@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components'
-import LogoText from '../common/LogoText';
+import { LogoTextM } from '../common/LogoText';
 import NavBar from './NavBar';
 import { logoText, navBarItems } from '../../data/data';
-import { Button } from '../common/Buttons';
+import Button from '../common/Button';
 
 const Wrapper = styled.header`
   padding-top: 24px;
@@ -34,26 +34,19 @@ const Header = () => {
     <Wrapper>
       <Container>
         <Item justifyContent='start'>
-          <LogoText fontSize='3.052rem' 
-                    color={props => props.theme.textPrimary}>
+          <LogoTextM>
             {logoText}
-          </LogoText>
+          </LogoTextM>
         </Item>
         <Item justifyContent='center'>
-          <NavBar fontSize='0.8rem'
-                  textColor={props => props.theme.textSubtile}
-                  textColorHover={props => props.theme.textPrimary}
-                  underscoreColor={props => props.theme.mainTheme.accentColor}
-                  items={navBarItems}/>
+          <NavBar items={navBarItems}/>
         </Item>
         <Item justifyContent='end' gap='12px'>
-          <Button fontSize='1rem'
-                  textColor={props => props.theme.textPrimary}
+          <Button textColor={props => props.theme.textPrimary}
                   buttonColorHover={props => props.theme.buttonColorHover}>
             Sign In
           </Button>
-          <Button fontSize='1rem'
-                  textColor={props => props.theme.textPrimary}
+          <Button textColor={props => props.theme.textPrimary}
                   buttonColorHover={props => props.theme.buttonColorHover}
                   borderColor={props => props.theme.buttonBorderColor}>
             Sign Up
