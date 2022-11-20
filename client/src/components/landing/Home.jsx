@@ -4,8 +4,8 @@ import Button from '../common/Button';
 import { ReactComponent as Illustration } from '../../svgs/Illustration.svg';
 
 const Wrapper = styled.div`
-  padding-top: 128px;
-  padding-bottom: 128px;
+  padding-top: 192px;
+  padding-bottom: 192px;
 `;
 
 const Container = styled.div`
