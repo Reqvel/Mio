@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../common/Button';
+import { BigButton } from '../common/Buttons';
 import { ReactComponent as Illustration } from '../../svgs/Illustration.svg';
 
 const Wrapper = styled.div`
@@ -68,11 +68,9 @@ const Home = () => {
                     Our Many-In-One social media managment platform allows content creators to plan, track and see ... TODO
                 </Details>
             </Text>
-            <Button padding='20px 64px'
-                    textColor={props => props.theme.textSecondary}
-                    buttonColor={props => props.theme.buttonColor}>
+            <BigButton>
               Start Free Trial
-            </Button>
+            </BigButton>
         </Left>
         <Right>
           <Illustration/>

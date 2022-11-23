@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { LogoTextM } from '../common/LogoText';
 import NavBar from './NavBar';
 import { navBarItems } from '../../data/data';
-import Button from '../common/Button';
+import { TransparentButton, OutlinedButton } from '../common/Buttons';
 
 const Wrapper = styled.header`
   padding-top: 24px;
@@ -40,15 +40,12 @@ const Header = () => {
           <NavBar items={navBarItems}/>
         </Item>
         <Item justifyContent='end' gap='12px'>
-          <Button textColor={props => props.theme.textPrimary}
-                  buttonColorHover={props => props.theme.buttonColorHover}>
+          <TransparentButton>
             Sign In
-          </Button>
-          <Button textColor={props => props.theme.textPrimary}
-                  buttonColorHover={props => props.theme.buttonColorHover}
-                  borderColor={props => props.theme.buttonBorderColor}>
+          </TransparentButton>
+          <OutlinedButton>
             Sign Up
-          </Button>
+          </OutlinedButton>
         </Item>
       </Container>
     </Wrapper>
