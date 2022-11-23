@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { LogoTextM } from '../common/LogoText';
 import NavBar from './NavBar';
-import { logoText, navBarItems } from '../../data/data';
+import { navBarItems } from '../../data/data';
 import Button from '../common/Button';
 
 const Wrapper = styled.header`
@@ -34,9 +34,7 @@ const Header = () => {
     <Wrapper>
       <Container>
         <Item justifyContent='start'>
-          <LogoTextM>
-            {logoText}
-          </LogoTextM>
+          <LogoTextM/>
         </Item>
         <Item justifyContent='center'>
           <NavBar items={navBarItems}/>
