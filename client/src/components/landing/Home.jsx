@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BigButton } from '../common/Buttons';
+import { ButtonBig } from '../common/Buttons';
 import { ReactComponent as Illustration } from '../../svgs/Illustration.svg';
 
 const Wrapper = styled.div`
@@ -68,9 +68,9 @@ const Home = () => {
                     Our Many-In-One social media managment platform allows content creators to plan, track and see ... TODO
                 </Details>
             </Text>
-            <BigButton>
+            <ButtonBig>
               Start Free Trial
-            </BigButton>
+            </ButtonBig>
         </Left>
         <Right>
           <Illustration/>

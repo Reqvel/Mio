@@ -17,7 +17,7 @@ export const Button = styled.button`
     };
 `;
 
-export const TransparentButton = styled(Button)`
+export const ButtonTransparent = styled(Button)`
     color: ${props => props.theme.textPrimary};
     background: transparent;
 
@@ -26,10 +26,10 @@ export const TransparentButton = styled(Button)`
     };
 `
 
-export const OutlinedButton = styled(TransparentButton)`
+export const ButtonOutlined = styled(ButtonTransparent)`
     border: 2px solid ${props => props.theme.buttonBorder};
 `
 
-export const BigButton = styled(Button)`
+export const ButtonBig = styled(Button)`
     padding: 20px 64px;
 `
