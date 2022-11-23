@@ -4,8 +4,8 @@ import Button from '../common/Button';
 import { ReactComponent as Illustration } from '../../svgs/Illustration.svg';
 
 const Wrapper = styled.div`
-  padding-top: 192px;
-  padding-bottom: 192px;
+  padding-top: 166px;
+  padding-bottom: 166px;
 `;
 
 const Container = styled.div`
@@ -23,14 +23,10 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  flex-grow: 13;
-  flex-basis: 0;
   gap: 36px;
 `;
 
 const Right = styled.div`
-  flex-grow: 11;
-  flex-basis: 0;
   display: flex;
   justify-content: center;
 `;
@@ -79,7 +75,7 @@ const Home = () => {
             </Button>
         </Left>
         <Right>
-            <Illustration/>
+          <Illustration/>
         </Right>
       </Container>
     </Wrapper>
