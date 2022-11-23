@@ -39,6 +39,7 @@ const Right = styled.div`
 `;
 
 const BottomText = styled.span`
+  color: ${props => props.theme.textPrimary};
   font-weight: 600;
 `
 

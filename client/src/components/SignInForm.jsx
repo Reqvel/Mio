@@ -14,6 +14,7 @@ const Header = styled.h1`
   margin: 0 0 48px 0;
   font-size: 3.052rem;
   font-weight: 700;
+  color: ${props => props.theme.textPrimary};
 `
 
 const Fields = styled.div`
