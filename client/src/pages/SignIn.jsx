@@ -38,7 +38,7 @@ const Right = styled.div`
   padding: ${props => props.theme.mainTheme.sidePadding};
 `;
 
-const SignUp = styled.span`
+const BottomText = styled.span`
   font-weight: 600;
 `
 
@@ -54,12 +54,12 @@ const SignIn = () => {
                 <FormWrapper>
                   <LogoTextL/>
                   <SignInForm/>
-                  <SignUp>
+                  <BottomText>
                     Don’t have an account? &nbsp;
                     <StyledLink href='/'>
                       Sign Up
                     </StyledLink>
-                  </SignUp>
+                  </BottomText>
                 </FormWrapper>
             </Left>
             <Right>
