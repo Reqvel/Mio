@@ -37,7 +37,7 @@ const Buttons = styled(Group)`
     max-height: 864px;
     height: 100%;
     justify-content: space-between;
-    gap: 16px;
+    gap: 32px;
 `
 
 const SideMenu = () => {
