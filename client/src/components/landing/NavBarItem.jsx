@@ -22,7 +22,7 @@ const NavBarItem = styled.li`
     width: 0;
     bottom: 0;
     left: 50%;
-    height: 2px;
+    height: 3px;
     background: ${props => props.theme.mainTheme.accentColor};
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
   };
