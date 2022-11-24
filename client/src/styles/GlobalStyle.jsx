@@ -1,11 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-    body, button {
+    body {
         margin: 0;
         font-family: 'Inter', sans-serif;
         font-weight: 500;
-    }
+    };
+
+    button, input {
+        font-family: 'Inter', sans-serif;
+    };
 `;
 
 export default GlobalStyle;

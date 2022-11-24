@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as Illustration } from '../svgs/SignIn.svg';
 import FormWrapper from '../components/common/FormWrapper';
-import SignInForm from '../components/SignInForm';
+import SignInForm from '../components/forms/SignInForm';
 import { LogoTextL } from '../components/common/LogoText';
 
 const Background = styled.div`
