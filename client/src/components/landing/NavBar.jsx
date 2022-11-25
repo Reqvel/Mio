@@ -12,19 +12,13 @@ const List = styled.ul`
   padding: 0;
 `;
 
-const NavBar = ({items}) => {
-  let listItems = <></>
-
-  if (items?.length) {
-    listItems = items.map( (item, index) =>
-        <NavBarItem key={index}> {item} </NavBarItem>
-    )
-  }
-
+const NavBar = () => {
   return (
     <Nav>
         <List>
-            {listItems}
+          <NavBarItem> Home </NavBarItem>
+          <NavBarItem> About Us </NavBarItem>
+          <NavBarItem> Pricing </NavBarItem>
         </List>
     </Nav>
   )

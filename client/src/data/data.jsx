@@ -1,7 +1,6 @@
 import { ReactComponent as CalendarIcon } from '../svgs/CalendarIcon.svg';
 
 export const logoText = 'Mio';
-export const navBarItems = ['Home', 'About Us', 'Pricing'];
 export const aboutUsCardsInfo = [
     {
         icon: <CalendarIcon/>,

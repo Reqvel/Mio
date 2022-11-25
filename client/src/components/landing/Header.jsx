@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components'
 import { LogoTextM } from '../common/LogoText';
 import NavBar from './NavBar';
-import { navBarItems } from '../../data/data';
 import { ButtonTransparent, ButtonOutlined } from '../common/Buttons';
 
 const Wrapper = styled.header`
@@ -21,32 +20,43 @@ const Container = styled.div`
   padding-right: ${props => props.theme.mainTheme.sidePadding};
 `;
 
-const Item = styled.div`
+const Section = styled.div`
   display: flex;
   flex-grow: 1;
   flex-basis: 0;
-  gap: ${props => props.gap};
-  justify-content: ${props => props.justifyContent};
 `;
+
+const Logo = styled(Section)`
+  justify-content: start;
+`
+
+const NavBarSection = styled(Section)`
+  justify-content: center;
+`
+
+const Buttons = styled(Section)`
+  justify-content: end;
+  gap: 12px;
+`
 
 const Header = () => {
   return (
     <Wrapper>
       <Container>
-        <Item justifyContent='start'>
+        <Logo>
           <LogoTextM/>
-        </Item>
-        <Item justifyContent='center'>
-          <NavBar items={navBarItems}/>
-        </Item>
-        <Item justifyContent='end' gap='12px'>
+        </Logo>
+        <NavBarSection>
+          <NavBar/>
+        </NavBarSection>
+        <Buttons>
           <ButtonTransparent>
             Sign In
           </ButtonTransparent>
           <ButtonOutlined>
             Sign Up
           </ButtonOutlined>
-        </Item>
+        </Buttons>
       </Container>
     </Wrapper>
   )
