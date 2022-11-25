@@ -20,8 +20,7 @@ const Container = styled.div`
 
 const Left = styled.div`
   max-width: 400px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 40px 80px;
   flex-basis: 0;
   flex-grow: 1;
   display: flex;
