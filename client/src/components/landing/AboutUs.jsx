@@ -1,51 +1,53 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardWrapper from '../common/CardWrapper';
-import AboutUsCard from './AboutUsCard';
-import { aboutUsCardsInfo } from '../../data/data';
 
 const Wrapper = styled.div`
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: 128px;
+  padding-bottom: 128px;
   background-color: ${props => props.theme.bgSecondary};
 `;
 
 const Container = styled.div`
   max-width: ${props => props.theme.mainTheme.maxWidth};
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: ${props => props.theme.mainTheme.sidePadding};
-  padding-right: ${props => props.theme.mainTheme.sidePadding};;
-`;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
-const Cards = styled.div`
-    display: flex;
-    gap: ${props => props.theme.mainTheme.cardsGap};
-`;
+const Section = styled.span`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: ${props => props.theme.textSubtile};
+  margin-bottom: 24px;
+`
+
+const Header = styled.h2`
+  font-size: 3.052rem;
+  font-weight: 700;
+  margin: 0 0 64px 0;
+`
+
+const Details = styled.span`
+  max-width: 768px;
+  text-align: center;
+  color: ${props => props.theme.textSubtile};
+`
 
 const AboutUs = () => {
-  let cards = <></>
-
-  if (aboutUsCardsInfo?.length) {
-    cards = aboutUsCardsInfo.map( (cardInfo, index) => 
-      <CardWrapper key={index}
-                   padding='24px 48px 48px'
-                   wrapperColor={props => props.theme.aboutUsCardColor}>
-          <AboutUsCard info={cardInfo}
-                       headerColor={props => props.theme.textSecondary}
-                       detailsColor={props => props.theme.textSubtile}/>
-      </CardWrapper>)
-    }
-
   return (
     <Wrapper>
         <Container>
-            <Cards>
-              {cards}
-            </Cards>
+          <Section>
+            About Us
+          </Section>
+          <Header>
+            About Our Project
+          </Header>
+          <Details>
+            Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc
+          </Details>
         </Container>
     </Wrapper>
   )
