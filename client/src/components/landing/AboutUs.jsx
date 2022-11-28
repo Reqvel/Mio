@@ -9,12 +9,14 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   max-width: ${props => props.theme.mainTheme.maxWidth};
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: ${props => props.theme.mainTheme.sidePadding};
+  padding-right: ${props => props.theme.mainTheme.sidePadding};
+`;
 
 const Section = styled.span`
   font-size: 1.25rem;
