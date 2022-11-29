@@ -11,6 +11,7 @@ const lightTheme = {
     buttonFilledHover: '#25282E',
     buttonTransparentHover: '#F4F4F4',
     buttonBorder: '#989898',
+    featureCardBorder: '#CCCCCC',
     aboutUsCardColor: '#25282E',
     inputFieldBorderColor: '#989898',
     inputFieldOutlineColor: '#25282E',

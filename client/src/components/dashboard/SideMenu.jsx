@@ -15,10 +15,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  max-width: 168px;
+  max-width: 128px;
   width: 100%;
   padding: 40px 0px;
   background-color: ${props => props.theme.bgPrimary};
+  overflow: scroll;
 `
 
 const Logo = styled.div`
