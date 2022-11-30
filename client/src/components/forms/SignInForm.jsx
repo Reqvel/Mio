@@ -4,6 +4,8 @@ import FormField from './FormField'
 import EmailIcon from '../../svgs/icons/Mail.svg'
 import PasswordIcon from '../../svgs/icons/Lock.svg'
 import { ButtonBig } from '../common/Buttons'
+import { StyledLink } from '../common/Links'
+import pagesPaths from '../../routes/PagesPaths'
 
 const Container = styled.div`
   display: flex;
@@ -24,8 +26,10 @@ const Fields = styled.div`
   margin-bottom: 24px;
 `
 
-const StyledLink = styled.a`
+const StyledLinkDecorated = styled(StyledLink)`
   font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
   color: ${props => props.theme.textSubtile};
   margin-bottom: 56px;
 `
@@ -42,9 +46,9 @@ const SignInForm = () => {
                    placeholder='Enter Password'
                    icon={PasswordIcon}/>
       </Fields>
-      <StyledLink href='/'>
+      <StyledLinkDecorated to={pagesPaths.passwordReset}>
         Forgot Password?
-      </StyledLink>
+      </StyledLinkDecorated>
       <ButtonBig>
         Sign In
       </ButtonBig>
