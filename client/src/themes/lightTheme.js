@@ -11,10 +11,11 @@ const lightTheme = {
     buttonFilledHover: '#25282E',
     buttonTransparentHover: '#F4F4F4',
     buttonBorder: '#989898',
-    featureCardBorder: '#CCCCCC',
-    aboutUsCardColor: '#25282E',
+    featureCardColor: '#25282E',
+    pricingCardBorder: '#CCCCCC',
     inputFieldBorderColor: '#989898',
     inputFieldOutlineColor: '#25282E',
+    footerColor: '#25282E',
     mainTheme: mainTheme,
 };
 
