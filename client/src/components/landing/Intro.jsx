@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonBig } from '../common/Buttons';
+import { LinkButtonBig } from '../common/Links';
+import pagesPaths from '../../routes/PagesPaths';
 import { ReactComponent as Illustration } from '../../svgs/Illustration.svg';
 
 const Wrapper = styled.div`
@@ -53,7 +54,7 @@ const Details = styled.p`
   color: ${props => props.theme.textSubtile};
 `;
 
-const Home = () => {
+const Intro = () => {
   return (
     <Wrapper>
       <Container>
@@ -68,9 +69,9 @@ const Home = () => {
                     Our Many-In-One social media managment platform allows content creators to plan, track and see ... TODO
                 </Details>
             </Text>
-            <ButtonBig>
+            <LinkButtonBig to={pagesPaths.signIn}>
               Start Free Trial
-            </ButtonBig>
+            </LinkButtonBig>
         </Left>
         <Right>
           <Illustration/>
@@ -80,4 +81,4 @@ const Home = () => {
   )
 };
 
-export default Home;
+export default Intro;
