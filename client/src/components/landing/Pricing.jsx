@@ -1,0 +1,60 @@
+import React from 'react'
+import styled from 'styled-components'
+import PricingCard from './PricingCard';
+
+const Wrapper = styled.section`
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background-color: ${props => props.theme.bgPrimary};
+`;
+
+const Container = styled.div`
+  max-width: ${props => props.theme.mainTheme.maxWidth};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: ${props => props.theme.mainTheme.sidePadding};
+  padding-right: ${props => props.theme.mainTheme.sidePadding};
+`;
+
+const Header = styled.h3`
+  font-size: 2.441rem;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: ${props => props.theme.textPrimary};
+`
+
+const Details = styled.span`
+  color: ${props => props.theme.textSubtile};
+  margin-bottom: 48px;
+`
+
+const Cards = styled.div`
+    display: flex;
+    width: 100%;
+    gap: ${props => props.theme.mainTheme.cardsGap};
+`;
+
+const Pricing = () => {
+  return (
+    <Wrapper id='pricing'>
+        <Container>
+            <Header>
+                Pricing
+            </Header>
+            <Details>
+                The wise man therefore always holds in these matters to this principle of selection.
+            </Details>
+            <Cards>
+                <PricingCard/>
+                <PricingCard/>
+                <PricingCard/>
+            </Cards>
+        </Container>
+    </Wrapper>
+  )
+}
+
+export default Pricing
