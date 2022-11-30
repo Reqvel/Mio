@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components'
 import { LogoTextM } from '../common/LogoText';
 import NavBar from './NavBar';
-import { ButtonTransparent, ButtonOutlined } from '../common/Buttons';
+import { LinkButtonTransparent, LinkButtonOutlined } from '../common/Links';
+import pagesPaths from '../../routes/PagesPaths';
+import { StyledLink } from '../common/Links';
 
 const Wrapper = styled.header`
   padding-top: 24px;
@@ -41,21 +43,23 @@ const Buttons = styled(Section)`
 
 const Header = () => {
   return (
-    <Wrapper>
+    <Wrapper id='header'>
       <Container>
         <Logo>
-          <LogoTextM/>
+          <StyledLink to={pagesPaths.landing}>
+            <LogoTextM/>
+          </StyledLink>
         </Logo>
         <NavBarSection>
           <NavBar/>
         </NavBarSection>
         <Buttons>
-          <ButtonTransparent>
+          <LinkButtonTransparent to={pagesPaths.signIn}>
             Sign In
-          </ButtonTransparent>
-          <ButtonOutlined>
+          </LinkButtonTransparent>
+          <LinkButtonOutlined to={pagesPaths.signUp}>
             Sign Up
-          </ButtonOutlined>
+          </LinkButtonOutlined>
         </Buttons>
       </Container>
     </Wrapper>
