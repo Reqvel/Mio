@@ -3,15 +3,19 @@ import { Route, Routes } from 'react-router-dom';
 import Landing from '../pages/Landing';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
-import Home from '../pages/Home';
+import PrivateRoute from './PrivateRoute';
+import Dashboard from '../pages/Dashboard';
+import pagesPaths from './PagesPaths';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={ <Landing/> }/>
-      <Route path='/SignIn' element={ <SignIn/> }/>
-      <Route path='/SignUp' element={ <SignUp/> }/>
-      <Route path='/Home' element={ <Home/> }/>
+      <Route path={pagesPaths.landing} element={ <Landing/> }/>
+      <Route path={pagesPaths.signIn} element={ <SignIn/> }/>
+      <Route path={pagesPaths.signUp} element={ <SignUp/> }/>
+      <Route element={ <PrivateRoute/> }>
+        <Route path={pagesPaths.dashboard} element={ <Dashboard/> }/>
+      </Route>
     </Routes>
   )
 };
