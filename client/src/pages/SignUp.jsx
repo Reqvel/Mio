@@ -4,6 +4,8 @@ import { ReactComponent as Illustration } from '../svgs/SignUp.svg';
 import FormWrapper from '../components/common/FormWrapper';
 import SignUpForm from '../components/forms/SignUpForm';
 import { LogoTextL } from '../components/common/LogoText';
+import { StyledLink } from '../components/common/Links';
+import pagesPaths from '../routes/PagesPaths';
 
 const Background = styled.div`
   height: 100vh;
@@ -42,7 +44,9 @@ const BottomText = styled.span`
   font-weight: 600;
 `
 
-const StyledLink = styled.a`
+const StyledLinkDecorated = styled(StyledLink)`
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
   color: ${props => props.theme.textPrimary};
 `
 
@@ -52,13 +56,15 @@ const SignUp = () => {
         <Container>
             <Left>
                 <FormWrapper>
-                  <LogoTextL/>
+                  <StyledLink to={pagesPaths.landing}>
+                    <LogoTextL/>
+                  </StyledLink>
                   <SignUpForm/>
                   <BottomText>
-                    Already have an account? &nbsp;
-                    <StyledLink href='/'>
+                    Already have an account?&nbsp;
+                    <StyledLinkDecorated to={pagesPaths.signIn}>
                         Sign In
-                    </StyledLink>
+                    </StyledLinkDecorated>
                   </BottomText>
                 </FormWrapper>
             </Left>
