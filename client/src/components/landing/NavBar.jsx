@@ -16,9 +16,9 @@ const NavBar = () => {
   return (
     <Nav>
         <List>
-          <NavBarItem> Home </NavBarItem>
-          <NavBarItem> About Us </NavBarItem>
-          <NavBarItem> Pricing </NavBarItem>
+          <NavBarItem sectionId='#features'> Features </NavBarItem>
+          <NavBarItem sectionId='#aboutUs'> About Us </NavBarItem>
+          <NavBarItem sectionId='#pricing'> Pricing </NavBarItem>
         </List>
     </Nav>
   )

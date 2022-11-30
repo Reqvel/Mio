@@ -1,13 +1,19 @@
 import styled from "styled-components";
+import AnchorLink from 'react-anchor-link-smooth-scroll-v2'
 
-const NavBarItem = styled.li`
+const Container = styled.li`
   display: inline-block;
+  margin-right: 24px;
+`;
+
+const StyledAnchorLink = styled(AnchorLink)`
+  display: block;
   position: relative;
   padding: 16px;
-  margin-right: 24px;
   font-size: 0.8rem;
   cursor: pointer;
   color: ${props => props.theme.textSubtile};
+  text-decoration: none;
   transition: color 0.3s ease;
 
   :hover {
@@ -31,6 +37,14 @@ const NavBarItem = styled.li`
     width: 100%;
     left: 0;
   };
-`;
+`
+
+const NavBarItem = ({sectionId, children}) => {
+  return (
+    <Container>
+      <StyledAnchorLink href={sectionId}>{children}</StyledAnchorLink>
+    </Container>
+  )
+}
 
 export default NavBarItem;
