@@ -26,6 +26,23 @@ export const ButtonTransparent = styled(Button)`
     };
 `
 
+const ButtonIconWrapper = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    background: transparent;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease; 
+
+    :hover {
+        background: ${props => props.theme.buttonTransparentHover};
+    };
+`
+
 export const ButtonOutlined = styled(ButtonTransparent)`
     border: 2px solid ${props => props.theme.buttonBorder};
 `
@@ -87,5 +104,14 @@ export const ButtonSideMenu = ({icon, children}) => {
             <Icon src={icon}/>
             {children}
         </SideMenuBtn>
+    )
+}
+
+export const ButtonIcon = ({icon, children}) => {
+    return (
+        <ButtonIconWrapper>
+            <Icon src={icon}/>
+            {children}
+        </ButtonIconWrapper>
     )
 }
