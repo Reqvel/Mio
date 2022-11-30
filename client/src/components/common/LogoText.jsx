@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { logoText } from '../../data/data';
 
 const LogoText = styled.span`
-  cursor: pointer;
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
   color: ${props => props.theme.textPrimary};
@@ -10,6 +9,7 @@ const LogoText = styled.span`
 
 export const Small = styled(LogoText)`
   font-size: 2.441rem;
+  color: ${props => props.textColor};
 `;
 
 export const Medium = styled(LogoText)`
@@ -21,20 +21,20 @@ export const Large = styled(LogoText)`
 `;
 
 
-export const LogoTextS = () => {
+export const LogoTextS = ({color}) => {
   return (
-    <Small>{logoText}</Small>
+    <Small textColor={color}>{logoText}</Small>
   )
 };
 
-export const LogoTextM = () => {
+export const LogoTextM = ({color}) => {
   return (
-    <Medium>{logoText}</Medium>
+    <Medium textColor={color}>{logoText}</Medium>
   )
 };
 
-export const LogoTextL = () => {
+export const LogoTextL = ({color}) => {
   return (
-    <Large>{logoText}</Large>
+    <Large Medium textColor={color}>{logoText}</Large>
   )
 };
