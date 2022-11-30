@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import FeatureCard from './FeatureCard';
 import CalendarIcon from '../../svgs/CalendarIcon.svg'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding-top: 64px;
   padding-bottom: 64px;
-  background-color: ${props => props.theme.bgPrimary};
+  background-color: ${props => props.theme.bgSecondary};
 `;
 
 const Container = styled.div`
@@ -20,19 +20,6 @@ const Container = styled.div`
   padding-right: ${props => props.theme.mainTheme.sidePadding};
 `;
 
-const Section = styled.span`
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: ${props => props.theme.textSubtile};
-  margin-bottom: 24px;
-`
-
-const Header = styled.h2`
-  font-size: 3.052rem;
-  font-weight: 700;
-  margin: 0 0 64px 0;
-`
-
 const Cards = styled.div`
     display: flex;
     gap: ${props => props.theme.mainTheme.cardsGap};
@@ -40,14 +27,8 @@ const Cards = styled.div`
 
 const Features = () => {
   return (
-    <Wrapper>
+    <Wrapper id='features'>
         <Container>
-            <Section>
-              Change This
-            </Section>
-            <Header>
-              Change That
-            </Header>
             <Cards>
                 <FeatureCard icon={CalendarIcon}
                              header='Calendar'

@@ -4,9 +4,8 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   width: 100%;
   padding: 24px;
-  background-color: transparent;
+  background-color: ${props => props.theme.featureCardColor};
   border-radius: 12px;
-  border: 3px solid ${props => props.theme.featureCardBorder};;
 `;
 
 const Container = styled.div`
@@ -24,7 +23,7 @@ const Icon = styled.img`
 const Header = styled.h1`
     font-weight: 700;
     font-size: 1.563rem;
-    color: ${props => props.theme.textPrimary};
+    color: ${props => props.theme.textSecondary};
     margin: 0;
 `;
 
