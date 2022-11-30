@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     button, input {
         font-family: 'Inter', sans-serif;
     };
+
+    input {
+        font-weight: 500;
+    };
 `;
 
 export default GlobalStyle;
