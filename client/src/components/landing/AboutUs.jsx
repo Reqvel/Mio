@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  padding-top: 128px;
-  padding-bottom: 128px;
+const Wrapper = styled.section`
+  padding-top: 256px;
+  padding-bottom: 256px;
   background-color: ${props => props.theme.bgSecondary};
 `;
 
@@ -29,6 +29,7 @@ const Header = styled.h2`
   font-size: 3.052rem;
   font-weight: 700;
   margin: 0 0 64px 0;
+  color: ${props => props.theme.textPrimary};
 `
 
 const Details = styled.span`
@@ -39,7 +40,7 @@ const Details = styled.span`
 
 const AboutUs = () => {
   return (
-    <Wrapper>
+    <Wrapper id='aboutUs'>
         <Container>
           <Section>
             About Us
