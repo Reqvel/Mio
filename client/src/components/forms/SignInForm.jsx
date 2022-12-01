@@ -46,7 +46,7 @@ const SignInForm = () => {
                    placeholder='Enter Password'
                    icon={PasswordIcon}/>
       </Fields>
-      <StyledLinkDecorated to={pagesPaths.passwordReset}>
+      <StyledLinkDecorated to={pagesPaths.resetPassword}>
         Forgot Password?
       </StyledLinkDecorated>
       <ButtonBig>

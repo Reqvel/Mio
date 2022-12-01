@@ -16,10 +16,15 @@ const Container = styled.div`
   flex-direction: column;
   gap: 32px;
   max-width: 128px;
+  min-width: 96px;
   width: 100%;
   padding: 40px 0px;
   background-color: ${props => props.theme.bgPrimary};
-  overflow: scroll;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
 `
 
 const Logo = styled.div`

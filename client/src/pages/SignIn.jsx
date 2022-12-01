@@ -5,7 +5,7 @@ import FormWrapper from '../components/common/FormWrapper';
 import SignInForm from '../components/forms/SignInForm';
 import { StyledLink } from '../components/common/Links';
 import { LogoTextL } from '../components/common/LogoText';
-import pagesPath from '../routes/PagesPaths'
+import pagesPaths from '../routes/PagesPaths'
 
 const Background = styled.div`
   height: 100vh;
@@ -56,13 +56,13 @@ const SignIn = () => {
         <Container>
             <Left>
                 <FormWrapper>
-                  <StyledLink to={pagesPath.landing}>
+                  <StyledLink to={pagesPaths.landing}>
                     <LogoTextL/>
                   </StyledLink>
                   <SignInForm/>
                   <BottomText>
                     Don’t have an account?&nbsp;
-                    <StyledLinkDecorated to={pagesPath.signUp}>
+                    <StyledLinkDecorated to={pagesPaths.signUp}>
                       Sign Up
                     </StyledLinkDecorated>
                   </BottomText>
