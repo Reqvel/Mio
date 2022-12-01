@@ -5,7 +5,6 @@ import EmailIcon from '../../svgs/icons/Mail.svg'
 import { ButtonBig } from '../common/Buttons'
 
 const Container = styled.div`
-  justify-self: center;
   display: flex;
   flex-direction: column;
 `

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { StyledLink } from '../components/common/Links';
 import pagesPaths from '../routes/PagesPaths';
+import FormWrapper from '../components/common/FormWrapper' 
 import { LogoTextL } from '../components/common/LogoText';
 import ResetPasswordForm from '../components/forms/ResetPasswordForm';
 
@@ -29,15 +30,8 @@ const Container = styled.div`
   background-color: ${props => props.theme.bgPrimary};
 `;
 
-const FormWrapper = styled.div`
-  max-height: 864px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`
-
-const Logo = styled.div`
-  position: absolute;
+const Filler = styled.div`
+  height: 70px;
 `
 
 const ResetPassword = () => {
@@ -46,12 +40,11 @@ const ResetPassword = () => {
         <Wrapper>
             <Container>
                 <FormWrapper>
-                    <Logo>
-                        <StyledLink to={pagesPaths.landing}>
-                            <LogoTextL/>
-                        </StyledLink>
-                    </Logo>
-                    <ResetPasswordForm/>
+                  <StyledLink to={pagesPaths.landing}>
+                    <LogoTextL/>
+                  </StyledLink>
+                  <ResetPasswordForm/>
+                  <Filler/>
                 </FormWrapper>
             </Container>
         </Wrapper>
