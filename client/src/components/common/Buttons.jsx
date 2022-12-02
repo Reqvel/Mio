@@ -57,7 +57,7 @@ const SideMenuBtn = styled.button`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.64rem;
+    font-size: 0.8rem;
     padding: 16px 8px;
     gap: 8px;
     background: transparent;

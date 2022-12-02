@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SideMenu from '../components/dashboard/SideMenu'
 import Header from '../components/dashboard/Header'
-import Home from '../components/Home'
+import { Outlet } from 'react-router-dom'
 
 const Container = styled.div`
     height: 100vh;
@@ -22,7 +22,7 @@ const Main = () => {
         <SideMenu/>
         <Content>
           <Header header='Home' details='Take a look at the latest updates in your socials!'/>
-          <Home/>
+          <Outlet/>
         </Content>
     </Container>
   )

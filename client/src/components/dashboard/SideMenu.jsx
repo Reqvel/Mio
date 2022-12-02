@@ -10,12 +10,13 @@ import TikTokIcon from '../../svgs/icons/TikTok.svg'
 import InstagamIcon from '../../svgs/icons/Instagram.svg'
 import TwitterIcon from '../../svgs/icons/Twitter.svg'
 import SettingsIcon from '../../svgs/icons/Settings.svg'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  max-width: 128px;
+  max-width: 144px;
   min-width: 96px;
   width: 100%;
   padding: 40px 0px;
@@ -49,6 +50,7 @@ const Buttons = styled(Group)`
 const SideMenu = () => {
   return (
     <Container>
+        <Link to={<></>}/>
         <Logo>
             <LogoTextS/>
         </Logo>

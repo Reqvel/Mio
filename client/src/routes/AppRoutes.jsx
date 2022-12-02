@@ -7,6 +7,7 @@ import ResetPassword from '../pages/ResetPassword';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from '../pages/Dashboard';
 import pagesPaths from './PagesPaths';
+import Home from '../components/Home'
 
 const AppRoutes = () => {
   return (
@@ -16,7 +17,10 @@ const AppRoutes = () => {
       <Route path={pagesPaths.resetPassword} element={ <ResetPassword/> }/>
       <Route path={pagesPaths.signUp} element={ <SignUp/> }/>
       <Route element={ <PrivateRoute/> }>
-        <Route path={pagesPaths.dashboard} element={ <Dashboard/> }/>
+        <Route path={pagesPaths.dashboard} element={ <Dashboard/> }>
+          <Route path={pagesPaths.home} element={ <Home/> }/>
+          <Route path={pagesPaths.calendar}/>
+        </Route>
       </Route>
     </Routes>
   )

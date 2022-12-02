@@ -5,7 +5,7 @@ import EmailIcon from '../../svgs/icons/Mail.svg'
 import PasswordIcon from '../../svgs/icons/Lock.svg'
 import { ButtonBig } from '../common/Buttons'
 import { StyledLink } from '../common/Links'
-import pagesPaths from '../../routes/PagesPaths'
+import pagesPathes from '../../routes/PagesPaths'
 
 const Container = styled.div`
   display: flex;
@@ -46,7 +46,7 @@ const SignInForm = () => {
                    placeholder='Enter Password'
                    icon={PasswordIcon}/>
       </Fields>
-      <StyledLinkDecorated to={pagesPaths.resetPassword}>
+      <StyledLinkDecorated to={pagesPathes.resetPassword}>
         Forgot Password?
       </StyledLinkDecorated>
       <ButtonBig>
