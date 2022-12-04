@@ -17,7 +17,8 @@ const Content = styled.div`
   overflow-x: hidden;
 `;
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+`
 
 const Dashboard = () => {
   return (
@@ -25,9 +26,9 @@ const Dashboard = () => {
       <SideMenu/>
       <Content>
         <Header header='Home' details='Take a look at the latest updates in your socials!'/>
-          <Wrapper>
-            <Outlet/>
-          </Wrapper>
+        <Wrapper>
+          <Outlet/>
+        </Wrapper>
       </Content>
     </Container>
   )
