@@ -18,6 +18,55 @@ const lightTheme = {
     inputFieldOutlineColor: '#25282E',
     footerColor: '#25282E',
     mainTheme: mainTheme,
+
+  color: {
+    accent: '#FEB062'
+  },
+  backgroundColor: {
+    primary: '#FFFFFF',
+    secondary: '#FBFBFB',
+  },
+  maxWidth: {
+    landing: '1280px',
+    dashboard: '2000px',
+  },
+  padding: {
+    landing: '16px',
+
+  },
+  textColor: {
+    primary: '#25282E',
+    secondary: '#FFFFFF',
+    subtile: '#989898',
+  },
+  gap: {
+    cards: {
+      landing: '24px',
+    },
+  },
+  components: {
+    footer: {
+      color: '#25282E'
+    },
+    button: {
+      filled: {
+        color: '#25282E',
+        hoverColor: '#25282E',
+      },
+      transparent: {
+        hoverColor: '#F4F4F4',
+      },
+      outlined: {
+        borderColor: '#989898',
+      },
+    },
+    card: {
+      featureColor: '#25282E',
+      pricing: {
+        borderColor: '#CCCCCC'
+      }
+    }
+  }
 };
 
 export default lightTheme;

@@ -6,17 +6,17 @@ import AnchorLink from 'react-anchor-link-smooth-scroll-v2'
 const Wrapper = styled.div`
   padding-top: 32px;
   padding-bottom: 32px;
-  background-color: ${props => props.theme.footerColor};
+  background-color: ${props => props.theme.components.footer.color};
 `;
 
 const Container = styled.div`
-  max-width: ${props => props.theme.mainTheme.maxWidth};
+  max-width: ${props => props.theme.maxWidth.landing};
   display: flex;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding-left: ${props => props.theme.mainTheme.sidePadding};
-  padding-right: ${props => props.theme.mainTheme.sidePadding};
+  padding-left: ${props => props.theme.padding.landing};
+  padding-right: ${props => props.theme.padding.landing};
 `;
 
 const Left = styled.div`

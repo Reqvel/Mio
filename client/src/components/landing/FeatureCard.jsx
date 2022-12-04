@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   width: 100%;
   padding: 24px;
-  background-color: ${props => props.theme.featureCardColor};
+  background-color: ${props => props.theme.components.card.featureColor};
   border-radius: 12px;
 `;
 
@@ -23,12 +23,12 @@ const Icon = styled.img`
 const Header = styled.h1`
     font-weight: 700;
     font-size: 1.563rem;
-    color: ${props => props.theme.textSecondary};
+    color: ${props => props.theme.textColor.secondary};
     margin: 0;
 `;
 
 const Details = styled.p`
-    color: ${props => props.theme.textSubtile};
+    color: ${props => props.theme.textColor.subtile};
     margin: 0;
     text-align: center;
 `

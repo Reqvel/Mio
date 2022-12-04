@@ -6,23 +6,23 @@ import CalendarIcon from '../../svgs/CalendarIcon.svg'
 const Wrapper = styled.section`
   padding-top: 64px;
   padding-bottom: 64px;
-  background-color: ${props => props.theme.bgSecondary};
+  background-color: ${props => props.theme.backgroundColor.secondary};
 `;
 
 const Container = styled.div`
-  max-width: ${props => props.theme.mainTheme.maxWidth};
+  max-width: ${props => props.theme.maxWidth.landing};
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding-left: ${props => props.theme.mainTheme.sidePadding};
-  padding-right: ${props => props.theme.mainTheme.sidePadding};
+  padding-left: ${props => props.theme.padding.landing};
+  padding-right: ${props => props.theme.padding.landing};
 `;
 
 const Cards = styled.div`
     display: flex;
-    gap: ${props => props.theme.mainTheme.cardsGap};
+    gap: ${props => props.theme.gap.cards.landing};
 `;
 
 const Features = () => {

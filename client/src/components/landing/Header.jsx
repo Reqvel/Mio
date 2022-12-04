@@ -17,9 +17,9 @@ const Container = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: ${props => props.theme.mainTheme.maxWidth};
-  padding-left: ${props => props.theme.mainTheme.sidePadding};
-  padding-right: ${props => props.theme.mainTheme.sidePadding};
+  max-width: ${props => props.theme.maxWidth.landing};
+  padding-left: ${props => props.theme.padding.landing};
+  padding-right: ${props => props.theme.padding.landing};
 `;
 
 const Section = styled.div`
@@ -47,7 +47,7 @@ const Header = () => {
       <Container>
         <Logo>
           <StyledLink to={pagesPaths.landing}>
-            <LogoTextM/>
+            <LogoTextM color={props => props.theme.textColor.primary}/>
           </StyledLink>
         </Logo>
         <NavBarSection>

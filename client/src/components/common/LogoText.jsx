@@ -4,12 +4,11 @@ import { logoText } from '../../data/data';
 const LogoText = styled.span`
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.textColor};
 `;
 
 export const Small = styled(LogoText)`
   font-size: 2.441rem;
-  color: ${props => props.textColor};
 `;
 
 export const Medium = styled(LogoText)`

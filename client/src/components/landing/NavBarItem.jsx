@@ -12,12 +12,12 @@ const StyledAnchorLink = styled(AnchorLink)`
   padding: 16px;
   font-size: 0.8rem;
   cursor: pointer;
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
   text-decoration: none;
   transition: color 0.3s ease;
 
   :hover {
-    color: ${props => props.theme.textPrimary};
+    color: ${props => props.theme.textColor.primary};
     transition: color 0.3s ease;
   };
 
@@ -29,7 +29,7 @@ const StyledAnchorLink = styled(AnchorLink)`
     bottom: 0;
     left: 50%;
     height: 3px;
-    background: ${props => props.theme.mainTheme.accentColor};
+    background: ${props => props.theme.color.accent};
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
   };
 

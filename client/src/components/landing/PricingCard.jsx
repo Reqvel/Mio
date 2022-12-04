@@ -25,24 +25,24 @@ const Upper = styled.div`
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 40px;
-    border-bottom: 2px solid ${props => props.theme.pricingCardBorder};
+    border-bottom: 2px solid ${props => props.theme.components.card.pricing.borderColor};
 `
 
 const Header = styled.span`
     font-size: 1.953rem;
     font-weight: 700;
-    color: ${props => props.theme.textPrimary};
+    color: ${props => props.theme.textColor.primary};
     margin-bottom: 16px;
 `
 
 const Annually = styled.span`
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
   margin-bottom: 4px;
 `
 
 const Monthly = styled.span`
   font-size: 0.8rem;
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
   margin-bottom: 16px;
 `
 
@@ -56,7 +56,7 @@ const Lower = styled.div`
 
 const ListHeader = styled.span`
     font-weight: 600;
-    color: ${props => props.theme.textPrimary};
+    color: ${props => props.theme.textColor.primary};
     margin-bottom: 20px;
 `
 
@@ -76,7 +76,7 @@ const Icon = styled.img`
 `
 
 const Feature = styled.span`
-    color: ${props => props.theme.textPrimary};
+    color: ${props => props.theme.textColor.primary};
     text-decoration: underline;
     text-decoration-thickness: 2px;
 `

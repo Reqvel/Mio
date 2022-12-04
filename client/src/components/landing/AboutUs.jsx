@@ -4,24 +4,24 @@ import styled from 'styled-components';
 const Wrapper = styled.section`
   padding-top: 256px;
   padding-bottom: 256px;
-  background-color: ${props => props.theme.bgSecondary};
+  background-color: ${props => props.theme.backgroundColor.secondary};
 `;
 
 const Container = styled.div`
-  max-width: ${props => props.theme.mainTheme.maxWidth};
+  max-width: ${props => props.theme.maxWidth.landing};
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding-left: ${props => props.theme.mainTheme.sidePadding};
-  padding-right: ${props => props.theme.mainTheme.sidePadding};
+  padding-left: ${props => props.theme.padding.landing};
+  padding-right: ${props => props.theme.padding.landing};
 `;
 
 const Section = styled.span`
   font-size: 1.25rem;
   font-weight: 600;
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
   margin-bottom: 24px;
 `
 
@@ -29,13 +29,13 @@ const Header = styled.h2`
   font-size: 3.052rem;
   font-weight: 700;
   margin: 0 0 64px 0;
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.theme.textColor.primary};
 `
 
 const Details = styled.span`
   max-width: 768px;
   text-align: center;
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
 `
 
 const AboutUs = () => {

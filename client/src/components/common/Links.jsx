@@ -10,30 +10,30 @@ export const LinkButton = styled(Link)`
     font-size: 1rem;
     padding: 12px 48px;
     font-weight: 600;
-    color: ${props => props.theme.textSecondary};
-    background: ${props => props.theme.buttonFilled};
+    color: ${props => props.theme.textColor.secondary};
+    background: ${props => props.theme.components.button.filled.color};
     border-radius: 12px;
     border: 2px solid transparent;
     text-decoration: none;
     transition: background 0.3s ease; 
 
     :hover {
-        background: ${props => props.theme.buttonFilledHover};
+        background: ${props => props.theme.components.button.filled.hoverColor};
         transition: background 0.3s ease; 
     };
 `;
 
 export const LinkButtonTransparent = styled(LinkButton)`
-    color: ${props => props.theme.textPrimary};
+    color: ${props => props.theme.textColor.primary};
     background: transparent;
 
     :hover {
-        background: ${props => props.theme.buttonTransparentHover};
+        background: ${props => props.theme.components.button.transparent.hoverColor};
     };
 `
 
 export const LinkButtonOutlined = styled(LinkButtonTransparent)`
-    border: 2px solid ${props => props.theme.buttonBorder};
+    border: 2px solid ${props => props.theme.components.button.outlined.borderColor};
 `
 
 export const LinkButtonBig = styled(LinkButton)`
@@ -55,7 +55,7 @@ const LinkSideMenu = styled(StyledLink)`
     transition: background 0.3s ease 0s; 
 
     :hover {
-        background: ${props => props.theme.buttonTransparentHover};
+        background: ${props => props.theme.components.button.transparent.hoverColor};
         transition: background 0.3s ease 0s; 
     };
 
@@ -76,7 +76,7 @@ const LinkSideMenu = styled(StyledLink)`
         content: '';
         height: 100%;
         border-left: 3px solid;
-        border-left-color: ${props => props.theme.mainTheme.accentColor};
+        border-left-color: ${props => props.theme.color.accent};
 
         transition: height 0.3s ease 0s, 
                     border-left-color 0.3s ease 0s;

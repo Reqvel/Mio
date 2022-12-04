@@ -5,36 +5,36 @@ import PricingCard from './PricingCard';
 const Wrapper = styled.section`
   padding-top: 64px;
   padding-bottom: 64px;
-  background-color: ${props => props.theme.bgPrimary};
+  background-color: ${props => props.theme.backgroundColor.primary};
 `;
 
 const Container = styled.div`
-  max-width: ${props => props.theme.mainTheme.maxWidth};
+  max-width: ${props => props.theme.maxWidth.landing};
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding-left: ${props => props.theme.mainTheme.sidePadding};
-  padding-right: ${props => props.theme.mainTheme.sidePadding};
+  padding-left: ${props => props.theme.padding.landing};
+  padding-right: ${props => props.theme.padding.landing};
 `;
 
 const Header = styled.h3`
   font-size: 2.441rem;
   font-weight: 700;
   margin: 0 0 24px 0;
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.theme.textColor.primary};
 `
 
 const Details = styled.span`
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
   margin-bottom: 48px;
 `
 
 const Cards = styled.div`
     display: flex;
     width: 100%;
-    gap: ${props => props.theme.mainTheme.cardsGap};
+    gap: ${props => props.theme.gap.cards.landing};
 `;
 
 const Pricing = () => {

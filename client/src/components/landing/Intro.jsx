@@ -10,13 +10,13 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  max-width: ${props => props.theme.mainTheme.maxWidth};
+  max-width: ${props => props.theme.maxWidth.landing};
   display: flex;
   gap: 24px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: ${props => props.theme.mainTheme.sidePadding};
-  padding-right: ${props => props.theme.mainTheme.sidePadding};
+  padding-left: ${props => props.theme.padding.landing};
+  padding-right: ${props => props.theme.padding.landing};
 `;
 
 const Left = styled.div`
@@ -44,14 +44,14 @@ const Header = styled.h1`
   font-size: 4.768rem;
   font-weight: 800;
   line-height: 98%;
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.theme.textColor.primary};
 `;
 
 const Details = styled.p`
   margin: 0;
   width: 70%;
   font-size: 1rem;
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
 `;
 
 const Intro = () => {

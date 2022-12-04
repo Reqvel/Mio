@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palettes</title>
+
+    <style>
+        :root {
+            --main-color: #6611AD;
+        }
+
+        body {
+            --primary-bg-color: #121212;
+            --secondary-bg-color: #272829;
+            --tertiary-bg-color: #1E1E1E;
+
+            --hover-bg-color: #252628;
+            --active-bg-color: #2B2C2D;
+
+            --primary-text-color: #F9F6EF;
+            --secondary-text-color: #7D868E;
+            --tertiary-text-color: #757575;
+            --ref-text-color: #659AD6;
+
+            --main-border-color: #34393D;
+            --main-button-bg-color: #262B30;
+        }
+
+
+        body.light {
+            --primary-bg-color: #FFFFFF;
+            --secondary-bg-color: #EDEEF0;
+            --tertiary-bg-color: #FFFFFF;
+
+            --hover-bg-color: #F5F6F8;
+            --active-bg-color: #F2F3F5;
+
+            --primary-text-color: #000000;
+            --secondary-text-color: #818C99;
+            --tertiary-text-color: #939393;
+            --ref-text-color: #2A5885;
+
+            --main-border-color: #DCE1E6;
+            --main-button-bg-color: #E5EBF1;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .container {
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            flex-direction: row;
+        }
+
+        .container>* {
+            width: 100%;
+            height: 100%;
+        }
+
+        .palette {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            position: relative;
+        }
+
+        .palette>* {
+            margin-left: auto;
+            margin-right: auto;
+
+            background: #FFF8;
+            border-radius: 5px;
+            padding: 3px;
+
+            text-overflow: ellipsis;
+
+            border-color: var(--main-border-color);
+        }
+
+        .palette__color {
+            margin-bottom: 10%;
+        }
+
+        .palette__name {
+            margin-bottom: 10%;
+            text-align: center;
+        }
+
+        .theme-changer {
+            background-color: var(--main-button-bg-color);
+
+            margin: auto;
+
+            width: 100%;
+            height: 14px;
+        }
+
+        .theme-changer>* {
+            color: var(--primary-text-color);
+        }
+    </style>
+
+    <script>
+        const colors = [
+            { name: "Main Background Color", varVal: "--primary-bg-color" },
+            { name: "Secondary Background Color", varVal: "--secondary-bg-color" },
+            { name: "Tertiary Background Color", varVal: "--tertiary-bg-color" },
+            { name: "Border color", varVal: "--main-border-color" },
+            { name: "Hover Color", varVal: "--hover-bg-color" },
+            { name: "Active Color", varVal: "--active-bg-color" },
+            { name: "Main Color", varVal: "--main-color" },
+            { name: "Tertiary text", varVal: "--tertiary-text-color" },
+            { name: "Secondary text", varVal: "--secondary-text-color" },
+            { name: "Ref text", varVal: "--ref-text-color" },
+            { name: "Primary text", varVal: "--primary-text-color" },
+        ]
+
+        // 0 for dark, 1 for light
+        let themeState = 0;
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+            themeState ^= 1;
+        }
+
+        function changeTheme() {
+            if (themeState === 0) {
+                document.body.classList.add('light');
+            }
+            else {
+                document.body.classList.remove('light');
+            }
+            themeState ^= 1;
+
+            // bad sport
+            const style = getComputedStyle(document.body);
+            document.querySelectorAll('.palette').forEach(element => {
+                const [nameElement, colorElement] = element.children;
+                const varVal = colors.find(item => item.name == nameElement.innerHTML).varVal;
+                colorElement.innerHTML = style.getPropertyValue(varVal);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="changeTheme()" class="theme-changer">
+        <span>ChangeTheme</span>
+    </button>
+    <div class="container">
+    </div>
+
+    <script>
+        const style = getComputedStyle(document.body);
+
+        const root = document.querySelector('.container');
+        root.innerHTML = `
+        ${(() => colors.map((item) => {
+            const { name, varVal } = item;
+
+            return `
+                    <div style="background-color:var(${varVal})" class="palette">
+                        <span class="palette__name">${name}</span>
+                        <span class="palette__color">${(style.getPropertyValue(varVal))}</span>
+                    </div>
+            `;
+        }))().join('')}
+        `
+    </script>
+</body>
+
+</html>
