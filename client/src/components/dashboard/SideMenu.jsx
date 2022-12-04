@@ -10,7 +10,6 @@ import TikTokIcon from '../../svgs/icons/TikTok.svg'
 import InstagamIcon from '../../svgs/icons/Instagram.svg'
 import TwitterIcon from '../../svgs/icons/Twitter.svg'
 import SettingsIcon from '../../svgs/icons/Settings.svg'
-import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
@@ -24,8 +23,8 @@ const Container = styled.div`
   overflow-y: scroll;
 
   ::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
-}
+    display: none;
+  }
 `
 
 const Logo = styled.div`
@@ -39,7 +38,6 @@ const Group = styled.div`
   flex-direction: column;
 `
 
-
 const Buttons = styled(Group)`
     max-height: 864px;
     height: 100%;
@@ -50,7 +48,6 @@ const Buttons = styled(Group)`
 const SideMenu = () => {
   return (
     <Container>
-        <Link to={<></>}/>
         <Logo>
             <LogoTextS/>
         </Logo>

@@ -95,7 +95,8 @@ const SideMenuBtn = styled.button`
 `
 
 const Icon = styled.img`
-    size: 24px;
+    height: auto;
+    width: 24px;
 `
 
 export const ButtonSideMenu = ({icon, children}) => {

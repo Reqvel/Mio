@@ -12,6 +12,7 @@ const lightTheme = {
     buttonTransparentHover: '#F4F4F4',
     buttonBorder: '#989898',
     featureCardColor: '#25282E',
+    percentageColorUp: '#0CAF60',
     pricingCardBorder: '#CCCCCC',
     inputFieldBorderColor: '#989898',
     inputFieldOutlineColor: '#25282E',
