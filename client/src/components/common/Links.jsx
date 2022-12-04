@@ -12,7 +12,7 @@ export const LinkButton = styled(Link)`
     color: ${props => props.theme.textSecondary};
     background: ${props => props.theme.buttonFilled};
     border-radius: 12px;
-    border: none;
+    border: 2px solid transparent;
     text-decoration: none;
     transition: background 0.3s ease; 
 

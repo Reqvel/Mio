@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-    font-size: 1rem;
     padding: 12px 48px;
     font-weight: 600;
     color: ${props => props.theme.textSecondary};
     background: ${props => props.theme.buttonFilled};
     border-radius: 12px;
-    border: none;
+    border: 2px solid transparent;
     cursor: pointer;
     transition: background 0.3s ease; 
 
@@ -34,7 +33,7 @@ const ButtonIconWrapper = styled.button`
     height: 52px;
     background: transparent;
     border-radius: 12px;
-    border: none;
+    border: 2px solid transparent;
     cursor: pointer;
     transition: background 0.3s ease; 
 
@@ -57,7 +56,7 @@ const SideMenuBtn = styled.button`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.694rem;
     padding: 16px 8px;
     gap: 8px;
     background: transparent;
