@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { LogoTextS } from '../common/LogoText'
-import { ButtonSideMenu } from '../common/Buttons'
+import { LinkButtonSideMenu } from '../common/Links'
 import HomeIcon from '../../svgs/icons/Home.svg'
 import CalendarIcon from '../../svgs/icons/Calendar.svg'
 import KanbanIcon from '../../svgs/icons/Kanban.svg'
@@ -10,6 +10,7 @@ import TikTokIcon from '../../svgs/icons/TikTok.svg'
 import InstagamIcon from '../../svgs/icons/Instagram.svg'
 import TwitterIcon from '../../svgs/icons/Twitter.svg'
 import SettingsIcon from '../../svgs/icons/Settings.svg'
+import pagesPaths from '../../routes/PagesPaths'
 
 const Container = styled.div`
   display: flex;
@@ -52,34 +53,34 @@ const SideMenu = () => {
             <LogoTextS/>
         </Logo>
         <Buttons>
-            <ButtonSideMenu icon={HomeIcon}>
+            <LinkButtonSideMenu to={pagesPaths.home} icon={HomeIcon}>
                 Home
-            </ButtonSideMenu>
+            </LinkButtonSideMenu>
             <Group>
-                <ButtonSideMenu icon={CalendarIcon}>
+                <LinkButtonSideMenu to={pagesPaths.calendar} icon={CalendarIcon}>
                     Calendar
-                </ButtonSideMenu>
-                <ButtonSideMenu icon={KanbanIcon}>
+                </LinkButtonSideMenu>
+                <LinkButtonSideMenu icon={KanbanIcon}>
                     Kanban
-                </ButtonSideMenu>
+                </LinkButtonSideMenu>
             </Group>
             <Group>
-                <ButtonSideMenu icon={YouTubeIcon}>
+                <LinkButtonSideMenu icon={YouTubeIcon}>
                     YouTube
-                </ButtonSideMenu>
-                <ButtonSideMenu icon={TikTokIcon}>
+                </LinkButtonSideMenu>
+                <LinkButtonSideMenu icon={TikTokIcon}>
                     TikTok
-                </ButtonSideMenu>
-                <ButtonSideMenu icon={InstagamIcon}>
+                </LinkButtonSideMenu>
+                <LinkButtonSideMenu icon={InstagamIcon}>
                     Instagam
-                </ButtonSideMenu>
-                <ButtonSideMenu icon={TwitterIcon}>
+                </LinkButtonSideMenu>
+                <LinkButtonSideMenu icon={TwitterIcon}>
                     Twitter
-                </ButtonSideMenu>
+                </LinkButtonSideMenu>
             </Group>
-            <ButtonSideMenu icon={SettingsIcon}>
+            <LinkButtonSideMenu icon={SettingsIcon}>
                     Settings
-            </ButtonSideMenu>
+            </LinkButtonSideMenu>
         </Buttons>
     </Container>
   )
