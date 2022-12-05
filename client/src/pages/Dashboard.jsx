@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom'
 const Container = styled.div`
   height: 100vh;
   display: flex;
-  background-color: ${props => props.theme.bgSecondary};
+  background-color: ${props => props.theme.backgroundColor.secondary};
 `
 
 const Content = styled.div`

@@ -20,7 +20,7 @@ const Container = styled.div`
   min-width: 96px;
   width: 100%;
   padding: 40px 0px;
-  background-color: ${props => props.theme.bgPrimary};
+  background-color: ${props => props.theme.backgroundColor.primary};
   overflow-y: scroll;
 
   ::-webkit-scrollbar {
@@ -50,7 +50,7 @@ const SideMenu = () => {
   return (
     <Container>
         <Logo>
-            <LogoTextS/>
+            <LogoTextS color={props => props.theme.textColor.primary}/>
         </Logo>
         <Buttons>
             <LinkButtonSideMenu to={pagesPaths.home} icon={HomeIcon}>

@@ -10,14 +10,14 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  max-width: ${props => props.theme.mainTheme.maxWidthDashboard};
+  max-width: ${props => props.theme.maxWidth.dashboard};
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding-left: ${props => props.theme.mainTheme.sidePaddingDashboard};
-  padding-right: ${props => props.theme.mainTheme.sidePaddingDashboard};
+  padding-left: ${props => props.theme.padding.dashboard};
+  padding-right: ${props => props.theme.padding.dashboard};
 `;
 
 const Left = styled.div`
@@ -28,12 +28,12 @@ const Left = styled.div`
 const PageHeader = styled.span`
   font-size: 3.815rem;
   font-weight: 700;
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.theme.textColor.primary};
 `
 
 const PageDetails = styled.span`
   font-size: 0.8rem;
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
 `
 
 const Right = styled.div`

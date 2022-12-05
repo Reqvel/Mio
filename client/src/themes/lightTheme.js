@@ -36,6 +36,7 @@ const lightTheme = {
     landing: '16px',
     signIn: '16px',
     signUp: '16px',
+    dashboard: '64px',
   },
   textColor: {
     primary: '#25282E',
