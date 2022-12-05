@@ -8,7 +8,7 @@ const Wrapper = styled.li`
   min-height: 128px;
   padding: 24px;
   border-radius: 12px;
-  background-color: ${props => props.theme.featureCardColor};
+  background-color: ${props => props.theme.components.card.summaryColor};
 `;
 
 const Container = styled.div`
@@ -32,7 +32,7 @@ const Icon = styled.img`
 const Header = styled.span`
   font-size: 1.25rem;
   font-weight: 700;
-  color: ${props => props.theme.textSecondary};
+  color: ${props => props.theme.textColor.secondary};
 `
 
 const Lower = styled.div`
@@ -49,7 +49,7 @@ const Left = styled.div`
 const StatValue = styled.span`
   font-size: 1.563rem;
   font-weight: 700;
-  color: ${props => props.theme.textSecondary};
+  color: ${props => props.theme.textColor.secondary};
 `
 
 const Right = styled.div`
@@ -70,14 +70,14 @@ const PercentageIcon = styled.img`
 `
 
 const PercentageValue = styled.span`
-  color: ${props => props.theme.percentageColorUp};
+  color: ${props => props.theme.components.percentage.upColor};
 `
 
 const Timeframe = styled.span`
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
 `
 
-const StatCard = () => {
+const SummaryCard = () => {
   return (
     <Wrapper>
       <Container>
@@ -110,4 +110,4 @@ const StatCard = () => {
   )
 }
 
-export default StatCard
+export default SummaryCard
