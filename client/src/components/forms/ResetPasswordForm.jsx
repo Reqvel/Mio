@@ -13,11 +13,11 @@ const Header = styled.h1`
   margin: 0 0 16px 0;
   font-size: 3.052rem;
   font-weight: 700;
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.theme.textColor.primary};
 `
 
 const Details = styled.span`
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
   margin-bottom: 36px;
 `
 

@@ -8,12 +8,11 @@ import ResetPasswordForm from '../components/forms/ResetPasswordForm';
 
 const Background = styled.div`
   height: 100vh;
-  background-color: ${props => props.theme.bgSecondary};
+  background-color: ${props => props.theme.backgroundColor.secondary};
 `;
 
 const Wrapper = styled.div`
   height: 100%;
-  max-width: ${props => props.theme.mainTheme.maxWidth};
   display: flex;
   justify-content: center;
   margin-left: auto;
@@ -27,7 +26,7 @@ const Container = styled.div`
   flex-grow: 1;
   display: flex;
   align-items: center;
-  background-color: ${props => props.theme.bgPrimary};
+  background-color: ${props => props.theme.backgroundColor.primary};
 `;
 
 const Filler = styled.div`
@@ -41,7 +40,7 @@ const ResetPassword = () => {
             <Container>
                 <FormWrapper>
                   <StyledLink to={pagesPaths.landing}>
-                    <LogoTextL/>
+                    <LogoTextL color={props => props.theme.textColor.primary}/>
                   </StyledLink>
                   <ResetPasswordForm/>
                   <Filler/>
