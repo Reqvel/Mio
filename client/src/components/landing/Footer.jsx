@@ -31,6 +31,7 @@ const Center = styled.div`
 
 const StyledAnchorLink = styled(AnchorLink)`
   text-decoration: none;
+  color: inherit;
 `
 
 const Right = styled.div`
@@ -46,7 +47,7 @@ const Footer = () => {
             </Left>
             <Center>
               <StyledAnchorLink href='#header'>
-                <LogoTextS color={props => props.theme.textSecondary}/>
+                <LogoTextS color={props => props.theme.textColor.secondary}/>
               </StyledAnchorLink>
             </Center>
             <Right>

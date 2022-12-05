@@ -6,7 +6,7 @@ import CheckMarkIcon from '../../svgs/icons/CheckMark.svg'
 const Wrapper = styled.div`
   width: 100%;
   background-color: transparent;
-  border: 2px solid ${props => props.theme.pricingCardBorder};
+  border: 2px solid ${props => props.theme.components.card.pricing.borderColor};
   border-radius: 12px;
 `;
 
