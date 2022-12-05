@@ -30,10 +30,12 @@ const lightTheme = {
     landing: '1280px',
     dashboard: '2000px',
     signIn: '1280px',
+    signUp: '1280px',
   },
   padding: {
     landing: '16px',
     signIn: '16px',
+    signUp: '16px',
   },
   textColor: {
     primary: '#25282E',

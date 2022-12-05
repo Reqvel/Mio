@@ -9,12 +9,12 @@ import pagesPaths from '../routes/PagesPaths';
 
 const Background = styled.div`
   height: 100vh;
-  background-color: ${props => props.theme.bgSecondary};
+  background-color: ${props => props.theme.backgroundColor.secondary};
 `;
 
 const Container = styled.div`
   height: 100%;
-  max-width: ${props => props.theme.mainTheme.maxWidth};
+  max-width: ${props => props.theme.maxWidth.signUp};
   display: flex;
   margin-left: auto;
   margin-right: auto;
@@ -27,7 +27,7 @@ const Left = styled.div`
   flex-grow: 1;
   display: flex;
   align-items: center;
-  background-color: ${props => props.theme.bgPrimary};
+  background-color: ${props => props.theme.backgroundColor.primary};
 `;
 
 const Right = styled.div`
@@ -36,18 +36,18 @@ const Right = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${props => props.theme.mainTheme.sidePadding};
+  padding: ${props => props.theme.padding.signUp};
 `;
 
 const BottomText = styled.span`
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.theme.textColor.primary};
   font-weight: 600;
 `
 
 const StyledLinkDecorated = styled(StyledLink)`
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.theme.textColor.primary};
 `
 
 const SignUp = () => {
@@ -57,7 +57,7 @@ const SignUp = () => {
             <Left>
                 <FormWrapper>
                   <StyledLink to={pagesPaths.landing}>
-                    <LogoTextL/>
+                    <LogoTextL color={props => props.theme.textColor.primary}/>
                   </StyledLink>
                   <SignUpForm/>
                   <BottomText>
