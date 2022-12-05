@@ -16,7 +16,7 @@ const Header = styled.h1`
   margin: 0 0 48px 0;
   font-size: 3.052rem;
   font-weight: 700;
-  color: ${props => props.theme.textPrimary};
+  color: ${props => props.theme.textColor.primary};
 `
 
 const Fields = styled.div`
@@ -30,7 +30,7 @@ const StyledLinkDecorated = styled(StyledLink)`
   font-weight: 600;
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  color: ${props => props.theme.textSubtile};
+  color: ${props => props.theme.textColor.subtile};
   margin-bottom: 56px;
 `
 

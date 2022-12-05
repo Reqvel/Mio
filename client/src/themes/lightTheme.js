@@ -29,10 +29,11 @@ const lightTheme = {
   maxWidth: {
     landing: '1280px',
     dashboard: '2000px',
+    signIn: '1280px',
   },
   padding: {
     landing: '16px',
-
+    signIn: '16px',
   },
   textColor: {
     primary: '#25282E',
@@ -63,9 +64,13 @@ const lightTheme = {
     card: {
       featureColor: '#25282E',
       pricing: {
-        borderColor: '#CCCCCC'
-      }
-    }
+        borderColor: '#CCCCCC',
+      },
+    },
+    inputField: {
+      borderColor: '#989898',
+      outlineColor: '#25282E',
+    },
   }
 };
 
