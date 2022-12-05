@@ -1,5 +1,3 @@
-import mainTheme from "./mainTheme";
-
 const lightTheme = {
   color: {
     accent: '#FEB062'
