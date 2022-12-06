@@ -46,7 +46,8 @@ const LinkSideMenu = styled(StyledLink)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.694rem;
+    font-size: 0.64rem;
+    font-weight: 600;
     padding: 16px 8px;
     gap: 8px;
     background: transparent;
