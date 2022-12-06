@@ -60,25 +60,25 @@ const SideMenu = () => {
                 <LinkButtonSideMenu to={pagesPaths.calendar} icon={CalendarIcon}>
                     Calendar
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu icon={KanbanIcon}>
+                <LinkButtonSideMenu to={pagesPaths.kanban} icon={KanbanIcon}>
                     Kanban
                 </LinkButtonSideMenu>
             </Group>
             <Group>
-                <LinkButtonSideMenu icon={YouTubeIcon}>
+                <LinkButtonSideMenu to={pagesPaths.youTube} icon={YouTubeIcon}>
                     YouTube
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu icon={TikTokIcon}>
+                <LinkButtonSideMenu to={pagesPaths.tikTok} icon={TikTokIcon}>
                     TikTok
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu icon={InstagamIcon}>
+                <LinkButtonSideMenu to={pagesPaths.instagram} icon={InstagamIcon}>
                     Instagam
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu icon={TwitterIcon}>
+                <LinkButtonSideMenu to={pagesPaths.twitter} icon={TwitterIcon}>
                     Twitter
                 </LinkButtonSideMenu>
             </Group>
-            <LinkButtonSideMenu icon={SettingsIcon}>
+            <LinkButtonSideMenu to={pagesPaths.settings} icon={SettingsIcon}>
                     Settings
             </LinkButtonSideMenu>
         </Buttons>
