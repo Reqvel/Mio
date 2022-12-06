@@ -59,7 +59,29 @@ const lightTheme = {
     percentage: {
       upColor: '#0CAF60',
       downColor: '#FA5F1C',
-    }
+    },
+    calendar: {
+      borderColor: '#989898',
+      headerColor: '#25282E',
+      top: {
+        color: '#FFFFFF',
+        borderColor: '#CCCCCC',
+      },
+      side: {
+        color: '#FFFFFF',
+        borderColor: '#CCCCCC',
+      },
+      cell: {
+        color: '#FAFAFA',
+        subtileColor: '#F4F4F4',
+        borderColor: '#D2D2D2',
+      },
+      card: {
+        color: '#25282E',
+        subtileColor: '#F4F4F4',
+        borderColor: '#D2D2D2',
+      },
+    },
   }
 };
 
