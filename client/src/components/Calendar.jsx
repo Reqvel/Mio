@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ScheduleComponent, 
-         ViewsDirective, 
+import { ScheduleComponent,  
          Day,
          Week,
          WorkWeek,
@@ -10,7 +9,6 @@ import { ScheduleComponent,
          Inject,
          Resize,
          DragAndDrop} from '@syncfusion/ej2-react-schedule';
-import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.dashboard};

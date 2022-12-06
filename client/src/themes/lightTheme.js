@@ -82,6 +82,14 @@ const lightTheme = {
         borderColor: '#D2D2D2',
       },
     },
+    kanban: {
+      card: {
+        color: '#FFFFFF',
+        headerColor: '#25282E',
+        borderColor: '#CCCCCC',
+        cellColor: '#FAFAFA',
+      },
+    },
   }
 };
 

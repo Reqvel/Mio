@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@syncfusion/ej2-react-calendars": "^20.3.59",
+    "@syncfusion/ej2-react-kanban": "^20.3.60",
     "@syncfusion/ej2-react-schedule": "^20.3.58",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
