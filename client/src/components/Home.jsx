@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import SummaryCard from './dashboard/SummaryCard';
+import TopCard from './dashboard/TopCard';
 import ScrollContainer from 'react-indiana-drag-scroll';
 
 const Container = styled.div`
@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const SummaryCards = styled.ul`
   display: flex;
-  gap: ${props => props.theme.gap.cards.summary};
+  gap: ${props => props.theme.gap.cards.top};
   padding: 0;
   list-style: none;
 `
@@ -23,12 +23,12 @@ const Home = () => {
     <Container>
       <ScrollContainer>
         <SummaryCards>
-          <SummaryCard/>
-          <SummaryCard/>
-          <SummaryCard/>
-          <SummaryCard/>
-          <SummaryCard/>
-          <SummaryCard/>
+          <TopCard/>
+          <TopCard/>
+          <TopCard/>
+          <TopCard/>
+          <TopCard/>
+          <TopCard/>
         </SummaryCards>
       </ScrollContainer>
     </Container>

@@ -26,7 +26,8 @@ const lightTheme = {
   gap: {
     cards: {
       landing: '24px',
-      summary: '24px',
+      top: '24px',
+      dashboard: '24px',
     },
   },
   components: {
@@ -50,7 +51,11 @@ const lightTheme = {
       pricing: {
         borderColor: '#CCCCCC',
       },
-      summaryColor: '#25282E',
+      topColor: '#25282E',
+      dashboard: {
+        borderColor: '#CCCCCC',
+        color: '#FFFFFF',
+      }
     },
     inputField: {
       borderColor: '#989898',
