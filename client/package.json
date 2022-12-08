@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
     "@syncfusion/ej2-react-calendars": "^20.3.59",
     "@syncfusion/ej2-react-kanban": "^20.3.60",
     "@syncfusion/ej2-react-schedule": "^20.3.58",
