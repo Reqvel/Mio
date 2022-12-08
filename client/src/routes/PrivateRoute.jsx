@@ -1,9 +1,16 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { useLocation, Navigate, Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import pagesPaths from './PagesPaths'
 
 const PrivateRoute = () => {
+  const { token } = useSelector( state => state.auth )
+  const location = useLocation()
+
   return (
-    <Outlet/>
+    token 
+      ? <Outlet/>
+      : <Navigate to={pagesPaths.signIn} state={{ from: location }} replace/>
   )
 }
 
