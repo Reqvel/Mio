@@ -15,6 +15,7 @@ import TikTok from '../components/TikTok';
 import Instagram from '../components/Instagram';
 import Twitter from '../components/Twitter';
 import Settings from '../components/Settings';
+import ChangePassword from '../pages/ChangePassword';
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       <Route path={pagesPaths.landing} element={ <Landing/> }/>
       <Route path={pagesPaths.signIn} element={ <SignIn/> }/>
       <Route path={pagesPaths.resetPassword} element={ <ResetPassword/> }/>
+      <Route path={pagesPaths.changePassword} element={ <ChangePassword/> }/>
       <Route path={pagesPaths.signUp} element={ <SignUp/> }/>
       <Route element={ <PrivateRoute/> }>
         <Route path={pagesPaths.dashboard} element={ <Dashboard/> }>

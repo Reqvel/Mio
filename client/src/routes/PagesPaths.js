@@ -3,6 +3,7 @@ const pagesPaths = {
     signIn: '/sign_in',
     signUp: '/sign_up',
     resetPassword: '/reset_password',
+    changePassword: '/change_password',
     dashboard: '/dashboard',
     home: '',
     calendar: 'calendar',
