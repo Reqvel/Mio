@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  min-height: 384px;
   padding: 24px;
   border: 2px solid ${props => props.theme.components.card.dashboard.borderColor};
   border-radius: 12px;
@@ -28,9 +27,8 @@ const Details = styled.span`
   margin-bottom: 16px;
 `
 
-const Bottom = styled.div`
-  width: 100%;
-  height: 100%;
+const ChartContainer = styled.div`
+  height: 250px;
   position: relative;
 `
 
@@ -42,7 +40,11 @@ const Chart = styled.div`
   left: 0;
 `
 
-const LineChartCard = ({ header, details, children}) => {
+const Bottom = styled.div`
+  flex: 1;
+`
+
+const LineChartCard = ({ header, details, chart, bottom}) => {
   
   return (
     <Wrapper>
@@ -53,10 +55,13 @@ const LineChartCard = ({ header, details, children}) => {
         <Details>
           Understand how the followers count for @khaby.lame's TikTok profile is progressing through each day.
         </Details>
-        <Bottom>
+        <ChartContainer>
           <Chart>
-            {children}
+            {chart}
           </Chart>
+        </ChartContainer>
+        <Bottom>
+          {bottom}
         </Bottom>
       </Container>
     </Wrapper>

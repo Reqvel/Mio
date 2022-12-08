@@ -14,6 +14,7 @@ import ChartCard from './dashboard/ChartCard';
 import LineChart from './dashboard/LineChart';
 import BarChart from './dashboard/BarChart';
 import PieChart from './dashboard/PieChart';
+import ChartLabelList from './dashboard/ChartLabelList';
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.dashboard};
@@ -81,15 +82,9 @@ const TikTok = () => {
         </TopCards>
       </ScrollContainer>
         <Cards>
-          <ChartCard>
-            <LineChart/>
-          </ChartCard>
-          <ChartCard>
-            <BarChart/>
-          </ChartCard>
-          <ChartCard>
-            <PieChart/>
-          </ChartCard>
+          <ChartCard chart={<LineChart/>}/>
+          <ChartCard chart={<BarChart/>}/>
+          <ChartCard chart={<PieChart/>} bottom={<ChartLabelList/>}/>
         </Cards>
     </Container>
   )

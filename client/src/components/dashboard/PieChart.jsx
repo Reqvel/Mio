@@ -29,7 +29,7 @@ const PieChart = () => {
           paddingAngle={2}
         >
           {data.map((entry, index) => (
-            <Cell key={index} fill={COLORS[index]}/>
+            <Cell key={index} fill={COLORS[index % COLORS.length]}/>
           ))}
         </Pie>
       </PieChartRecharts>
