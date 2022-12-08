@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { mioApi } from "./services/MioAPI";
-import { signInSlice } from "./features/signInSlice";
+import { apiSlice } from "./services/apiSlice";
+import authReducer from "./features/authSlice";
 
 export const store = configureStore({
   reducer: {
-    [mioApi.reducerPath]: mioApi.reducer,
-    signInReducer: signInSlice.reducer,
-    
-  }
+    [apiSlice.reducerPath]: apiSlice.reducer,
+    auth: authReducer,
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
+  devTools: true
 })
