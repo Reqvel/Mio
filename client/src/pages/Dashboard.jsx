@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import SideMenu from '../components/dashboard/SideMenu'
 import Header from '../components/dashboard/Header'
 import { Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import useAppearAnimation from '../hooks/useAppearAnimation'
 
 const Container = styled.div`
   height: 100vh;
@@ -13,21 +15,26 @@ const Container = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex: 1;
   overflow-x: hidden;
 `;
 
 const Wrapper = styled.div`
+  flex: 1;
   padding-bottom: 32px;
 `
 
 const Dashboard = () => {
+  const containerRef = useAppearAnimation(0.3)
+  const { header, details } = useSelector(state => state.dashboard)
+  const wrapperRef = useAppearAnimation(0.4, [header, details])
+
   return (
-    <Container>
+    <Container ref={containerRef}>
       <SideMenu/>
       <Content>
-        <Header header='Home' details='Take a look at the latest updates in your socials!'/>
-        <Wrapper>
+        <Header/>
+        <Wrapper ref={wrapperRef}>
           <Outlet/>
         </Wrapper>
       </Content>

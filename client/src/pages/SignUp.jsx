@@ -6,6 +6,7 @@ import SignUpForm from '../components/forms/SignUpForm';
 import { LogoTextL } from '../components/common/LogoText';
 import { StyledLink } from '../components/common/Links';
 import pagesPaths from '../routes/PagesPaths';
+import useAppearAnimation from '../hooks/useAppearAnimation';
 
 const Background = styled.div`
   height: 100vh;
@@ -51,8 +52,10 @@ const StyledLinkDecorated = styled(StyledLink)`
 `
 
 const SignUp = () => {
+  const componentRef = useAppearAnimation(0.3)
+
   return (
-    <Background>
+    <Background ref={componentRef}>
         <Container>
             <Left>
                 <FormWrapper>

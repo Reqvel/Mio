@@ -5,6 +5,7 @@ import pagesPaths from '../routes/PagesPaths';
 import FormWrapper from '../components/common/FormWrapper' 
 import { LogoTextL } from '../components/common/LogoText';
 import ResetPasswordForm from '../components/forms/ResetPasswordForm';
+import useAppearAnimation from '../hooks/useAppearAnimation';
 
 const Background = styled.div`
   height: 100vh;
@@ -34,8 +35,10 @@ const Filler = styled.div`
 `
 
 const ResetPassword = () => {
+  const componentRef = useAppearAnimation(0.3)
+
   return (
-    <Background>
+    <Background ref={componentRef}>
         <Wrapper>
             <Container>
                 <FormWrapper>
