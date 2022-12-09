@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { ButtonIcon } from '../common/Buttons';
 import NotificationIcon from '../../svgs/icons/Notification.svg'
 import UserIcon from '../../svgs/icons/User.svg'
+import { useSelector } from 'react-redux';
+import useAppearAnimation from '../../hooks/useAppearAnimation';
 
 const Wrapper = styled.div`
   padding-top: 40px;
@@ -41,11 +43,14 @@ const Right = styled.div`
   gap: 24px;
 `
 
-const Header = ({header, details}) => {
+const Header = () => {
+  const { header, details } = useSelector(state => state.dashboard)
+  const componentRef = useAppearAnimation(0.3, [header, details])
+
   return (
     <Wrapper>
         <Container>
-            <Left>
+            <Left ref={componentRef}>
                 <PageHeader>
                    {header}
                 </PageHeader>
