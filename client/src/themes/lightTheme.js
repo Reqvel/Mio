@@ -37,6 +37,7 @@ const lightTheme = {
     button: {
       filled: {
         color: '#25282E',
+        disabledColor: '#989898',
         hoverColor: '#25282E',
       },
       transparent: {
