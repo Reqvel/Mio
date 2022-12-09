@@ -41,12 +41,26 @@ const Input = styled.input`
     }
 `
 
-const FormField = ({label, icon, placeholder}) => {
+const FormField = ({label, 
+                    icon, 
+                    placeholder, 
+                    refTo, 
+                    value, 
+                    onChange,
+                    disabled,
+                    type}) => {
   return (
     <Container>
         <Label>
             {label}
-            <Input icon={icon} placeholder={placeholder}/>
+            <Input icon={icon}
+                   placeholder={placeholder}
+                   ref={refTo}
+                   value={value}
+                   onChange={onChange}
+                   required
+                   disabled={disabled}
+                   type={type}/>
         </Label>
     </Container>
   )

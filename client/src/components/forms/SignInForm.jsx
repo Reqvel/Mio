@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import FormField from './FormField'
 import EmailIcon from '../../svgs/icons/Mail.svg'
 import PasswordIcon from '../../svgs/icons/Lock.svg'
 import { ButtonBig } from '../common/Buttons'
 import { StyledLink } from '../common/Links'
-import pagesPathes from '../../routes/PagesPaths'
+import pagesPaths from '../../routes/PagesPaths'
+import { useLoginMutation } from '../../redux/features/authApiSlice'
+import { useDispatch } from 'react-redux'
+import { setCredentials } from '../../redux/features/authSlice'
+import { useNavigate } from 'react-router-dom'
 
-const Container = styled.div`
+const Container = styled.form`
   display: flex;
   flex-direction: column;
 `
@@ -26,6 +30,13 @@ const Fields = styled.div`
   margin-bottom: 24px;
 `
 
+const ErrMsg = styled.span`
+  display: ${props => props.isVisible ? 'inline' : 'none'};
+  color: red;
+  font-weight: 600;
+  margin-bottom: 24px;
+`
+
 const StyledLinkDecorated = styled(StyledLink)`
   font-weight: 600;
   text-decoration: underline;
@@ -35,22 +46,78 @@ const StyledLinkDecorated = styled(StyledLink)`
 `
 
 const SignInForm = () => {
+  const emailRef = useRef()
+  const [email, setEmail] = useState('')
+  const [pwd, setPwd] = useState('')
+  const [errMsg, setErrMsg] = useState('')
+  const navigate = useNavigate()
+
+  const [login, { isLoading }] = useLoginMutation()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    emailRef.current.focus()
+  }, [])
+
+  useEffect(() => {
+    setErrMsg('')
+  }, [email, pwd])
+
+  const handleEmailInput = (e) => setEmail(e.target.value)
+  const handlePwdInput = (e) => setPwd(e.target.value)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const userData = await login({ email, pwd }).unwrap()
+      dispatch(setCredentials({...userData}))
+      setEmail('')
+      setPwd('')
+      navigate(pagesPaths.dashboard)
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg('No server response')
+      } else if (err?.originalStatus === 400) {
+        setErrMsg('Missing email or pwd')
+      } else if (err?.originalStatus === 401) {
+        setErrMsg('Unauthorized')
+      } else {
+        setErrMsg('Undef. error')
+      }
+    }
+  }
+
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <Header>Sign In</Header>
       <Fields>
         <FormField label='Email' 
-                   placeholder='Enter Email' 
-                   icon={EmailIcon}/>
+                  icon={EmailIcon}
+                  placeholder='Enter Email'
+                  refTo={emailRef}
+                  value={email}
+                  onChange={handleEmailInput}
+                  disabled={isLoading}
+                  type={'email'}/>
         <FormField label='Password' 
-                   placeholder='Enter Password'
-                   icon={PasswordIcon}/>
+                  icon={PasswordIcon}
+                  placeholder='Enter Password'
+                  value={pwd}
+                  onChange={handlePwdInput}
+                  disabled={isLoading}
+                  type={'password'}/>
       </Fields>
-      <StyledLinkDecorated to={pagesPathes.resetPassword}>
+      <ErrMsg isVisible={errMsg}>
+        {errMsg}
+      </ErrMsg>
+      <StyledLinkDecorated to={pagesPaths.resetPassword}>
         Forgot Password?
       </StyledLinkDecorated>
-      <ButtonBig>
-        Sign In
+      <ButtonBig disabled={isLoading}>
+        {!isLoading
+          ? 'Sign In'
+          : 'Signing In...'}
       </ButtonBig>
     </Container>
   )
