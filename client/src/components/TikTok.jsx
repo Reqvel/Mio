@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import TopCard from './dashboard/TopCard';
 import ScrollContainer from 'react-indiana-drag-scroll';
@@ -15,8 +15,11 @@ import LineChart from './dashboard/LineChart';
 import BarChart from './dashboard/BarChart';
 import PieChart from './dashboard/PieChart';
 import ChartLabelList from './dashboard/ChartLabelList';
+import { useDispatch } from 'react-redux';
+import { setHeader } from '../redux/features/dashboardSlice';
 
 const Container = styled.div`
+  height: 100%;
   max-width: ${props => props.theme.maxWidth.dashboard};
   margin-left: auto;
   margin-right: auto;
@@ -40,6 +43,14 @@ const Cards = styled.div`
 `
 
 const TikTok = () => {
+  const dispatch = useDispatch()
+  const header = 'TikTok'
+  const details = "Don't forget to set the details for the TikTok!"
+
+  useEffect(() => {
+    dispatch(setHeader({header, details}))
+  }, [])
+
   return (
     <Container>
       <ScrollContainer>

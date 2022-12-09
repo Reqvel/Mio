@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import TopCard from './dashboard/TopCard';
 import ScrollContainer from 'react-indiana-drag-scroll';
+import { useDispatch } from 'react-redux';
+import { setHeader } from '../redux/features/dashboardSlice';
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.dashboard};
@@ -19,6 +21,14 @@ const SummaryCards = styled.ul`
 `
 
 const Home = () => {
+  const dispatch = useDispatch()
+  const header = 'Home'
+  const details = 'Take a look at the latest updates in your socials!'
+
+  useEffect(() => {
+    dispatch(setHeader({header, details}))
+  }, [])
+
   return (
     <Container>
       <ScrollContainer>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { ScheduleComponent,  
          Day,
@@ -9,6 +9,8 @@ import { ScheduleComponent,
          Inject,
          Resize,
          DragAndDrop} from '@syncfusion/ej2-react-schedule';
+import { useDispatch } from 'react-redux';
+import { setHeader } from '../redux/features/dashboardSlice';
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.dashboard};
@@ -492,6 +494,14 @@ const StyledScheduleComponent = styled(ScheduleComponent)`
 `
 
 const Calendar = () => {
+  const dispatch = useDispatch()
+  const header = 'Calendar'
+  const details = "Don't forget to set the details for the calendar!"
+
+  useEffect(() => {
+    dispatch(setHeader({header, details}))
+  }, [])
+
   return (
     <Container>
       <StyledScheduleComponent>

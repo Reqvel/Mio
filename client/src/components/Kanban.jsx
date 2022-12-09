@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-kanban'
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { setHeader } from '../redux/features/dashboardSlice';
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.dashboard};
@@ -10,6 +12,91 @@ const Container = styled.div`
   padding-right: ${props => props.theme.padding.dashboard};
 `;
 
+const StyledKanbanComponent = styled(KanbanComponent)`
+  background: transparent;
+
+  .e-kanban-table .e-header-cells {
+    background-color: ${props => props.theme.components.kanban.card.headerColor};
+  }
+
+  .e-kanban-header .e-header-cells.e-collapsed {
+    background-color: ${props => props.theme.components.kanban.card.headerColor};
+  }
+
+  .e-kanban-content .e-content-row .e-content-cells.e-collapsed .e-collapse-header-text{
+    color: ${props => props.theme.textColor.primary};
+  }
+
+  .e-kanban-table .e-header-cells .e-column-expand {
+    color: ${props => props.theme.textColor.secondary};
+  }
+
+  .e-kanban-table .e-header-cells .e-column-collapse {
+    color: ${props => props.theme.textColor.secondary};
+  }
+
+  .e-header-title {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .e-kanban-table .e-header-cells .e-header-text {
+    color: ${props => props.theme.textColor.secondary};
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .e-kanban-table .e-header-cells .e-item-count {
+    display: flex;
+    align-items: center;
+    color: ${props => props.theme.textColor.secondary};
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .e-kanban-header .e-header-cells {
+    border-radius: 12px 12px 0 0;
+    padding: 12px 12px;
+  }
+
+  .e-kanban-content .e-content-row:not(.e-swimlane-row) .e-content-cells {
+    border: 2px solid ${props => props.theme.components.kanban.card.borderColor};
+    border-radius: 0 0 12px 12px;
+    vertical-align: top;
+  }
+
+  .e-card {
+    font-family: 'Inter', sans-serif;
+    background-color: ${props => props.theme.components.kanban.card.cellColor};
+  }
+
+  .e-kanban-content .e-content-row .e-content-cells.e-collapsed .e-collapse-header-text {
+    color: ${props => props.theme.textColor.primary};
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .e-kanban-table.e-content-table .e-content-row:not(.e-swimlane-row) td {
+    background-color: ${props => props.theme.components.kanban.card.color};
+  }
+
+  .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card .e-card-header .e-card-header-title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .e-card .e-card-header-caption .e-card-header-title {
+    color: ${props => props.theme.textColor.primary};
+  }
+
+  .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card .e-card-content {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .e-kanban-table.e-content-table .e-card .e-card-content {
+    color: ${props => props.theme.textColor.subtile};
+  }
+`
 
 const Kanban = () => {
   const kanbanGrid = [
@@ -384,91 +471,13 @@ const Kanban = () => {
     },
   ];
 
-  const StyledKanbanComponent = styled(KanbanComponent)`
-    background: transparent;
+  const dispatch = useDispatch()
+  const header = 'Kanban'
+  const details = "Don't forget to set the details for the kanban!"
 
-    .e-kanban-table .e-header-cells {
-      background-color: ${props => props.theme.components.kanban.card.headerColor};
-    }
-
-    .e-kanban-header .e-header-cells.e-collapsed {
-      background-color: ${props => props.theme.components.kanban.card.headerColor};
-    }
-
-    .e-kanban-content .e-content-row .e-content-cells.e-collapsed .e-collapse-header-text{
-      color: ${props => props.theme.textColor.primary};
-    }
-
-    .e-kanban-table .e-header-cells .e-column-expand {
-      color: ${props => props.theme.textColor.secondary};
-    }
-
-    .e-kanban-table .e-header-cells .e-column-collapse {
-      color: ${props => props.theme.textColor.secondary};
-    }
-
-    .e-header-title {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .e-kanban-table .e-header-cells .e-header-text {
-      color: ${props => props.theme.textColor.secondary};
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .e-kanban-table .e-header-cells .e-item-count {
-      display: flex;
-      align-items: center;
-      color: ${props => props.theme.textColor.secondary};
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    .e-kanban-header .e-header-cells {
-      border-radius: 12px 12px 0 0;
-      padding: 12px 12px;
-    }
-
-    .e-kanban-content .e-content-row:not(.e-swimlane-row) .e-content-cells {
-      border: 2px solid ${props => props.theme.components.kanban.card.borderColor};
-      border-radius: 0 0 12px 12px;
-      vertical-align: top;
-    }
-
-    .e-card {
-      font-family: 'Inter', sans-serif;
-      background-color: ${props => props.theme.components.kanban.card.cellColor};
-    }
-
-    .e-kanban-content .e-content-row .e-content-cells.e-collapsed .e-collapse-header-text {
-      color: ${props => props.theme.textColor.primary};
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    .e-kanban-table.e-content-table .e-content-row:not(.e-swimlane-row) td {
-      background-color: ${props => props.theme.components.kanban.card.color};
-    }
-
-    .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card .e-card-header .e-card-header-title {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-    
-    .e-card .e-card-header-caption .e-card-header-title {
-      color: ${props => props.theme.textColor.primary};
-    }
-
-    .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card .e-card-content {
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    .e-kanban-table.e-content-table .e-card .e-card-content {
-      color: ${props => props.theme.textColor.subtile};
-    }
-  `
+  useEffect(() => {
+    dispatch(setHeader({header, details}))
+  }, [])
 
   return (
     <Container>
