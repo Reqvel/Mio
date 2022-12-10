@@ -48,7 +48,9 @@ const FormField = ({label,
                     value, 
                     onChange,
                     disabled,
-                    type}) => {
+                    type,
+                    pattern,
+                    title}) => {
   return (
     <Container>
         <Label>
@@ -60,7 +62,9 @@ const FormField = ({label,
                    onChange={onChange}
                    required
                    disabled={disabled}
-                   type={type}/>
+                   type={type}
+                   pattern={pattern}
+                   title={title}/>
         </Label>
     </Container>
   )
