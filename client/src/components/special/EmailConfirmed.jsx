@@ -52,7 +52,7 @@ const EmailConfirmed = () => {
         <Text>
             Congratulations!
             Your email address has been confirmed.
-            You can now login to the applicaton.
+            You can now sign in to the applicaton.
         </Text>
         <IllustrationContainer>
             <Illustration/>
