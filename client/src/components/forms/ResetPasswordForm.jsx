@@ -62,6 +62,7 @@ const ResetPasswordForm = () => {
       setEmail('')
       navigate(pagesPaths.resetPasswordCheckEmail)
     } catch (err) {
+      emailRef.current.focus()
       setErrMsg('Error')
     }
   }
