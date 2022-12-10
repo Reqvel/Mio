@@ -46,6 +46,8 @@ const SignUpForm = () => {
   const [register, { isLoading }] = useRegisterMutation()
   const dispatch = useDispatch()
 
+  const redirectTo = window.location.origin + pagesPaths.emailConfirmed
+
   useEffect(() => {
     emailRef.current.focus()
   }, [])
@@ -61,20 +63,18 @@ const SignUpForm = () => {
     e.preventDefault()
 
     try {
-      const userData = await register({ email, pwd }).unwrap()
+      const userData = await register({ email, 
+                                        password: pwd, 
+                                        redirect_to: redirectTo }).unwrap()
       dispatch(setCredentials({...userData}))
       setEmail('')
       setPwd('')
-      navigate(pagesPaths.dashboard)
+      navigate(pagesPaths.confirmEmail)
     } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No server response')
-      } else if (err?.originalStatus === 400) {
-        setErrMsg('Missing email or pwd')
-      } else if (err?.originalStatus === 401) {
-        setErrMsg('Unauthorized')
+      if(err?.status === 400) {
+        setErrMsg('This email address is already in use')
       } else {
-        setErrMsg('Undef. error')
+        setErrMsg('Idk')
       }
     }
   }
@@ -97,7 +97,9 @@ const SignUpForm = () => {
                    value={pwd}
                    onChange={handlePwdInput}
                    disabled={isLoading}
-                   type={'password'}/>
+                   type={'password'}
+                   pattern={".{8,}"}
+                   title={"8 characters minimum"}/>
       </Fields>
       <ErrMsg isVisible={errMsg}>
         {errMsg}

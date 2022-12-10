@@ -47,6 +47,7 @@ const StyledLinkDecorated = styled(StyledLink)`
 
 const SignInForm = () => {
   const emailRef = useRef()
+  const pwdRef = useRef()
   const [email, setEmail] = useState('')
   const [pwd, setPwd] = useState('')
   const [errMsg, setErrMsg] = useState('')
@@ -70,21 +71,13 @@ const SignInForm = () => {
     e.preventDefault()
 
     try {
-      const userData = await login({ email, pwd }).unwrap()
+      const userData = await login({ email, password : pwd }).unwrap()
       dispatch(setCredentials({...userData}))
       setEmail('')
       setPwd('')
       navigate(pagesPaths.dashboard)
     } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No server response')
-      } else if (err?.originalStatus === 400) {
-        setErrMsg('Missing email or pwd')
-      } else if (err?.originalStatus === 401) {
-        setErrMsg('Unauthorized')
-      } else {
-        setErrMsg('Undef. error')
-      }
+      setErrMsg('Invalid credentials')
     }
   }
 
@@ -103,6 +96,7 @@ const SignInForm = () => {
         <FormField label='Password' 
                   icon={PasswordIcon}
                   placeholder='Enter Password'
+                  refTo={pwdRef}
                   value={pwd}
                   onChange={handlePwdInput}
                   disabled={isLoading}
