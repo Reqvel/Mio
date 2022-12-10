@@ -4,6 +4,8 @@ const pagesPaths = {
     signUp: '/sign_up',
     resetPassword: '/reset_password',
     changePassword: '/change_password',
+    confirmEmail: '/confirm_email',
+    emailConfirmed: '/email_confirmed',
     dashboard: '/dashboard',
     home: '',
     calendar: 'calendar',

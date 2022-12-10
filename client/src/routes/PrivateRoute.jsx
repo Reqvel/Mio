@@ -1,10 +1,10 @@
 import React from 'react'
 import { useLocation, Navigate, Outlet } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { tokenKey } from '../redux/features/authSlice'
 import pagesPaths from './PagesPaths'
 
 const PrivateRoute = () => {
-  const { token } = useSelector( state => state.auth )
+  const token = localStorage.getItem(tokenKey)
   const location = useLocation()
 
   return (

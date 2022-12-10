@@ -1,11 +1,11 @@
 import React from 'react'
-import styled from 'styled-components';
-import { StyledLink } from '../components/common/Links';
-import pagesPaths from '../routes/PagesPaths';
-import FormWrapper from '../components/common/FormWrapper' 
-import { LogoTextL } from '../components/common/LogoText';
-import ResetPasswordForm from '../components/forms/ResetPasswordForm';
+import styled from 'styled-components'
 import useAppearAnimation from '../hooks/useAppearAnimation';
+import FormWrapper from '../components/common/FormWrapper'
+import { StyledLink } from '../components/common/Links';
+import { LogoTextL } from '../components/common/LogoText';
+import pagesPaths from '../routes/PagesPaths';
+import { Outlet } from 'react-router-dom';
 
 const Background = styled.div`
   height: 100vh;
@@ -34,7 +34,7 @@ const Filler = styled.div`
   height: 70px;
 `
 
-const ResetPassword = () => {
+const Special = () => {
   const componentRef = useAppearAnimation(0.3)
 
   return (
@@ -45,7 +45,7 @@ const ResetPassword = () => {
                   <StyledLink to={pagesPaths.landing}>
                     <LogoTextL color={props => props.theme.textColor.primary}/>
                   </StyledLink>
-                  <ResetPasswordForm/>
+                  <Outlet/>
                   <Filler/>
                 </FormWrapper>
             </Container>
@@ -54,4 +54,4 @@ const ResetPassword = () => {
   )
 }
 
-export default ResetPassword
+export default Special
