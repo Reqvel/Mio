@@ -27,10 +27,18 @@ export const authApiSlice = apiSlice.injectEndpoints({
       })
     }),
 
+    setNewPassword: builder.mutation({
+      query: credentials => ({
+        url: '/account/password-reset/set-new/',
+        method: 'PATCH',
+        body: { ...credentials },
+      })
+    }),
 
   })
 })
 
 export const { useLoginMutation, 
                useRegisterMutation,
-               useResetPasswordMutation } = authApiSlice
+               useResetPasswordMutation,
+               useSetNewPasswordMutation } = authApiSlice
