@@ -28,7 +28,7 @@ const Left = styled.div`
   flex-grow: 1;
   display: flex;
   align-items: center;
-  background-color: ${props => props.theme.padding.signIn};
+  background-color: ${props => props.theme.backgroundColor.primary};
 `;
 
 const Right = styled.div`
