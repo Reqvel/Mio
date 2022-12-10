@@ -96,6 +96,10 @@ const lightTheme = {
         cellColor: '#FAFAFA',
       },
     },
+    spinner: {
+      backgroundColor: '#CCCCCC',
+      foregroundColor: '#25282E',
+    },
   }
 };
 

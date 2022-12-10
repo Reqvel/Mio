@@ -15,6 +15,7 @@ export const LinkButton = styled(Link)`
     border-radius: 12px;
     border: 2px solid transparent;
     text-decoration: none;
+    text-align: center;
     transition: background 0.3s ease; 
 
     :hover {
