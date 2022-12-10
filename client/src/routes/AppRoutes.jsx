@@ -5,6 +5,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import ResetPasswordForm from '../components/forms/ResetPasswordForm'
 import ChangePasswordForm from '../components/forms/ChangePasswordForm'
+import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from '../pages/Dashboard';
 import pagesPaths from './PagesPaths';
@@ -20,19 +21,25 @@ import ConfirmEmail from '../components/special/ConfirmEmail'
 import EmailConfirmed from '../components/special/EmailConfirmed'
 import SpecialRoute from './SpecialRoute';
 import Special from '../pages/Special';
+import ResetPasswordCheckEmail from '../components/special/ResetPasswordCheckEmail';
+import PasswordChanged from '../components/special/PasswordChanged';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path={pagesPaths.landing} element={ <Landing/> }/>
-      <Route path={pagesPaths.signIn} element={ <SignIn/> }/>
-      <Route path={pagesPaths.signUp} element={ <SignUp/> }/>
+      <Route element={ <PublicRoute/> }>  
+        <Route path={pagesPaths.landing} element={ <Landing/> }/>
+        <Route path={pagesPaths.signIn} element={ <SignIn/> }/>
+        <Route path={pagesPaths.signUp} element={ <SignUp/> }/>
+      </Route>
       <Route element={ <SpecialRoute/> }>
         <Route element={ <Special/> }>
           <Route path={pagesPaths.confirmEmail} element={ <ConfirmEmail/> }/>
           <Route path={pagesPaths.emailConfirmed} element={ <EmailConfirmed/> }/>
           <Route path={pagesPaths.resetPassword} element={ <ResetPasswordForm/> }/>
           <Route path={pagesPaths.changePassword} element={ <ChangePasswordForm/> }/>
+          <Route path={pagesPaths.resetPasswordCheckEmail} element={ <ResetPasswordCheckEmail/> }/> 
+          <Route path={pagesPaths.passwordChanged} element={ <PasswordChanged/> }/> 
         </Route>
       </Route>
       <Route element={ <PrivateRoute/> }>
