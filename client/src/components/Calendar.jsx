@@ -491,6 +491,48 @@ const StyledScheduleComponent = styled(ScheduleComponent)`
     font-size: 1rem;
     font-weight: 500;
   }
+
+  &.e-schedule .e-month-view .e-appointment {
+    background-color: ${props => props.theme.components.calendar.card.color};
+    color: ${props => props.theme.textColor.secondary};
+  }
+
+  &.e-schedule .e-month-view .e-appointment .e-appointment-details .e-time {
+    font-size: 0.8rem;
+  }
+
+  &.e-schedule .e-month-view .e-appointment .e-appointment-details .e-subject {
+    font-size: 0.8rem;
+  }
+
+  & .e-more-popup-wrapper {
+    background-color: ${props => props.theme.components.calendar.top.color};
+    border: 2px solid ${props => props.theme.components.calendar.borderColor};
+    border-radius: 12px;
+    opacity: 1;
+    padding: 16px 0;
+  }
+
+  &.e-bigger .e-more-popup-wrapper .e-header-day, .e-more-popup-wrapper .e-header-day {
+    color: ${props => props.theme.textColor.primary};
+    font-size: 0.8rem;
+  }
+
+  & .e-more-popup-wrapper .e-header-date {
+    color: ${props => props.theme.textColor.primary};
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  & .e-more-popup-wrapper .e-appointment {
+    background-color: ${props => props.theme.components.calendar.card.color};
+    color: ${props => props.theme.textColor.secondary};
+  }
+
+  & .e-more-popup-wrapper .e-appointment .e-subject {
+    color: ${props => props.theme.textColor.secondary};
+    font-size: 0.8rem;
+  }
 `
 
 const Calendar = () => {
