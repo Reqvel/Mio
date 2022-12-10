@@ -77,6 +77,7 @@ const SignInForm = () => {
       setPwd('')
       navigate(pagesPaths.dashboard)
     } catch (err) {
+      pwdRef.current.focus()
       setErrMsg('Invalid credentials')
     }
   }

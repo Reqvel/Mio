@@ -38,6 +38,7 @@ const ErrMsg = styled.span`
 
 const SignUpForm = () => {
   const emailRef = useRef()
+  const pwdRef = useRef()
   const [email, setEmail] = useState('')
   const [pwd, setPwd] = useState('')
   const [errMsg, setErrMsg] = useState('')
@@ -71,6 +72,7 @@ const SignUpForm = () => {
       setPwd('')
       navigate(pagesPaths.confirmEmail)
     } catch (err) {
+      pwdRef.current.focus()
       if(err?.status === 400) {
         setErrMsg('This email address is already in use')
       } else {
@@ -94,6 +96,7 @@ const SignUpForm = () => {
         <FormField label='Password' 
                    icon={PasswordIcon}
                    placeholder='Enter Password'
+                   refTo={pwdRef}
                    value={pwd}
                    onChange={handlePwdInput}
                    disabled={isLoading}
