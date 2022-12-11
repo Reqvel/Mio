@@ -4,7 +4,8 @@ import { ButtonBig } from '../common/Buttons'
 import FeaturesList from '../common/FeaturesList';
 
 const Wrapper = styled.div`
-  width: 320px;
+  flex: 1;
+  min-width: 330px;
 `;
 
 const Container = styled.div`
@@ -23,8 +24,8 @@ const Upper = styled.div`
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 24px;
-  border: 2px solid ${props => props.theme.components.card.pricing.borderColor};
   border-radius: 12px 12px 0 0;
+  background-color: #EBEBEB;
 `
 
 const Header = styled.span`
@@ -52,9 +53,9 @@ const Lower = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding: 24px;
-  border: 2px solid ${props => props.theme.components.card.pricing.borderColor};
-  border-top: none;
+  border-top: 2px solid ${props => props.theme.components.card.pricing.borderColor};
   border-radius: 0 0 12px 12px;
+  background-color: #F7F7F7;
 `
 
 const PricingCard = ({header, price, buttonText, features=[]}) => {

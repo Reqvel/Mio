@@ -18,8 +18,9 @@ const Upper = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding: 40px 24px;
-  border: 2px solid ${props => props.theme.components.card.pricing.borderColor};
+  /* border: 2px solid ${props => props.theme.components.card.pricing.borderColor}; */
   border-radius: 12px 12px 0 0;
+  background-color: #EBEBEB;
 `
 
 const Header = styled.span`
@@ -48,7 +49,6 @@ const Lower = styled.div`
   box-sizing: border-box;
   padding: 24px;
   border: 2px solid ${props => props.theme.components.card.pricing.borderColor};
-  border-top: none;
   border-radius: 0 0 12px 12px;
 `
 

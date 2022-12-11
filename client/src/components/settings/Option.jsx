@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Wrapper = styled.div`
   width: 900px;
-  padding: 24px;
+  padding: 24px 48px;
   border: 2px solid ${props => props.theme.components.card.dashboard.borderColor};
   border-radius: 12px;
   background-color: ${props => props.theme.components.card.dashboard.color};
@@ -25,7 +25,7 @@ const Header = styled.span`
 
 const Details = styled.span`
   color: ${props => props.theme.textColor.subtile};
-  margin-bottom: 24px;
+  margin-bottom: 36px;
 `
 
 const Content = styled.div`

@@ -7,16 +7,15 @@ import CurrentPlanCard from './CurrentPlanCard';
 
 const Cards = styled.div`
   display: flex;
-  width: 100%;
   gap: ${props => props.theme.gap.cards.landing};
-  margin-bottom: 36px;
+  margin-bottom: 48px;
 `;
 
 const Current = styled.span`
   font-size: 1.563rem;
   font-weight: 600;
   color: ${props => props.theme.textColor.primary};
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 `
 
 const Subscription = () => {
@@ -27,9 +26,10 @@ const Subscription = () => {
       buttonText: 'Try It Free',
       features: [
         'features1',
-        'features2',
-        'features3',
-        'features4',
+        'features1',
+        'features1',
+        'features1',
+        'features1',
       ]
     },
     {
@@ -38,13 +38,14 @@ const Subscription = () => {
       buttonText: 'Buy Now',
       features: [
         'features1',
-        'features2',
-        'features3',
-        'features4',
-        'features5',
-        'features6',
-        'features7',
-        'features8',
+        'features1',
+        'features1',
+        'features1',
+        'features1',
+        'features1',
+        'features1',
+        'features1',
+        'features1',
       ]
     },
   ]
