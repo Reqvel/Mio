@@ -2,6 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  min-width: ${props => props.minWidth};;
+  grid-column-start: ${props => props.columnStart};
+  grid-column-end: ${props => props.columnEnd};
+  grid-row-start: ${props => props.rowStart};
+  grid-row-end: ${props => props.rowEnd};
   padding: 24px;
   border: 2px solid ${props => props.theme.components.card.dashboard.borderColor};
   border-radius: 12px;
@@ -28,7 +33,8 @@ const Details = styled.span`
 `
 
 const ChartContainer = styled.div`
-  height: 250px;
+  flex: 1;
+  min-height: 350px;
   position: relative;
 `
 
@@ -41,13 +47,18 @@ const Chart = styled.div`
 `
 
 const Bottom = styled.div`
-  flex: 1;
 `
 
-const LineChartCard = ({ header, details, chart, bottom}) => {
+const LineChartCard = ({ header, details, chart, bottom,
+                         minWidth,
+                         columnStart, columnEnd, rowStart, rowEnd}) => {
   
   return (
-    <Wrapper>
+    <Wrapper minWidth={minWidth}
+             columnStart={columnStart}
+             columnEnd={columnEnd}
+             rowStart={rowStart}
+             rowEnd={rowEnd}>
       <Container>
         <Header>
           Followers Growth

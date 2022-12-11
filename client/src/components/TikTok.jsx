@@ -38,7 +38,7 @@ const TopCards = styled.ul`
 
 const Cards = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: ${props => props.theme.gap.cards.dashboard};
 `
 
@@ -93,9 +93,18 @@ const TikTok = () => {
         </TopCards>
       </ScrollContainer>
         <Cards>
-          <ChartCard chart={<LineChart/>}/>
-          <ChartCard chart={<BarChart/>}/>
-          <ChartCard chart={<PieChart/>} bottom={<ChartLabelList/>}/>
+          <ChartCard chart={<LineChart/>}
+                     columnStart={1}
+                     columnEnd={3}/>
+          <ChartCard chart={<BarChart/>}
+                     columnStart={3}
+                     columnEnd={5}/>
+          <ChartCard chart={<PieChart/>} 
+                     bottom={<ChartLabelList/>}
+                     minWidth='330px'/>
+          <ChartCard chart={<LineChart/>}
+                     columnStart={2}
+                     columnEnd={5}/>
         </Cards>
     </Container>
   )
