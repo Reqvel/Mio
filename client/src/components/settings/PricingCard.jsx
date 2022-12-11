@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
-import { ButtonBig } from '../common/Buttons';
+import styled from 'styled-components';
+import { ButtonBig } from '../common/Buttons'
 import FeaturesList from '../common/FeaturesList';
 
 const Wrapper = styled.div`
-  width: 512px;
+  width: 320px;
 `;
 
 const Container = styled.div`
@@ -19,16 +19,16 @@ const Upper = styled.div`
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
-  padding-top: 80px;
+  padding-top: 40px;
   padding-left: 24px;
   padding-right: 24px;
-  padding-bottom: 40px;
+  padding-bottom: 24px;
   border: 2px solid ${props => props.theme.components.card.pricing.borderColor};
   border-radius: 12px 12px 0 0;
 `
 
 const Header = styled.span`
-  font-size: 2.441rem;
+  font-size: 1.953rem;
   font-weight: 700;
   color: ${props => props.theme.textColor.primary};
   margin-bottom: 4px;
@@ -37,7 +37,7 @@ const Header = styled.span`
 const Price = styled.span`
   font-size: 1.25rem;
   color: ${props => props.theme.textColor.subtile};
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 `
 
 const Timeframe = styled.span`
