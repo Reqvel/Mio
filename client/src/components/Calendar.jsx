@@ -13,12 +13,25 @@ import { useDispatch } from 'react-redux';
 import { setHeader } from '../redux/features/dashboardSlice';
 
 const Container = styled.div`
+  height: 100%;
+  position: relative;
   max-width: ${props => props.theme.maxWidth.dashboard};
   margin-left: auto;
   margin-right: auto;
   padding-left: ${props => props.theme.padding.dashboard};
   padding-right: ${props => props.theme.padding.dashboard};
 `;
+
+const Absolute = styled.div`
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: inherit;
+  box-sizing: border-box;
+`
 
 const StyledScheduleComponent = styled(ScheduleComponent)`
   &.e-control {
@@ -546,9 +559,13 @@ const Calendar = () => {
 
   return (
     <Container>
-      <StyledScheduleComponent>
-        <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}/>
-      </StyledScheduleComponent>
+      <Absolute>
+        <StyledScheduleComponent
+          height='100%'
+          width='100%'>
+          <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}/>
+        </StyledScheduleComponent>
+      </Absolute>
     </Container>
   )
 }
