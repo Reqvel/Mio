@@ -33,11 +33,41 @@ const Details = styled.span`
 
 const Cards = styled.div`
     display: flex;
+    justify-content: center;
     width: 100%;
     gap: ${props => props.theme.gap.cards.landing};
 `;
 
 const Pricing = () => {
+  const data = [
+    {
+      header: 'Free',
+      price: 0,
+      buttonText: 'Try It Free',
+      features: [
+        'features1',
+        'features2',
+        'features3',
+        'features4',
+      ]
+    },
+    {
+      header: 'Premium',
+      price: 4.99,
+      buttonText: 'Buy Now',
+      features: [
+        'features1',
+        'features2',
+        'features3',
+        'features4',
+        'features5',
+        'features6',
+        'features7',
+        'features8',
+      ]
+    },
+
+  ]
   return (
     <Wrapper id='pricing'>
         <Container>
@@ -48,9 +78,13 @@ const Pricing = () => {
                 The wise man therefore always holds in these matters to this principle of selection.
             </Details>
             <Cards>
-                <PricingCard/>
-                <PricingCard/>
-                <PricingCard/>
+              {data.map((card, index) => (
+                <PricingCard key={index}
+                             header={card.header}
+                             price={card.price}
+                             buttonText={card.buttonText}
+                             features={card.features}/>
+              ))}
             </Cards>
         </Container>
     </Wrapper>
