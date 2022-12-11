@@ -10,7 +10,11 @@ import TikTokIcon from '../../svgs/icons/TikTok.svg'
 import InstagamIcon from '../../svgs/icons/Instagram.svg'
 import TwitterIcon from '../../svgs/icons/Twitter.svg'
 import SettingsIcon from '../../svgs/icons/Settings.svg'
+import LogOutIcon from '../../svgs/icons/LogOut.svg'
 import pagesPaths from '../../routes/PagesPaths'
+import { logOut } from '../../redux/features/authSlice'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
@@ -32,6 +36,7 @@ const Logo = styled.div`
   display: flex;
   justify-content: center;
   padding: 32px 8px;
+  cursor: default;
 `
 
 const Group = styled.div`
@@ -40,13 +45,21 @@ const Group = styled.div`
 `
 
 const Buttons = styled(Group)`
-    max-height: 864px;
+    max-height: 940px;
     height: 100%;
     justify-content: space-between;
     gap: 32px;
 `
 
 const SideMenu = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+    dispatch(logOut())
+    navigate(pagesPaths.landing)
+  }
+
   return (
     <Container>
         <Logo>
@@ -78,9 +91,19 @@ const SideMenu = () => {
                     Twitter
                 </LinkButtonSideMenu>
             </Group>
-            <LinkButtonSideMenu to={pagesPaths.settings} icon={SettingsIcon}>
+            <Group>
+                <LinkButtonSideMenu to={pagesPaths.settings.main + 
+                                        '/' + 
+                                        pagesPaths.settings.subscription} 
+                                    icon={SettingsIcon}>
                     Settings
-            </LinkButtonSideMenu>
+                </LinkButtonSideMenu>
+                <LinkButtonSideMenu to={pagesPaths.landing}
+                                    icon={LogOutIcon}
+                                    onClick={handleLogOut}>
+                    Log Out
+                </LinkButtonSideMenu>
+            </Group>
         </Buttons>
     </Container>
   )
