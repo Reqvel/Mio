@@ -42,6 +42,7 @@ export const LinkButtonBig = styled(LinkButton)`
 `
 
 const LinkSideMenu = styled(StyledLink)`
+    color: ${props => props.theme.textColor.primary};
     position: relative;
     display: flex;
     flex-direction: column;
@@ -90,6 +91,52 @@ const Icon = styled.img`
     width: 24px;
 `
 
+const LinkOptionItem = styled(StyledLink)`
+    color: ${props => props.theme.textColor.primary};
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    padding: 16px;
+    gap: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease 0s; 
+
+    :hover {
+        background: ${props => props.theme.components.button.transparent.hoverColor};
+        transition: background 0.3s ease 0s; 
+    };
+
+    ::after {
+        position: absolute;
+        content: '';
+        height: 0;
+        left: 0;
+        border-left: 3px solid;
+        border-left-color: transparent;
+
+        transition: height 0.3s ease 0s, 
+                    border-left-color 0.3s ease 0s;
+    }
+
+    :hover::after {
+        position: absolute;
+        content: '';
+        height: 100%;
+        border-left: 3px solid;
+        border-left-color: ${props => props.theme.color.accent};
+
+        transition: height 0.3s ease 0s, 
+                    border-left-color 0.3s ease 0s;
+    }
+`
+
+const ListItem = styled.li`
+`
+
 export const LinkButtonSideMenu = ({to, icon, children}) => {
     return (
         <LinkSideMenu to={to}>
@@ -97,4 +144,15 @@ export const LinkButtonSideMenu = ({to, icon, children}) => {
             {children}
         </LinkSideMenu>
     )
+}
+
+export const LinkButtonOptionItem = ({to, icon, children}) => {
+  return (
+    <ListItem>
+      <LinkOptionItem to={to}>
+        <Icon src={icon}/>
+        {children}
+      </LinkOptionItem>
+    </ListItem>
+  )
 }
