@@ -4,8 +4,7 @@ import { ButtonBig } from '../common/Buttons';
 import FeaturesList from '../common/FeaturesList';
 
 const Wrapper = styled.div`
-  max-width: 512px;
-  width: 100%;
+  width: 512px;
   background-color: transparent;
   border: 2px solid ${props => props.theme.components.card.pricing.borderColor};
   border-radius: 12px;
