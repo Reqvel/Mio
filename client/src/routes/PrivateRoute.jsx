@@ -8,9 +8,10 @@ const PrivateRoute = () => {
   const location = useLocation()
 
   return (
-    token 
-      ? <Outlet/>
-      : <Navigate to={pagesPaths.signIn} state={{ from: location }} replace/>
+    // token 
+      // ? <Outlet/>
+      // : <Navigate to={pagesPaths.signIn} state={{ from: location }} replace/>
+    <Outlet/>
   )
 }
 

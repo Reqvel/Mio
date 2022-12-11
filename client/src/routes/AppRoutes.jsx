@@ -23,6 +23,9 @@ import SpecialRoute from './SpecialRoute';
 import Special from '../pages/Special';
 import ResetPasswordCheckEmail from '../components/special/ResetPasswordCheckEmail';
 import PasswordChanged from '../components/special/PasswordChanged';
+import Subscription from '../components/settings/Subscription';
+import { default as ChangePasswordFormSettings } from '../components/settings/ChangePasswordForm';
+import Socials from '../components/settings/Socials';
 
 const AppRoutes = () => {
   return (
@@ -51,7 +54,11 @@ const AppRoutes = () => {
           <Route path={pagesPaths.tikTok} element= { <TikTok/> }/>
           <Route path={pagesPaths.instagram} element= { <Instagram/> }/>
           <Route path={pagesPaths.twitter} element= { <Twitter/> }/>
-          <Route path={pagesPaths.settings} element= { <Settings/> }/>
+          <Route path={pagesPaths.settings.main} element= { <Settings/> }>
+            <Route path={pagesPaths.settings.subscription} element={ <Subscription/> }/>
+            <Route path={pagesPaths.settings.changePassword} element={ <ChangePasswordFormSettings/> }/>
+            <Route path={pagesPaths.settings.socials} element={ <Socials/> }/>
+          </Route>
         </Route>
       </Route>
     </Routes>

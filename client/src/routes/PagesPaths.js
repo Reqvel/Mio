@@ -16,7 +16,12 @@ const pagesPaths = {
     tikTok: 'tikTok',
     instagram: 'instagram',
     twitter: 'twitter',
-    settings: 'settings',
+    settings: {
+      main: 'settings',
+      subscription: 'subscription',
+      changePassword: 'change_password',
+      socials: 'socials',
+    },
 };
 
 export default pagesPaths;
