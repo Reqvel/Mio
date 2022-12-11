@@ -20,9 +20,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  max-width: 144px;
-  min-width: 96px;
-  width: 100%;
+  width: 128px;
   padding: 40px 0px;
   background-color: ${props => props.theme.backgroundColor.primary};
   overflow-y: scroll;
