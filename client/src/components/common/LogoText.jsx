@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { logoText } from '../../data/data';
+
+const logoText = 'Mio'
 
 const LogoText = styled.span`
   font-family: 'Nunito', sans-serif;
