@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as Illustration } from '../svgs/SignIn.svg';
+import { ReactComponent as LightIllustration } from '../svgs/light/illustrations/SignIn.svg';
+import { ReactComponent as DarkIllustration } from '../svgs/dark/illustrations/SignIn.svg';
 import FormWrapper from '../components/common/FormWrapper';
 import SignInForm from '../components/forms/SignInForm';
 import { StyledLink } from '../components/common/Links';
 import { LogoTextL } from '../components/common/LogoText';
 import pagesPaths from '../routes/PagesPaths'
+import { useSelector } from 'react-redux';
 import useAppearAnimation from '../hooks/useAppearAnimation';
 
 const Background = styled.div`
@@ -52,6 +54,7 @@ const StyledLinkDecorated = styled(StyledLink)`
 `
 
 const SignIn = () => {
+  const { isThemeDark } = useSelector(state => state.app)
   const componentRef = useAppearAnimation(0.3)
 
   return (
@@ -72,7 +75,9 @@ const SignIn = () => {
                 </FormWrapper>
             </Left>
             <Right>
-                <Illustration/>
+              { isThemeDark 
+                  ? <DarkIllustration/>
+                  : <LightIllustration/>}
             </Right>
         </Container>
     </Background>
