@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import FormField from './FormField'
-import PasswordIcon from '../../svgs/icons/Lock.svg'
 import { ButtonBig } from '../common/Buttons'
 import { getResetTokensFromUrl } from '../../utils/GetResetTokensFromUrl'
 import { useSetNewPasswordMutation } from '../../redux/features/authApiSlice'
 import { useNavigate } from 'react-router-dom'
 import pagesPaths from '../../routes/PagesPaths'
+import { useSelector } from 'react-redux';
+import LightPasswordIcon from '../../svgs/light/icons/Lock.svg'
+import DarkPasswordIcon from '../../svgs/dark/icons/Lock.svg'
 
 const Container = styled.form`
   display: flex;
@@ -40,6 +42,7 @@ const ErrMsg = styled.span`
 `
 
 const ChangePasswordForm = () => {
+  const { isThemeDark } = useSelector(state => state.app)
   const pwdRef = useRef()
   const pwdConfirmRef = useRef()
   const [pwd, setPwd] = useState('')
@@ -93,7 +96,9 @@ const ChangePasswordForm = () => {
       </Details>
       <Fields>
         <FormField label='New password' 
-                    icon={PasswordIcon}
+                    icon={isThemeDark
+                          ? DarkPasswordIcon
+                          : LightPasswordIcon}
                     placeholder='Enter new password'
                     refTo={pwdRef}
                     value={pwd}
@@ -103,7 +108,9 @@ const ChangePasswordForm = () => {
                     pattern={".{8,}"}
                     title={"8 characters minimum"}/>
         <FormField label='Confirm new password' 
-                    icon={PasswordIcon}
+                    icon={isThemeDark
+                      ? DarkPasswordIcon
+                      : LightPasswordIcon}
                     placeholder='Enter new password'
                     refTo={pwdConfirmRef}
                     value={pwdConfirm}

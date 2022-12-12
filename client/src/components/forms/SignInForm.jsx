@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import FormField from './FormField'
-import EmailIcon from '../../svgs/icons/Mail.svg'
-import PasswordIcon from '../../svgs/icons/Lock.svg'
 import { ButtonBig } from '../common/Buttons'
 import { StyledLink } from '../common/Links'
 import pagesPaths from '../../routes/PagesPaths'
@@ -10,6 +8,11 @@ import { useLoginMutation } from '../../redux/features/authApiSlice'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../redux/features/authSlice'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import LightEmailIcon from '../../svgs/light/icons/Mail.svg'
+import LightPasswordIcon from '../../svgs/light/icons/Lock.svg'
+import DarkEmailIcon from '../../svgs/dark/icons/Mail.svg'
+import DarkPasswordIcon from '../../svgs/dark/icons/Lock.svg'
 
 const Container = styled.form`
   display: flex;
@@ -46,6 +49,7 @@ const StyledLinkDecorated = styled(StyledLink)`
 `
 
 const SignInForm = () => {
+  const { isThemeDark } = useSelector(state => state.app)
   const emailRef = useRef()
   const pwdRef = useRef()
   const [email, setEmail] = useState('')
@@ -87,7 +91,9 @@ const SignInForm = () => {
       <Header>Sign In</Header>
       <Fields>
         <FormField label='Email' 
-                  icon={EmailIcon}
+                  icon={isThemeDark
+                          ? DarkEmailIcon
+                          : LightEmailIcon}
                   placeholder='Enter Email'
                   refTo={emailRef}
                   value={email}
@@ -95,7 +101,9 @@ const SignInForm = () => {
                   disabled={isLoading}
                   type={'email'}/>
         <FormField label='Password' 
-                  icon={PasswordIcon}
+                  icon={isThemeDark
+                          ? DarkPasswordIcon
+                          : LightPasswordIcon}
                   placeholder='Enter Password'
                   refTo={pwdRef}
                   value={pwd}
