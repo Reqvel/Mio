@@ -25,7 +25,7 @@ const Upper = styled.div`
   padding-right: 24px;
   padding-bottom: 24px;
   border-radius: 12px 12px 0 0;
-  background-color: #EBEBEB;
+  background-color: ${props => props.theme.components.card.optPricing.upperColor};
 `
 
 const Header = styled.span`
@@ -55,7 +55,7 @@ const Lower = styled.div`
   padding: 24px;
   border-top: 2px solid ${props => props.theme.components.card.pricing.borderColor};
   border-radius: 0 0 12px 12px;
-  background-color: #F7F7F7;
+  background-color: ${props => props.theme.components.card.optPricing.lowerColor};
 `
 
 const PricingCard = ({header, price, buttonText, features=[]}) => {

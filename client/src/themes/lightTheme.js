@@ -56,7 +56,11 @@ const lightTheme = {
       dashboard: {
         borderColor: '#CCCCCC',
         color: '#FFFFFF',
-      }
+      },
+      optPricing: {
+        upperColor: '#EBEBEB',
+        lowerColor: '#F7F7F7',
+      },
     },
     inputField: {
       borderColor: '#989898',

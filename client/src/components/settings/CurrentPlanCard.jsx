@@ -20,7 +20,7 @@ const Upper = styled.div`
   padding: 40px 24px;
   /* border: 2px solid ${props => props.theme.components.card.pricing.borderColor}; */
   border-radius: 12px 12px 0 0;
-  background-color: #EBEBEB;
+  background-color: ${props => props.theme.components.card.optPricing.upperColor};
 `
 
 const Header = styled.span`

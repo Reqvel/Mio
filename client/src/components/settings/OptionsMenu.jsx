@@ -1,24 +1,36 @@
 import React from 'react'
 import OptionsList from './OptionsList'
 import { LinkButtonOptionItem } from '../common/Links'
-import LockIcon from '../../svgs/icons/optionsList/Lock.svg'
-import SubscriptionIcon from '../../svgs/icons/optionsList/Subscription.svg'
-import SocialsIcon from '../../svgs/icons/optionsList/Socials.svg'
+import LightLockIcon from '../../svgs/light/icons/optionsList/Lock.svg'
+import LightSubscriptionIcon from '../../svgs/light/icons/optionsList/Subscription.svg'
+import LightSocialsIcon from '../../svgs/light/icons/optionsList/Socials.svg'
+import DarkLockIcon from '../../svgs/dark/icons/optionsList/Lock.svg'
+import DarkSubscriptionIcon from '../../svgs/dark/icons/optionsList/Subscription.svg'
+import DarkSocialsIcon from '../../svgs/dark/icons/optionsList/Socials.svg'
 import pagesPaths from '../../routes/PagesPaths'
+import { useSelector } from 'react-redux';
 
 const OptionsMenu = () => {
+  const { isThemeDark } = useSelector(state => state.app)
+
   return (
     <OptionsList>
         <LinkButtonOptionItem to={pagesPaths.settings.subscription}
-                              icon={SubscriptionIcon}>
+                              icon={ isThemeDark
+                                      ? DarkSubscriptionIcon
+                                      : LightSubscriptionIcon }>
           Subscription
         </LinkButtonOptionItem>
         <LinkButtonOptionItem to={pagesPaths.settings.changePassword}
-                              icon={LockIcon}>
+                              icon={ isThemeDark
+                                      ? DarkLockIcon
+                                      : LightLockIcon }>
           Change password
         </LinkButtonOptionItem>
         <LinkButtonOptionItem to={pagesPaths.settings.socials}
-                              icon={SocialsIcon}>
+                              icon={ isThemeDark
+                                      ? DarkSocialsIcon
+                                      : LightSocialsIcon }>
           Socials
         </LinkButtonOptionItem>
     </OptionsList>

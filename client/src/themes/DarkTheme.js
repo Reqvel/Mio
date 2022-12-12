@@ -37,14 +37,14 @@ const darkTheme = {
       button: {
         filled: {
           color: '#DBDBDB',
-          disabledColor: '#989898',
+          disabledColor: '#424242',
           hoverColor: '#DBDBDB',
         },
         transparent: {
           hoverColor: '#353535',
         },
         outlined: {
-          borderColor: '#989898',
+          borderColor: '#424242',
         },
       },
       card: {
@@ -52,11 +52,15 @@ const darkTheme = {
         pricing: {
           borderColor: '#424242',
         },
-        topColor: '#25282E',
+        topColor: '#DBDBDB',
         dashboard: {
           borderColor: '#424242',
-          color: '#FFFFFF',
-        }
+          color: '#222427',
+        },
+        optPricing: {
+          upperColor: '#2F3032',
+          lowerColor: '#333538',
+        },
       },
       inputField: {
         borderColor: '#707070',
@@ -67,25 +71,25 @@ const darkTheme = {
         downColor: '#FA5F1C',
       },
       calendar: {
-        borderColor: '#989898',
-        headerColor: '#25282E',
+        borderColor: '#424242',
+        headerColor: '#DBDBDB',
         top: {
-          color: '#FFFFFF',
+          color: '#222427',
           borderColor: '#424242',
         },
         side: {
-          color: '#FFFFFF',
+          color: '#222427',
           borderColor: '#424242',
         },
         cell: {
-          color: '#FAFAFA',
-          subtileColor: '#F4F4F4',
-          borderColor: '#D2D2D2',
+          color: '#242629',
+          subtileColor: '#222427',
+          borderColor: '#424242',
         },
         card: {
-          color: '#25282E',
-          subtileColor: '#F4F4F4',
-          borderColor: '#D2D2D2',
+          color: '#DBDBDB',
+          subtileColor: '#222427',
+          borderColor: '#424242',
         },
       },
       kanban: {
