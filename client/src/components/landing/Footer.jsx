@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { LogoTextS } from '../common/LogoText';
 import AnchorLink from 'react-anchor-link-smooth-scroll-v2'
+import ToggleSwitch from '../common/ToggleSwitch';
+import { useSelector, useDispatch } from 'react-redux';
+import { setIsThemeDark } from '../../redux/features/appSlice';
 
 const Wrapper = styled.div`
   padding-top: 32px;
@@ -11,8 +14,8 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.landing};
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-left: auto;
   margin-right: auto;
   padding-left: ${props => props.theme.padding.landing};
@@ -21,12 +24,17 @@ const Container = styled.div`
 
 const Left = styled.div`
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 `;
 
 const Center = styled.div`
   flex-grow: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const StyledAnchorLink = styled(AnchorLink)`
@@ -38,12 +46,29 @@ const Right = styled.div`
   flex-grow: 1;
 `;
 
+const Theme = styled.span`
+  color: ${props => props.theme.textColor.subtile};
+  padding-bottom: 8px;
+`
+
 const Footer = () => {
+  const { isThemeDark } = useSelector(state => state.app)
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(setIsThemeDark(!isThemeDark))
+  }
+
   return (
     <Wrapper>
         <Container>
             <Left>
-
+              <Theme>
+                Dark mode
+              </Theme>
+              <ToggleSwitch checked={isThemeDark}
+                            showToggle={false}
+                            onChange={handleClick}/>
             </Left>
             <Center>
               <StyledAnchorLink href='#header'>
@@ -51,7 +76,6 @@ const Footer = () => {
               </StyledAnchorLink>
             </Center>
             <Right>
-                
             </Right>
         </Container>
     </Wrapper>
