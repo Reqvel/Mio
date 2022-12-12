@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
 import gsap from "gsap";
 
 const useAppearAnimation = (duration=0, dependencies=[]) => {
