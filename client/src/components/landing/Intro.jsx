@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { LinkButtonBig } from '../common/Links';
 import pagesPaths from '../../routes/PagesPaths';
-import { ReactComponent as Illustration } from '../../svgs/Illustration.svg';
+import { ReactComponent as LightIllustration } from '../../svgs/light/illustrations/Illustration.svg';
+import { ReactComponent as DarkIllustration } from '../../svgs/dark/illustrations/Illustration.svg';
+import { useSelector } from 'react-redux';
 
 const Wrapper = styled.div`
   padding-top: 166px;
@@ -55,6 +57,8 @@ const Details = styled.p`
 `;
 
 const Intro = () => {
+  const { isThemeDark } = useSelector(state => state.app)
+
   return (
     <Wrapper>
       <Container>
@@ -74,7 +78,11 @@ const Intro = () => {
             </LinkButtonBig>
         </Left>
         <Right>
-          <Illustration/>
+          {
+            isThemeDark
+              ? <DarkIllustration/>
+              : <LightIllustration/>
+          }
         </Right>
       </Container>
     </Wrapper>
