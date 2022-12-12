@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 100%;
-  padding: 24px;
+  padding: 48px 24px;
   background-color: ${props => props.theme.components.card.featureColor};
   border-radius: 12px;
 `;

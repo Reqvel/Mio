@@ -1,7 +1,13 @@
 import React from 'react'
 import styled from 'styled-components';
 import FeatureCard from './FeatureCard';
-import CalendarIcon from '../../svgs/CalendarIcon.svg'
+import { useSelector } from 'react-redux';
+import LightCalendarIcon from '../../svgs/light/feature/Calendar.svg'
+import LightStatisticsIcon from '../../svgs/light/feature/Statistics.svg'
+import LightKanbanIcon from '../../svgs/light/feature/Kanban.svg'
+import DarkCalendarIcon from '../../svgs/dark/feature/Calendar.svg'
+import DarkStatisticsIcon from '../../svgs/dark/feature/Statistics.svg'
+import DarkKanbanIcon from '../../svgs/dark/feature/Kanban.svg'
 
 const Wrapper = styled.section`
   padding-top: 64px;
@@ -26,18 +32,26 @@ const Cards = styled.div`
 `;
 
 const Features = () => {
+  const { isThemeDark } = useSelector(state => state.app)
+
   return (
     <Wrapper id='features'>
         <Container>
             <Cards>
-                <FeatureCard icon={CalendarIcon}
+                <FeatureCard icon={ isThemeDark
+                                      ? DarkCalendarIcon
+                                      : LightCalendarIcon}
                              header='Calendar'
                              details='Illuminate business-critical insights by tapping into the world’s largest and most transparent focus group: social media.'/>
-                <FeatureCard icon={CalendarIcon}
-                             header='Calendar'
+                <FeatureCard icon={ isThemeDark
+                                      ? DarkStatisticsIcon
+                                      : LightStatisticsIcon}
+                             header='Statistics'
                              details='Illuminate business-critical insights by tapping into the world’s largest and most transparent focus group: social media.'/>
-                <FeatureCard icon={CalendarIcon}
-                             header='Calendar'
+                <FeatureCard icon={ isThemeDark
+                                      ? DarkKanbanIcon
+                                      : LightKanbanIcon}
+                             header='Kanban'
                              details='Illuminate business-critical insights by tapping into the world’s largest and most transparent focus group: social media.'/>
             </Cards>
         </Container>
