@@ -4,7 +4,7 @@ const darkTheme = {
     },
     backgroundColor: {
       primary: '#222427',
-      secondary: '#25282E',
+      secondary: '#242629',
     },
     maxWidth: {
       landing: '1280px',
@@ -50,17 +50,17 @@ const darkTheme = {
       card: {
         featureColor: '#DBDBDB',
         pricing: {
-          borderColor: '#CCCCCC',
+          borderColor: '#424242',
         },
         topColor: '#25282E',
         dashboard: {
-          borderColor: '#CCCCCC',
+          borderColor: '#424242',
           color: '#FFFFFF',
         }
       },
       inputField: {
-        borderColor: '#989898',
-        outlineColor: '#25282E',
+        borderColor: '#707070',
+        outlineColor: '#DBDBDB',
       },
       percentage: {
         upColor: '#0CAF60',
@@ -71,11 +71,11 @@ const darkTheme = {
         headerColor: '#25282E',
         top: {
           color: '#FFFFFF',
-          borderColor: '#CCCCCC',
+          borderColor: '#424242',
         },
         side: {
           color: '#FFFFFF',
-          borderColor: '#CCCCCC',
+          borderColor: '#424242',
         },
         cell: {
           color: '#FAFAFA',
@@ -90,14 +90,15 @@ const darkTheme = {
       },
       kanban: {
         card: {
-          color: '#FFFFFF',
-          headerColor: '#25282E',
-          borderColor: '#CCCCCC',
-          cellColor: '#FAFAFA',
+          color: '#222427',
+          headerColor: '#DBDBDB',
+          borderColor: '#424242',
+          cellColor: '#242629',
+          selectionColor: '#353535',
         },
       },
       spinner: {
-        backgroundColor: '#CCCCCC',
+        backgroundColor: '#424242',
         foregroundColor: '#25282E',
       },
     }

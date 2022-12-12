@@ -96,6 +96,10 @@ const StyledKanbanComponent = styled(KanbanComponent)`
   .e-kanban-table.e-content-table .e-card .e-card-content {
     color: ${props => props.theme.textColor.subtile};
   }
+
+  .e-card.e-droppable.e-lib.e-draggable.e-selection {
+    background-color: ${props => props.theme.components.kanban.card.selectionColor};
+  }
 `
 
 const Kanban = () => {
@@ -484,7 +488,9 @@ const Kanban = () => {
       <StyledKanbanComponent
         keyField="Status"
         dataSource={kanbanData}
-        cardSettings={{ contentField: 'Summary', headerField: 'Id' }}>
+        cardSettings={{ contentField: 'Summary',
+                        headerField: 'Id',
+                        selectionType: 'Multiple', }}>
         <ColumnsDirective>
           {kanbanGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
         </ColumnsDirective>

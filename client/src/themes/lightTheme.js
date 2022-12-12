@@ -94,6 +94,7 @@ const lightTheme = {
         headerColor: '#25282E',
         borderColor: '#CCCCCC',
         cellColor: '#FAFAFA',
+        selectionColor: 'F4F4F4',
       },
     },
     spinner: {
