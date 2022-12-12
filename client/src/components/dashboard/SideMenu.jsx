@@ -2,19 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import { LogoTextS } from '../common/LogoText'
 import { LinkButtonSideMenu } from '../common/Links'
-import HomeIcon from '../../svgs/icons/Home.svg'
-import CalendarIcon from '../../svgs/icons/Calendar.svg'
-import KanbanIcon from '../../svgs/icons/Kanban.svg'
-import YouTubeIcon from '../../svgs/icons/YouTube.svg'
-import TikTokIcon from '../../svgs/icons/TikTok.svg'
-import InstagamIcon from '../../svgs/icons/Instagram.svg'
-import TwitterIcon from '../../svgs/icons/Twitter.svg'
-import SettingsIcon from '../../svgs/icons/Settings.svg'
-import LogOutIcon from '../../svgs/icons/LogOut.svg'
 import pagesPaths from '../../routes/PagesPaths'
 import { logOut } from '../../redux/features/authSlice'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import LightHomeIcon from '../../svgs/light/icons/Home.svg'
+import LightCalendarIcon from '../../svgs/light/icons/Calendar.svg'
+import LightKanbanIcon from '../../svgs/light/icons/Kanban.svg'
+import LightYouTubeIcon from '../../svgs/light/icons/YouTube.svg'
+import LightTikTokIcon from '../../svgs/light/icons/TikTok.svg'
+import LightInstagamIcon from '../../svgs/light/icons/Instagram.svg'
+import LightTwitterIcon from '../../svgs/light/icons/Twitter.svg'
+import LightSettingsIcon from '../../svgs/light/icons/Settings.svg'
+import LightLogOutIcon from '../../svgs/light/icons/LogOut.svg'
+import DarkHomeIcon from '../../svgs/dark/icons/Home.svg'
+import DarkCalendarIcon from '../../svgs/dark/icons/Calendar.svg'
+import DarkKanbanIcon from '../../svgs/dark/icons/Kanban.svg'
+import DarkYouTubeIcon from '../../svgs/dark/icons/YouTube.svg'
+import DarkTikTokIcon from '../../svgs/dark/icons/TikTok.svg'
+import DarkInstagamIcon from '../../svgs/dark/icons/Instagram.svg'
+import DarkTwitterIcon from '../../svgs/dark/icons/Twitter.svg'
+import DarkSettingsIcon from '../../svgs/dark/icons/Settings.svg'
+import DarkLogOutIcon from '../../svgs/dark/icons/LogOut.svg'
+
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
   display: flex;
@@ -50,6 +61,7 @@ const Buttons = styled(Group)`
 `
 
 const SideMenu = () => {
+const { isThemeDark } = useSelector(state => state.app)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -64,28 +76,42 @@ const SideMenu = () => {
             <LogoTextS color={props => props.theme.textColor.primary}/>
         </Logo>
         <Buttons>
-            <LinkButtonSideMenu to={pagesPaths.home} icon={HomeIcon}>
+            <LinkButtonSideMenu to={pagesPaths.home} icon={ isThemeDark
+                                                            ? DarkHomeIcon
+                                                            : LightHomeIcon}>
                 Home
             </LinkButtonSideMenu>
             <Group>
-                <LinkButtonSideMenu to={pagesPaths.calendar} icon={CalendarIcon}>
+                <LinkButtonSideMenu to={pagesPaths.calendar} icon={ isThemeDark 
+                                                                    ? DarkCalendarIcon
+                                                                    : LightCalendarIcon}>
                     Calendar
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu to={pagesPaths.kanban} icon={KanbanIcon}>
+                <LinkButtonSideMenu to={pagesPaths.kanban} icon={ isThemeDark 
+                                                                    ? DarkKanbanIcon
+                                                                    : LightKanbanIcon}>
                     Kanban
                 </LinkButtonSideMenu>
             </Group>
             <Group>
-                <LinkButtonSideMenu to={pagesPaths.youTube} icon={YouTubeIcon}>
+                <LinkButtonSideMenu to={pagesPaths.youTube} icon={ isThemeDark 
+                                                                    ? DarkYouTubeIcon
+                                                                    : LightYouTubeIcon}>
                     YouTube
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu to={pagesPaths.tikTok} icon={TikTokIcon}>
+                <LinkButtonSideMenu to={pagesPaths.tikTok} icon={ isThemeDark 
+                                                                    ? DarkTikTokIcon
+                                                                    : LightTikTokIcon}>
                     TikTok
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu to={pagesPaths.instagram} icon={InstagamIcon}>
+                <LinkButtonSideMenu to={pagesPaths.instagram} icon={ isThemeDark 
+                                                                    ? DarkInstagamIcon
+                                                                    : LightInstagamIcon}>
                     Instagam
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu to={pagesPaths.twitter} icon={TwitterIcon}>
+                <LinkButtonSideMenu to={pagesPaths.twitter} icon={ isThemeDark 
+                                                                    ? DarkTwitterIcon
+                                                                    : LightTwitterIcon}>
                     Twitter
                 </LinkButtonSideMenu>
             </Group>
@@ -93,11 +119,15 @@ const SideMenu = () => {
                 <LinkButtonSideMenu to={pagesPaths.settings.main + 
                                         '/' + 
                                         pagesPaths.settings.subscription} 
-                                    icon={SettingsIcon}>
+                                    icon={ isThemeDark 
+                                            ? DarkSettingsIcon
+                                            : LightSettingsIcon}>
                     Settings
                 </LinkButtonSideMenu>
                 <LinkButtonSideMenu to={pagesPaths.landing}
-                                    icon={LogOutIcon}
+                                    icon={ isThemeDark 
+                                            ? DarkLogOutIcon
+                                            : LightLogOutIcon}
                                     onClick={handleLogOut}>
                     Log Out
                 </LinkButtonSideMenu>
