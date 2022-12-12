@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
+    background-color: ${props => props.theme.backgroundColor.primary};
   };
 
   button {
