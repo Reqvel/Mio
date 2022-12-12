@@ -1,5 +1,7 @@
 import React from 'react'
-import CheckMarkIcon from '../../svgs/icons/CheckMark.svg'
+import LightCheckMarkIcon from '../../svgs/light/icons/CheckMark.svg'
+import DarkCheckMarkIcon from '../../svgs/dark/icons/CheckMark.svg'
+import { useSelector } from 'react-redux';
 import styled from 'styled-components'
 
 const ListHeader = styled.span`
@@ -29,6 +31,8 @@ const Feature = styled.span`
 `
 
 const FeaturesList = ({header, features}) => {
+  const { isThemeDark } = useSelector(state => state.app)
+
   return (
     <>
       <ListHeader>
@@ -37,7 +41,9 @@ const FeaturesList = ({header, features}) => {
       <List>
         { features.map((feature,index) => (
           <ListItem key={index}>
-            <Icon src={CheckMarkIcon}/>
+            <Icon src={ isThemeDark
+                          ? DarkCheckMarkIcon
+                          : LightCheckMarkIcon}/>
               <Feature>
                 {feature}
               </Feature>

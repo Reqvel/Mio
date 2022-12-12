@@ -12,7 +12,7 @@ import DarkKanbanIcon from '../../svgs/dark/feature/Kanban.svg'
 const Wrapper = styled.section`
   padding-top: 64px;
   padding-bottom: 64px;
-  background-color: ${props => props.theme.backgroundColor.secondary};
+  background-color: ${props => props.theme.backgroundColor.primary};
 `;
 
 const Container = styled.div`
