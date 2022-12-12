@@ -5,6 +5,7 @@ import { ScheduleComponent,
          Week,
          WorkWeek,
          Month,
+         Year,
          Agenda,
          Inject,
          Resize,
@@ -471,6 +472,10 @@ const StyledScheduleComponent = styled(ScheduleComponent)`
   & .e-input-group input.e-input,
   & .e-input-group.e-control-wrapper input.e-input {
     color: ${props => props.theme.textColor.primary};
+
+    ::placeholder {
+      color: ${props => props.theme.textColor.subtile};
+    }
   }
 
   & .e-control,
@@ -562,7 +567,9 @@ const Calendar = () => {
       <Absolute>
         <StyledScheduleComponent
           height='100%'
-          width='100%'>
+          width='100%'
+          // eventSettings={{ dataSource: scheduleData }}
+          >
           <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}/>
         </StyledScheduleComponent>
       </Absolute>
