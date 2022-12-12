@@ -21,6 +21,7 @@ const pagesPaths = {
       subscription: 'subscription',
       changePassword: 'change_password',
       socials: 'socials',
+      appearance: 'appearance',
     },
 };
 

@@ -26,6 +26,7 @@ import PasswordChanged from '../components/special/PasswordChanged';
 import Subscription from '../components/settings/Subscription';
 import { default as ChangePasswordFormSettings } from '../components/settings/ChangePasswordForm';
 import Socials from '../components/settings/Socials';
+import Appearance from '../components/settings/Appearance';
 
 const AppRoutes = () => {
   return (
@@ -58,6 +59,7 @@ const AppRoutes = () => {
             <Route path={pagesPaths.settings.subscription} element={ <Subscription/> }/>
             <Route path={pagesPaths.settings.changePassword} element={ <ChangePasswordFormSettings/> }/>
             <Route path={pagesPaths.settings.socials} element={ <Socials/> }/>
+            <Route path={pagesPaths.settings.appearance} element={ <Appearance/> }/>
           </Route>
         </Route>
       </Route>

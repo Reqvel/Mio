@@ -4,9 +4,11 @@ import { LinkButtonOptionItem } from '../common/Links'
 import LightLockIcon from '../../svgs/light/icons/optionsList/Lock.svg'
 import LightSubscriptionIcon from '../../svgs/light/icons/optionsList/Subscription.svg'
 import LightSocialsIcon from '../../svgs/light/icons/optionsList/Socials.svg'
+import LightPencilIcon from '../../svgs/light/icons/optionsList/Pencil.svg'
 import DarkLockIcon from '../../svgs/dark/icons/optionsList/Lock.svg'
 import DarkSubscriptionIcon from '../../svgs/dark/icons/optionsList/Subscription.svg'
 import DarkSocialsIcon from '../../svgs/dark/icons/optionsList/Socials.svg'
+import DarkPencilIcon from '../../svgs/dark/icons/optionsList/Pencil.svg'
 import pagesPaths from '../../routes/PagesPaths'
 import { useSelector } from 'react-redux';
 
@@ -32,6 +34,12 @@ const OptionsMenu = () => {
                                       ? DarkSocialsIcon
                                       : LightSocialsIcon }>
           Socials
+        </LinkButtonOptionItem>
+        <LinkButtonOptionItem to={pagesPaths.settings.appearance}
+                              icon={ isThemeDark
+                                      ? DarkPencilIcon
+                                      : LightPencilIcon }>
+          Appearance
         </LinkButtonOptionItem>
     </OptionsList>
   )
