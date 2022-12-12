@@ -23,13 +23,13 @@ const PieChart = () => {
           data={data}
           outerRadius={100}
           innerRadius={65}
-          fill="#8884d8"
           dataKey="value"
           label
+          
           paddingAngle={2}
         >
           {data.map((entry, index) => (
-            <Cell key={index} fill={COLORS[index % COLORS.length]}/>
+            <Cell key={index} stroke='transparent' fill={COLORS[index % COLORS.length]}/>
           ))}
         </Pie>
       </PieChartRecharts>
