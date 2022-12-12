@@ -25,6 +25,7 @@ const Input = styled.input`
     outline-color: transparent;
     border: 2px solid;
     border-color: ${props => props.theme.components.inputField.borderColor};
+    color: ${props => props.theme.textColor.primary};
 
     background: url(${props => props.icon}) no-repeat left;
     background-size: 24px;
