@@ -2,13 +2,20 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import TopCard from './dashboard/TopCard';
 import ScrollContainer from 'react-indiana-drag-scroll';
-import FollowersIcon from '../svgs/icons/Followers.svg'
-import LikesIcon from '../svgs/icons/Likes.svg'
-import VideosIcon from '../svgs/icons/Videos.svg'
-import OverallEngagementIcon from '../svgs/icons/OverallEngagement.svg'
-import EngagementLikesIcon from '../svgs/icons/EngagementLikes.svg'
-import EngagementCommentsIcon from '../svgs/icons/EngagementComments.svg'
-import EngagementSharesIcon from '../svgs/icons/EngagementShares.svg'
+import LightFollowersIcon from '../svgs/light/icons/Followers.svg'
+import LightLikesIcon from '../svgs/light/icons/Likes.svg'
+import LightVideosIcon from '../svgs/light/icons/Videos.svg'
+import LightOverallEngagementIcon from '../svgs/light/icons/OverallEngagement.svg'
+import LightEngagementLikesIcon from '../svgs/light/icons/EngagementLikes.svg'
+import LightEngagementCommentsIcon from '../svgs/light/icons/EngagementComments.svg'
+import LightEngagementSharesIcon from '../svgs/light/icons/EngagementShares.svg'
+import DarkFollowersIcon from '../svgs/dark/icons/Followers.svg'
+import DarkLikesIcon from '../svgs/dark/icons/Likes.svg'
+import DarkVideosIcon from '../svgs/dark/icons/Videos.svg'
+import DarkOverallEngagementIcon from '../svgs/dark/icons/OverallEngagement.svg'
+import DarkEngagementLikesIcon from '../svgs/dark/icons/EngagementLikes.svg'
+import DarkEngagementCommentsIcon from '../svgs/dark/icons/EngagementComments.svg'
+import DarkEngagementSharesIcon from '../svgs/dark/icons/EngagementShares.svg'
 import { numFormatter } from '../utils/Formatters';
 import ChartCard from './dashboard/ChartCard';
 import LineChart from './dashboard/LineChart';
@@ -17,6 +24,7 @@ import PieChart from './dashboard/PieChart';
 import ChartLabelList from './dashboard/ChartLabelList';
 import { useDispatch } from 'react-redux';
 import { setHeader } from '../redux/features/dashboardSlice';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
   height: 100%;
@@ -43,6 +51,7 @@ const Cards = styled.div`
 `
 
 const TikTok = () => {
+  const { isThemeDark } = useSelector(state => state.app)
   const dispatch = useDispatch()
   const header = 'TikTok'
   const details = "Don't forget to set the details for the TikTok!"
@@ -55,37 +64,51 @@ const TikTok = () => {
     <Container>
       <ScrollContainer>
         <TopCards>
-          <TopCard icon={FollowersIcon}
+          <TopCard icon={isThemeDark
+                          ? DarkFollowersIcon
+                          : LightFollowersIcon}
                        header='Followers'
                        num={numFormatter(700000)}
                        percent={10.2}
                        timeframe='This week'/>
-          <TopCard icon={LikesIcon}
+          <TopCard icon={isThemeDark
+                          ? DarkLikesIcon
+                          : LightLikesIcon}
                        header='Likes'
                        num={numFormatter(2534675)}
                        percent={-24.5}
                        timeframe='This week'/>
-          <TopCard icon={VideosIcon}
+          <TopCard icon={isThemeDark
+                          ? DarkVideosIcon
+                          : LightVideosIcon}
                        header='Videos'
                        num={numFormatter(1123)}
                        percent={0.2}
                        timeframe='This week'/>
-          <TopCard icon={OverallEngagementIcon}
+          <TopCard icon={isThemeDark
+                          ? DarkOverallEngagementIcon
+                          : LightOverallEngagementIcon}
                        header='Overall Engagement'
                        num={'10.65%'}
                        percent={0.55}
                        timeframe='This week'/>
-          <TopCard icon={EngagementLikesIcon}
+          <TopCard icon={isThemeDark
+                          ? DarkEngagementLikesIcon
+                          : LightEngagementLikesIcon}
                        header='Engagement - Likes'
                        num={'10.39%'}
                        percent={0.12}
                        timeframe='This week'/>
-          <TopCard icon={EngagementCommentsIcon}
+          <TopCard icon={isThemeDark
+                          ? DarkEngagementCommentsIcon
+                          : LightEngagementCommentsIcon}
                        header='Engagement - Comments'
                        num={'0.23%'}
                        percent={-0.04}
                        timeframe='This week'/>
-          <TopCard icon={EngagementSharesIcon}
+          <TopCard icon={isThemeDark
+                          ? DarkEngagementSharesIcon
+                          : LightEngagementSharesIcon}
                        header='Engagement - Shares'
                        num={'0.03%'}
                        percent={0.01}
