@@ -61,7 +61,8 @@ const Buttons = styled(Group)`
 `
 
 const SideMenu = () => {
-const { isThemeDark } = useSelector(state => state.app)
+  const { isThemeDark } = useSelector(state => state.app)
+  const { selectedPage } = useSelector(state => state.dashboard)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -76,15 +77,19 @@ const { isThemeDark } = useSelector(state => state.app)
             <LogoTextS color={props => props.theme.textColor.primary}/>
         </Logo>
         <Buttons>
-            <LinkButtonSideMenu to={pagesPaths.home} icon={ isThemeDark
-                                                            ? DarkHomeIcon
-                                                            : LightHomeIcon}>
+            <LinkButtonSideMenu to={pagesPaths.home}
+                                selectedPage={selectedPage}
+                                icon={ isThemeDark
+                                  ? DarkHomeIcon
+                                  : LightHomeIcon}>
                 Home
             </LinkButtonSideMenu>
             <Group>
-                <LinkButtonSideMenu to={pagesPaths.calendar} icon={ isThemeDark 
-                                                                    ? DarkCalendarIcon
-                                                                    : LightCalendarIcon}>
+                <LinkButtonSideMenu to={pagesPaths.calendar} 
+                                    selectedPage={selectedPage} 
+                                    icon={ isThemeDark 
+                                      ? DarkCalendarIcon
+                                      : LightCalendarIcon}>
                     Calendar
                 </LinkButtonSideMenu>
                 <LinkButtonSideMenu to={pagesPaths.kanban} icon={ isThemeDark 

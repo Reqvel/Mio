@@ -52,10 +52,13 @@ const LinkSideMenu = styled(StyledLink)`
     font-weight: 600;
     padding: 16px 8px;
     gap: 8px;
-    background: transparent;
+    background: ${props => props.selectedPage === props.to 
+                            ? props.theme.components.button.transparent.hoverColor 
+                            : 'transparent'};
     border: none;
     cursor: pointer;
     transition: background 0.3s ease 0s; 
+
 
     :hover {
         background: ${props => props.theme.components.button.transparent.hoverColor};
@@ -137,9 +140,9 @@ const LinkOptionItem = styled(StyledLink)`
 const ListItem = styled.li`
 `
 
-export const LinkButtonSideMenu = ({to, icon, children}) => {
+export const LinkButtonSideMenu = ({to, icon, children, selectedPage}) => {
     return (
-        <LinkSideMenu to={to}>
+        <LinkSideMenu to={to} selectedPage={selectedPage}>
             <Icon src={icon}/>
             {children}
         </LinkSideMenu>

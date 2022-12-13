@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   header: '',
   details: '',
+  selectedPage: ''
 }
 
 const dashboardSlice = createSlice({
@@ -16,9 +17,13 @@ const dashboardSlice = createSlice({
       state.details = details
     },
 
+    setSelectedPage: (state, action) => {
+      state.selectedPage = action.payload
+    },
+
   },
 })
 
-export const { setHeader } = dashboardSlice.actions
+export const { setHeader, setSelectedPage } = dashboardSlice.actions
 
 export default dashboardSlice.reducer
