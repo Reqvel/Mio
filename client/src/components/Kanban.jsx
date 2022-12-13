@@ -15,6 +15,8 @@ const Container = styled.div`
 
 const StyledKanbanComponent = styled(KanbanComponent)`
   background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
 
   .e-kanban-table .e-header-cells {
     background-color: ${props => props.theme.components.kanban.card.headerColor};
@@ -100,6 +102,13 @@ const StyledKanbanComponent = styled(KanbanComponent)`
 
   .e-card.e-droppable.e-lib.e-draggable.e-selection {
     background-color: ${props => props.theme.components.kanban.card.selectionColor};
+  }
+
+  &.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-empty-card, 
+  &.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-container .e-empty-card {
+    color: ${props => props.theme.textColor.primary};
+    font-size: 0.8rem;
+    font-weight: 500;
   }
 `
 
