@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { setHeader } from '../redux/features/dashboardSlice'
-import ConnectSocial from './ConnectSocial'
+import { setHeader, setSelectedPage } from '../redux/features/dashboardSlice'
+import ConnectSocial from './dashboard/ConnectSocial'
 import styled from 'styled-components'
+import pagesPaths from '../routes/PagesPaths'
 
 const Container = styled.div`
   height: 100%;
@@ -20,6 +21,7 @@ const YouTube = () => {
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
+    dispatch(setSelectedPage(pagesPaths.youTube))
   }, [])
 
   return (

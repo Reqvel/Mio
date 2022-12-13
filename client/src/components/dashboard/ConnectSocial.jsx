@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LinkButtonOutlined } from './common/Links'
-import { ReactComponent as Illustration } from '../svgs/NotConnected.svg';
+import { LinkButtonOutlined } from '../common/Links'
+import { ReactComponent as Illustration } from '../../svgs/NotConnected.svg';
 
 const Container = styled.div`
   height: 100%;

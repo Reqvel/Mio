@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-kanban'
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { setHeader } from '../redux/features/dashboardSlice';
+import { setHeader, setSelectedPage } from '../redux/features/dashboardSlice';
+import pagesPaths from '../routes/PagesPaths';
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.dashboard};
@@ -481,6 +482,7 @@ const Kanban = () => {
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
+    dispatch(setSelectedPage(pagesPaths.kanban))
   }, [])
 
   return (

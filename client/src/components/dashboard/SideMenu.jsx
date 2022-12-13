@@ -78,52 +78,61 @@ const SideMenu = () => {
         </Logo>
         <Buttons>
             <LinkButtonSideMenu to={pagesPaths.home}
-                                selectedPage={selectedPage}
+                                selectedpage={selectedPage}
                                 icon={ isThemeDark
-                                  ? DarkHomeIcon
-                                  : LightHomeIcon}>
+                                        ? DarkHomeIcon
+                                        : LightHomeIcon}>
                 Home
             </LinkButtonSideMenu>
             <Group>
                 <LinkButtonSideMenu to={pagesPaths.calendar} 
-                                    selectedPage={selectedPage} 
+                                    selectedpage={selectedPage} 
                                     icon={ isThemeDark 
-                                      ? DarkCalendarIcon
-                                      : LightCalendarIcon}>
+                                            ? DarkCalendarIcon
+                                            : LightCalendarIcon}>
                     Calendar
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu to={pagesPaths.kanban} icon={ isThemeDark 
-                                                                    ? DarkKanbanIcon
-                                                                    : LightKanbanIcon}>
+                <LinkButtonSideMenu to={pagesPaths.kanban}
+                                    selectedpage={selectedPage}
+                                    icon={ isThemeDark 
+                                            ? DarkKanbanIcon
+                                            : LightKanbanIcon}>
                     Kanban
                 </LinkButtonSideMenu>
             </Group>
             <Group>
-                <LinkButtonSideMenu to={pagesPaths.youTube} icon={ isThemeDark 
-                                                                    ? DarkYouTubeIcon
-                                                                    : LightYouTubeIcon}>
+                <LinkButtonSideMenu to={pagesPaths.youTube} 
+                                    selectedpage={selectedPage}
+                                    icon={ isThemeDark 
+                                            ? DarkYouTubeIcon
+                                            : LightYouTubeIcon}>
                     YouTube
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu to={pagesPaths.tikTok} icon={ isThemeDark 
-                                                                    ? DarkTikTokIcon
-                                                                    : LightTikTokIcon}>
+                <LinkButtonSideMenu to={pagesPaths.tikTok}
+                                    selectedpage={selectedPage}
+                                    icon={ isThemeDark 
+                                            ? DarkTikTokIcon
+                                            : LightTikTokIcon}>
                     TikTok
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu to={pagesPaths.instagram} icon={ isThemeDark 
-                                                                    ? DarkInstagamIcon
-                                                                    : LightInstagamIcon}>
+                <LinkButtonSideMenu to={pagesPaths.instagram} 
+                                    selectedpage={selectedPage}
+                                    icon={ isThemeDark 
+                                            ? DarkInstagamIcon
+                                            : LightInstagamIcon}>
                     Instagam
                 </LinkButtonSideMenu>
-                <LinkButtonSideMenu to={pagesPaths.twitter} icon={ isThemeDark 
-                                                                    ? DarkTwitterIcon
-                                                                    : LightTwitterIcon}>
+                <LinkButtonSideMenu to={pagesPaths.twitter} 
+                                    selectedpage={selectedPage}
+                                    icon={ isThemeDark 
+                                            ? DarkTwitterIcon
+                                            : LightTwitterIcon}>
                     Twitter
                 </LinkButtonSideMenu>
             </Group>
             <Group>
-                <LinkButtonSideMenu to={pagesPaths.settings.main + 
-                                        '/' + 
-                                        pagesPaths.settings.subscription} 
+                <LinkButtonSideMenu to={`${pagesPaths.settings.main}/${pagesPaths.settings.subscription}`} 
+                                    selectedpage={selectedPage}
                                     icon={ isThemeDark 
                                             ? DarkSettingsIcon
                                             : LightSettingsIcon}>

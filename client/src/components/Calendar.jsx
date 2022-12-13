@@ -12,6 +12,8 @@ import { ScheduleComponent,
          DragAndDrop} from '@syncfusion/ej2-react-schedule';
 import { useDispatch } from 'react-redux';
 import { setHeader } from '../redux/features/dashboardSlice';
+import { setSelectedPage } from '../redux/features/dashboardSlice'; 
+import pagesPaths from '../routes/PagesPaths';
 
 const Container = styled.div`
   height: 100%;
@@ -560,6 +562,7 @@ const Calendar = () => {
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
+    dispatch(setSelectedPage(pagesPaths.calendar))
   }, [])
 
   return (

@@ -23,8 +23,9 @@ import BarChart from './dashboard/BarChart';
 import PieChart from './dashboard/PieChart';
 import ChartLabelList from './dashboard/ChartLabelList';
 import { useDispatch } from 'react-redux';
-import { setHeader } from '../redux/features/dashboardSlice';
+import { setHeader, setSelectedPage } from '../redux/features/dashboardSlice';
 import { useSelector } from 'react-redux';
+import pagesPaths from '../routes/PagesPaths';
 
 const Container = styled.div`
   height: 100%;
@@ -58,6 +59,7 @@ const TikTok = () => {
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
+    dispatch(setSelectedPage(pagesPaths.tikTok))
   }, [])
 
   return (

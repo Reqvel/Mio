@@ -4,6 +4,8 @@ import TopCard from './dashboard/TopCard';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { useDispatch } from 'react-redux';
 import { setHeader } from '../redux/features/dashboardSlice';
+import { setSelectedPage } from '../redux/features/dashboardSlice';
+import pagesPaths from '../routes/PagesPaths';
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.dashboard};
@@ -27,6 +29,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
+    dispatch(setSelectedPage(pagesPaths.home))
   }, [])
 
   return (
