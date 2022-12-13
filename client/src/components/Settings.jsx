@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import OptionsMenu from './settings/OptionsMenu'
 import Option from './settings/Option'
 import pagesPaths from '../routes/PagesPaths'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth.dashboard};
@@ -27,11 +27,14 @@ const Settings = () => {
   const header = 'Settings'
   const details = "Don't forget to set the details for the Settings!"
   const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
     dispatch(setSelectedPage(`${pagesPaths.settings.main}/${pagesPaths.settings.subscription}`))
-    navigate(pagesPaths.settings.subscription)
+    if (location.pathname == `${pagesPaths.dashboard}/${pagesPaths.settings.main}`){
+      navigate(pagesPaths.settings.subscription)
+    }
   }, [])
 
   return (
