@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   header: '',
   details: '',
+  selectedOption: '',
 }
 
 const settingsSlice = createSlice({
@@ -16,9 +17,13 @@ const settingsSlice = createSlice({
       state.details = details
     },
 
+    setSelectedOption: (state, action) => {
+      state.selectedOption = action.payload
+    },
+
   },
 })
 
-export const { setHeader } = settingsSlice.actions
+export const { setHeader, setSelectedOption } = settingsSlice.actions
 
 export default settingsSlice.reducer

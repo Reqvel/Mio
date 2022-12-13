@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import { setHeader } from '../../redux/features/settingsSlice';
+import { setHeader, setSelectedOption } from '../../redux/features/settingsSlice';
 import ToggleSwitch from '../common/ToggleSwitch';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { setIsThemeDark } from '../../redux/features/appSlice';
+import pagesPaths from '../../routes/PagesPaths';
 
 const Container = styled.div`
   width: 512px;
@@ -24,7 +25,8 @@ const Appearance = () => {
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
-  }, [])
+    dispatch(setSelectedOption(pagesPaths.settings.appearance))
+  }, [dispatch])
 
   const handleClick = () => {
     dispatch(setIsThemeDark(!isThemeDark))

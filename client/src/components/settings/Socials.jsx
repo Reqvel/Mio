@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { setHeader } from '../../redux/features/settingsSlice';
+import { setHeader, setSelectedOption } from '../../redux/features/settingsSlice';
 import { useDispatch } from 'react-redux';
+import pagesPaths from '../../routes/PagesPaths';
 
 const Socials = () => {
   const header = "Socials"
@@ -9,7 +10,8 @@ const Socials = () => {
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
-  }, [])
+    dispatch(setSelectedOption(pagesPaths.settings.socials))
+  }, [dispatch])
 
   return (
     <div>Socials</div>

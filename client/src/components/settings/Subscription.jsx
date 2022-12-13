@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
-import { setHeader } from '../../redux/features/settingsSlice';
+import { setHeader, setSelectedOption } from '../../redux/features/settingsSlice';
 import { useDispatch } from 'react-redux';
 import PricingCard from './PricingCard';
 import CurrentPlanCard from './CurrentPlanCard';
+import pagesPaths from '../../routes/PagesPaths';
 
 const Cards = styled.div`
   display: flex;
@@ -56,7 +57,8 @@ const Subscription = () => {
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
-  }, [])
+    dispatch(setSelectedOption(pagesPaths.settings.subscription))
+  }, [dispatch])
 
   return (
     <>

@@ -12,30 +12,36 @@ import DarkPencilIcon from '../../svgs/dark/icons/optionsList/Pencil.svg'
 import pagesPaths from '../../routes/PagesPaths'
 import { useSelector } from 'react-redux';
 
+
 const OptionsMenu = () => {
   const { isThemeDark } = useSelector(state => state.app)
+  const { selectedOption } = useSelector(state => state.settings)
 
   return (
     <OptionsList>
         <LinkButtonOptionItem to={pagesPaths.settings.subscription}
+                              selectedoption={selectedOption}
                               icon={ isThemeDark
                                       ? DarkSubscriptionIcon
                                       : LightSubscriptionIcon }>
           Subscription
         </LinkButtonOptionItem>
         <LinkButtonOptionItem to={pagesPaths.settings.changePassword}
+                              selectedoption={selectedOption}
                               icon={ isThemeDark
                                       ? DarkLockIcon
                                       : LightLockIcon }>
           Change password
         </LinkButtonOptionItem>
         <LinkButtonOptionItem to={pagesPaths.settings.socials}
+                              selectedoption={selectedOption}
                               icon={ isThemeDark
                                       ? DarkSocialsIcon
                                       : LightSocialsIcon }>
           Socials
         </LinkButtonOptionItem>
         <LinkButtonOptionItem to={pagesPaths.settings.appearance}
+                              selectedoption={selectedOption}
                               icon={ isThemeDark
                                       ? DarkPencilIcon
                                       : LightPencilIcon }>
