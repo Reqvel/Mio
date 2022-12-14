@@ -47,6 +47,7 @@ const Right = styled.div`
 `;
 
 const Theme = styled.span`
+  font-size: 0.8rem;
   color: ${props => props.theme.textColor.subtile};
   padding-bottom: 8px;
 `

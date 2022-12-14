@@ -500,7 +500,7 @@ const Kanban = () => {
         keyField="Status"
         dataSource={kanbanData}
         cardSettings={{ contentField: 'Summary',
-                        headerField: 'Id',
+                        headerField: 'Title',
                         selectionType: 'Multiple', }}>
         <ColumnsDirective>
           {kanbanGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
