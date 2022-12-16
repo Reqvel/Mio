@@ -6,12 +6,12 @@ import { setHeader, setSelectedPage } from '../redux/features/dashboardSlice';
 import pagesPaths from '../routes/PagesPaths';
 import { useState } from 'react';
 import { useRef } from 'react';
-import { useGetCategoriesQuery,
-         useGetEventsQuery,
-         useLazyGetEventsQuery,
-         useSendChangedEventsMutation,
-         useSendCreatedEventsMutation,
-         useSendRemovedEventsMutation } from '../redux/features/kanbanApiSlice';
+import { useGetKanbanCategoriesQuery,
+         useGetKanbanEventsQuery,
+         useLazyGetKanbanEventsQuery,
+         useSendChangedKanbanEventsMutation,
+         useSendCreatedKanbanEventsMutation,
+         useSendRemovedKanbanEventsMutation } from '../redux/features/kanbanApiSlice';
 import LoadingSpinner from './common/LoadingSpinner'
 import { QueryStatus } from '@reduxjs/toolkit/dist/query';
 import { useCallback } from 'react';
@@ -153,12 +153,12 @@ const Kanban = () => {
   const header = 'Kanban'
   const details = "Don't forget to set the details for the kanban!"
 
-  const {data: categoriesResponse, isFetching: isCategoriesFetching} = useGetCategoriesQuery()
-  const {data: cellsResponse, isFetching: isCellsFetching} = useGetEventsQuery()
-  const [getEvents] = useLazyGetEventsQuery()
-  const [sendChangedEvents] = useSendChangedEventsMutation()
-  const [sendCreatedEvents, {status: createdStatus}] = useSendCreatedEventsMutation()
-  const [sendRemovedEvents] = useSendRemovedEventsMutation()
+  const {data: categoriesResponse, isFetching: isCategoriesFetching} = useGetKanbanCategoriesQuery()
+  const {data: cellsResponse, isFetching: isCellsFetching} = useGetKanbanEventsQuery()
+  const [getEvents] = useLazyGetKanbanEventsQuery()
+  const [sendChangedEvents] = useSendChangedKanbanEventsMutation()
+  const [sendCreatedEvents, {status: createdStatus}] = useSendCreatedKanbanEventsMutation()
+  const [sendRemovedEvents] = useSendRemovedKanbanEventsMutation()
 
   const handleDataChanged = useCallback((e) => {
     const handleChanged = (records) => sendChangedEvents(records)
@@ -185,14 +185,19 @@ const Kanban = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if(!isCellsFetching && !isCategoriesFetching) {
-      if(cellsResponse && categoriesResponse) {
+    if(!isCategoriesFetching) {
+      if(categoriesResponse) {
         setCategories(JSON.parse(JSON.stringify(categoriesResponse)))
+      }
+    }
+
+    if(!isCellsFetching) {
+      if(cellsResponse) {
         setCells(JSON.parse(JSON.stringify(cellsResponse)))
       }
-
-      kanbanRef.current?.addEventListener('dataSourceChanged', handleDataChanged)
     }
+
+    kanbanRef.current?.addEventListener('dataSourceChanged', handleDataChanged)
   }, [isCellsFetching, isCategoriesFetching, cellsResponse, categoriesResponse, handleDataChanged])
 
   useEffect(() => {
@@ -208,7 +213,7 @@ const Kanban = () => {
   return (
     <Container>
       {
-        isCellsFetching
+        (isCellsFetching || isCategoriesFetching)
         ? <SpinnerContainer>
             <LoadingSpinner/>
           </SpinnerContainer>

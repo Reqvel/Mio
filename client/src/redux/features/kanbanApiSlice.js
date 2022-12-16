@@ -3,21 +3,21 @@ import { apiSlice } from "../services/apiSlice";
 export const kanbanApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
 
-    getCategories: builder.query({
+    getKanbanCategories: builder.query({
       query: () => ({
         url: '/statistics/kanban/categories/',
         method: 'GET',
       }),
     }),
 
-    getEvents: builder.query({
+    getKanbanEvents: builder.query({
       query: () => ({
         url: '/statistics/kanban/',
         method: 'GET',
       }),
     }),
   
-    sendChangedEvents: builder.mutation({
+    sendChangedKanbanEvents: builder.mutation({
       query: events => ({
         url: '/statistics/kanban/',
         method: 'PATCH',
@@ -25,7 +25,7 @@ export const kanbanApiSlice = apiSlice.injectEndpoints({
       })  
     }),
 
-    sendCreatedEvents: builder.mutation({
+    sendCreatedKanbanEvents: builder.mutation({
       query: events => ({
         url: '/statistics/kanban/',
         method: 'PUT',
@@ -33,7 +33,7 @@ export const kanbanApiSlice = apiSlice.injectEndpoints({
       })  
     }),
 
-    sendRemovedEvents: builder.mutation({
+    sendRemovedKanbanEvents: builder.mutation({
       query: events => ({
         url: '/statistics/kanban/',
         method: 'DELETE',
@@ -44,9 +44,9 @@ export const kanbanApiSlice = apiSlice.injectEndpoints({
   })
 })
 
-export const { useGetCategoriesQuery,
-               useGetEventsQuery,
-               useLazyGetEventsQuery,
-               useSendChangedEventsMutation,
-               useSendCreatedEventsMutation,
-               useSendRemovedEventsMutation } = kanbanApiSlice
+export const { useGetKanbanCategoriesQuery,
+               useGetKanbanEventsQuery,
+               useLazyGetKanbanEventsQuery,
+               useSendChangedKanbanEventsMutation,
+               useSendCreatedKanbanEventsMutation,
+               useSendRemovedKanbanEventsMutation } = kanbanApiSlice
