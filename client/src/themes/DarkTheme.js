@@ -102,8 +102,8 @@ const darkTheme = {
         },
       },
       spinner: {
-        backgroundColor: '#424242',
-        foregroundColor: '#25282E',
+        backgroundColor: '#707070',
+        foregroundColor: '#DBDBDB',
       },
     }
   };

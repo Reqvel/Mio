@@ -102,7 +102,7 @@ const lightTheme = {
       },
     },
     spinner: {
-      backgroundColor: '#CCCCCC',
+      backgroundColor: '#989898',
       foregroundColor: '#25282E',
     },
   }

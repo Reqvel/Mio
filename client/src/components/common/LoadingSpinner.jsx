@@ -10,9 +10,9 @@ const SpinnerCotainer = styled.div`
 const Spinner = styled.div`
   width: 36px;
   height: 36px;
-  border: 8px solid ${props => props.theme.components.spinner.backgroundColor};
-  border-top: 8px solid ${props => props.theme.components.spinner.foregroundColor};
-  border-radius: 60%;
+  border: 4px solid ${props => props.theme.components.spinner.backgroundColor};
+  border-top: 4px solid ${props => props.theme.components.spinner.foregroundColor};
+  border-radius: 50%;
   animation: spinner 1.5s linear infinite;
 
   @keyframes spinner {
