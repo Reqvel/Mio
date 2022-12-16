@@ -197,7 +197,9 @@ const Kanban = () => {
       }
     }
 
-    kanbanRef.current?.addEventListener('dataSourceChanged', handleDataChanged)
+    if(!isCellsFetching && !isCategoriesFetching) {
+      kanbanRef.current?.addEventListener('dataSourceChanged', handleDataChanged)
+    }
   }, [isCellsFetching, isCategoriesFetching, cellsResponse, categoriesResponse, handleDataChanged])
 
   useEffect(() => {
