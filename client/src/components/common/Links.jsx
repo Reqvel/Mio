@@ -142,9 +142,9 @@ const LinkOptionItem = styled(StyledLink)`
 const ListItem = styled.li`
 `
 
-export const LinkButtonSideMenu = ({to, icon, selectedpage, children}) => {
+export const LinkButtonSideMenu = ({to, icon, selectedpage, onClick, children}) => {
     return (
-        <LinkSideMenu to={to} selectedpage={selectedpage}>
+        <LinkSideMenu to={to} selectedpage={selectedpage} onClick={onClick}>
             <Icon src={icon}/>
             {children}
         </LinkSideMenu>

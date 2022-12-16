@@ -68,7 +68,6 @@ const SideMenu = () => {
 
   const handleLogOut = () => {
     dispatch(logOut())
-    navigate(pagesPaths.landing)
   }
 
   return (
