@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { ScheduleComponent,  
          Day,
          Week,
          WorkWeek,
          Month,
-         Year,
          Agenda,
          Inject,
          Resize,
@@ -14,6 +13,16 @@ import { useDispatch } from 'react-redux';
 import { setHeader } from '../redux/features/dashboardSlice';
 import { setSelectedPage } from '../redux/features/dashboardSlice'; 
 import pagesPaths from '../routes/PagesPaths';
+import { useRef } from 'react';
+import { QueryStatus } from '@reduxjs/toolkit/dist/query';
+import LoadingSpinner from './common/LoadingSpinner';
+import { prepareToSendCalendarEvents,
+         prepareToShowCalendarEvents } from '../utils/ReformatCalendarEvents';
+import { useGetCalendarEventsQuery,
+         useLazyGetCalendarEventsQuery,
+         useSendChangedCalendarEventsMutation,
+         useSendCreatedCalendarEventsMutation,
+         useSendRemovedCalendarEventsMutation } from '../redux/features/calendarApiSlice';
 
 const Container = styled.div`
   height: 100%;
@@ -24,6 +33,14 @@ const Container = styled.div`
   padding-left: ${props => props.theme.padding.dashboard};
   padding-right: ${props => props.theme.padding.dashboard};
 `;
+
+const SpinnerContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const Absolute = styled.div`
   position: absolute;
@@ -553,29 +570,100 @@ const StyledScheduleComponent = styled(ScheduleComponent)`
     color: ${props => props.theme.textColor.secondary};
     font-size: 0.8rem;
   }
+
+  & .e-schedule .e-vertical-view .e-all-day-appointment-wrapper .e-appointment .e-appointment-details .e-subject {
+    font-size: 0.8rem;
+  }
+
+  &.e-schedule .e-vertical-view .e-all-day-appointment-wrapper .e-appointment {
+    background: ${props => props.theme.components.calendar.card.color};
+    border: transparent;
+    border-radius: 4px;
+    color: ${props => props.theme.textColor.secondary};
+  }
 `
 
 const Calendar = () => {
+  const [events, setEvents] = useState([])
+  const calendarRef = useRef()
   const dispatch = useDispatch()
   const header = 'Calendar'
   const details = "Don't forget to set the details for the calendar!"
 
+  const {data: eventsResponse, isFetching: isEventsFetching} = useGetCalendarEventsQuery()
+  const [getEvents] = useLazyGetCalendarEventsQuery()
+  const [sendChangedEvents] = useSendChangedCalendarEventsMutation()
+  const [sendCreatedEvents, {status: createdStatus}] = useSendCreatedCalendarEventsMutation()
+  const [sendRemovedEvents] = useSendRemovedCalendarEventsMutation()
+
+  const handleDataChanged = useCallback((e) => {
+    console.log(e)
+    const handleChanged = (records) => sendChangedEvents(prepareToSendCalendarEvents(records))
+    const handleCreated = (records) => sendCreatedEvents(prepareToSendCalendarEvents(records))
+    const handleRemoved = (records) => sendRemovedEvents(prepareToSendCalendarEvents(records))
+
+    switch(e.requestType) {
+      case 'eventChanged':
+        handleChanged(Object.values(e.changedRecords))
+        break;
+      case 'eventCreated':
+        handleCreated(Object.values(e.addedRecords))
+        break;
+      case 'eventRemoved':
+        handleRemoved(Object.values(e.deletedRecords))
+        break;
+      default: break;
+    }
+  }, [sendChangedEvents, sendCreatedEvents, sendRemovedEvents])
+
   useEffect(() => {
     dispatch(setHeader({header, details}))
     dispatch(setSelectedPage(pagesPaths.calendar))
-  }, [])
+  }, [dispatch])
+
+  useEffect(() => {
+    if(!isEventsFetching) {
+      if(eventsResponse) {
+        setEvents(
+          prepareToShowCalendarEvents(
+            JSON.parse(JSON.stringify(eventsResponse))
+          ))
+      }
+      calendarRef.current.addEventListener('actionComplete', handleDataChanged)
+    }
+  }, [isEventsFetching, eventsResponse, handleDataChanged])
+
+  useEffect(() => {
+    if(createdStatus === QueryStatus.fulfilled) {
+      const {data} = getEvents()
+
+      if(data) {
+        setEvents(
+          prepareToShowCalendarEvents(
+            JSON.parse(JSON.stringify(data))
+          ))
+      }
+    }
+  }, [createdStatus, getEvents])
 
   return (
     <Container>
       <Absolute>
-        <StyledScheduleComponent
-          height='100%'
-          width='100%'
-          // eventSettings={{ dataSource: scheduleData }}
-          >
-          <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}/>
-        </StyledScheduleComponent>
-      </Absolute>
+        {
+          isEventsFetching
+            ? <SpinnerContainer>
+                <LoadingSpinner/>
+              </SpinnerContainer>
+            : <StyledScheduleComponent
+                ref={calendarRef}
+                enablePersistence
+                height='100%'
+                width='100%'
+                eventSettings={{ dataSource: events }}>
+                <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}/>
+              </StyledScheduleComponent>
+        }
+        </Absolute>
     </Container>
   )
 }
