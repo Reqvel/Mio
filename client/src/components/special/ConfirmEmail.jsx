@@ -25,30 +25,6 @@ const Details = styled.span`
   color: ${props => props.theme.textColor.primary};
 `
 
-// const SpinnerCotainer = styled.div`
-//   display: grid;
-//   justify-content: center;
-//   align-items: center;
-// `
-
-// const Spinner = styled.div`
-//   width: 36px;
-//   height: 36px;
-//   border: 8px solid ${props => props.theme.components.spinner.backgroundColor};
-//   border-top: 8px solid ${props => props.theme.components.spinner.foregroundColor};
-//   border-radius: 60%;
-//   animation: spinner 1.5s linear infinite;
-
-//   @keyframes spinner {
-//     0% {
-//       transform: rotate(0deg);
-//     }
-//     100% {
-//       transform: rotate(360deg);
-//     }
-//   }
-// `
-
 const ConfirmEmail = () => {
   return (
     <Container>
