@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import FormField from './FormField'
 import { ButtonBig } from '../common/Buttons'
-import { useResetPasswordMutation } from '../../redux/features/authApiSlice'
+import { useResetPasswordViaEmailMutation } from '../../redux/features/authApiSlice'
 import pagesPaths from '../../routes/PagesPaths'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
@@ -42,7 +42,7 @@ const ResetPasswordForm = () => {
   const emailRef = useRef()
   const [email, setEmail] = useState('')
   const [errMsg, setErrMsg] = useState('')
-  const [resetPassword, { isLoading }] = useResetPasswordMutation()
+  const [resetPassword, { isLoading }] = useResetPasswordViaEmailMutation()
   const redirectTo = window.location.origin + pagesPaths.changePassword
   const navigate = useNavigate()
 

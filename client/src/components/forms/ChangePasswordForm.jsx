@@ -126,7 +126,7 @@ const ChangePasswordForm = () => {
       <ButtonBig disabled={isLoading}>
         {!isLoading
           ? 'Change password'
-          : 'Sending...'}
+          : 'Changing password...'}
       </ButtonBig>
     </Container>
   )
