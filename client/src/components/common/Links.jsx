@@ -11,7 +11,9 @@ export const LinkButton = styled(Link)`
     padding: 12px 48px;
     font-weight: 600;
     color: ${props => props.theme.textColor.secondary};
-    background: ${props => props.theme.components.button.filled.color};
+    background: ${props => props.disabled
+                            ? props.theme.components.button.filled.disabledColor
+                            : props.theme.components.button.filled.color};
     border-radius: 12px;
     border: 2px solid transparent;
     text-decoration: none;
@@ -19,7 +21,9 @@ export const LinkButton = styled(Link)`
     transition: background 0.3s ease; 
 
     :hover {
-        background: ${props => props.theme.components.button.filled.hoverColor};
+        background: ${props => props.disabled
+                            ? props.theme.components.button.filled.disabledColor
+                            : props.theme.components.button.filled.color};
         transition: background 0.3s ease; 
     };
 `;
