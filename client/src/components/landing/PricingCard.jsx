@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { LinkButtonBig } from '../common/Links' 
 import FeaturesList from '../common/FeaturesList';
 import { getCurrencySymbol } from '../../utils/GetCurrencySymbol';
-import pagesPath from '../../routes/PagesPaths'
+import pagesPaths from '../../routes/PagesPaths'
 
 const Wrapper = styled.div`
   width: 512px;
@@ -63,7 +63,7 @@ const PricingCard = ({header, price, features}) => {
   const currencySymbol = getCurrencySymbol(price.currency)
   const pricePerUnit = Number(price.per_unit) / 100;
   const buttonText = pricePerUnit ? 'Buy Now' : 'Try It Free'
-  const linkTo = `${pagesPath.dashboard}/${pagesPath.settings.main}/${pagesPath.settings.subscription}`
+  const linkTo = `${pagesPaths.dashboard}/${pagesPaths.settings.main}/${pagesPaths.settings.subscription}`
 
   return (
     <Wrapper>
