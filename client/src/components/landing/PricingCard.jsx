@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ButtonBig } from '../common/Buttons';
+import { LinkButtonBig } from '../common/Links' 
 import FeaturesList from '../common/FeaturesList';
+import { getCurrencySymbol } from '../../utils/GetCurrencySymbol';
+import pagesPath from '../../routes/PagesPaths'
 
 const Wrapper = styled.div`
   width: 512px;
@@ -57,7 +59,12 @@ const Lower = styled.div`
   border-radius: 0 0 12px 12px;
 `
 
-const PricingCard = ({header, price, buttonText, features=[]}) => {
+const PricingCard = ({header, price, features}) => {
+  const currencySymbol = getCurrencySymbol(price.currency)
+  const pricePerUnit = Number(price.per_unit) / 100;
+  const buttonText = pricePerUnit ? 'Buy Now' : 'Try It Free'
+  const linkTo = `${pagesPath.dashboard}/${pagesPath.settings.main}/${pagesPath.settings.subscription}`
+
   return (
     <Wrapper>
       <Container>
@@ -66,14 +73,14 @@ const PricingCard = ({header, price, buttonText, features=[]}) => {
             {header}
           </Header>
           <Price>
-            ${price}&nbsp;
+            {currencySymbol}{pricePerUnit}&nbsp;
             <Timeframe>
-                /month
+              /{price.period}
             </Timeframe>
           </Price>
-          <ButtonBig>
+          <LinkButtonBig to={linkTo}>
             {buttonText}
-          </ButtonBig>
+          </LinkButtonBig>
         </Upper>
         <Lower>
           <FeaturesList header={header} features={features}/>

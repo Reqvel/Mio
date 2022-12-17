@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PricingCard from './PricingCard';
+import { useGetSubscriptionOptionsQuery } from '../../redux/features/paymentApiSlice';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 const Wrapper = styled.section`
   padding-top: 64px;
@@ -39,35 +41,8 @@ const Cards = styled.div`
 `;
 
 const Pricing = () => {
-  const data = [
-    {
-      header: 'Free',
-      price: 0,
-      buttonText: 'Try It Free',
-      features: [
-        'features1',
-        'features2',
-        'features3',
-        'features4',
-      ]
-    },
-    {
-      header: 'Premium',
-      price: 4.99,
-      buttonText: 'Buy Now',
-      features: [
-        'features1',
-        'features2',
-        'features3',
-        'features4',
-        'features5',
-        'features6',
-        'features7',
-        'features8',
-      ]
-    },
+  const {data, isFetching} = useGetSubscriptionOptionsQuery()
 
-  ]
   return (
     <Wrapper id='pricing'>
         <Container>
@@ -77,15 +52,20 @@ const Pricing = () => {
             <Details>
                 The wise man therefore always holds in these matters to this principle of selection.
             </Details>
-            <Cards>
-              {data.map((card, index) => (
-                <PricingCard key={index}
-                             header={card.header}
-                             price={card.price}
-                             buttonText={card.buttonText}
-                             features={card.features}/>
-              ))}
-            </Cards>
+            {
+              isFetching 
+                ? <LoadingSpinner/>
+                : <Cards>
+                    {
+                      data?.map((card, index) => (
+                        <PricingCard key={index}
+                                      header={card.name}
+                                      price={card.price}
+                                      features={card.features}/>
+                      ))
+                    }
+                  </Cards>
+            }
         </Container>
     </Wrapper>
   )
