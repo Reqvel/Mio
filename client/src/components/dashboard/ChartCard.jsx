@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 const Wrapper = styled.div`
   min-width: ${props => props.minWidth};;
@@ -49,7 +50,14 @@ const Chart = styled.div`
 const Bottom = styled.div`
 `
 
-const LineChartCard = ({ header, details, chart, bottom,
+const SpinnerContainer = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const LineChartCard = ({ isLoading, header, details, chart, bottom,
                          minWidth,
                          columnStart, columnEnd, rowStart, rowEnd}) => {
   
@@ -66,14 +74,22 @@ const LineChartCard = ({ header, details, chart, bottom,
         <Details>
           {details}
         </Details>
-        <ChartContainer>
-          <Chart>
-            {chart}
-          </Chart>
-        </ChartContainer>
-        <Bottom>
-          {bottom}
-        </Bottom>
+        {
+          isLoading
+          ? <SpinnerContainer>
+              <LoadingSpinner/>
+            </SpinnerContainer>
+          : <>
+              <ChartContainer>
+                <Chart>
+                  {chart}
+                </Chart>
+              </ChartContainer>
+              <Bottom>
+                {bottom}
+              </Bottom>
+            </>
+        }
       </Container>
     </Wrapper>
   )
