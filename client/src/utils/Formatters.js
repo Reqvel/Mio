@@ -6,5 +6,7 @@ export function numFormatter(num) {
 }
 
 export function dateFormatter(date) {
-    return format(new Date(date), "dd MMM");
+    const dateParts = date.split(".");
+    const dateObject = format(new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]), "dd MMM");
+    return dateObject
 };
