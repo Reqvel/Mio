@@ -8,38 +8,25 @@ import { BarChart as BarChartRecharts,
          ResponsiveContainer } from 'recharts';
 import { numFormatter ,dateFormatter } from '../../utils/Formatters';
 
-const BarChart = () => {
-  const data = [
-    {
-      date: '01.01.2000',
-      followers: 1345,
-    },
-    {
-      date: '01.02.2000',
-      followers: 53453,
-    },
-    {
-      date: '01.03.2000',
-      followers: 102348,
-    },
-    {
-      date: '01.03.2000',
-      followers: 1002830,
-    },
-  ];
-
+const BarChart = ({data, xKey, yKey, color}) => {
+  const isData = (data && xKey && yKey && color)
   return (
-    <ResponsiveContainer>
-      <BarChartRecharts data={data}>
-        <CartesianGrid strokeDasharray="3" />
-        <XAxis tickFormatter={dateFormatter}
-               dataKey="date" />
-        <YAxis tickFormatter={numFormatter} />
-        <Tooltip />
-        <Bar dataKey="followers" 
-             fill="orange"/>
-      </BarChartRecharts>
-    </ResponsiveContainer>
+    isData &&
+      <ResponsiveContainer>
+        <BarChartRecharts data={data}
+                            margin={{
+                              bottom: 24,
+                            }}>
+          <XAxis tickFormatter={dateFormatter}
+                angle={-45}
+                textAnchor="end"
+                dataKey={xKey} />
+          <YAxis tickFormatter={numFormatter} />
+          <Tooltip />
+          <Bar dataKey={yKey} 
+              fill={color}/>
+        </BarChartRecharts>
+      </ResponsiveContainer>
   )
 }
 

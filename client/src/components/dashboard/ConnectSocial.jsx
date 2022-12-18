@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { LinkButtonOutlined } from '../common/Links'
 import { ReactComponent as Illustration } from '../../svgs/NotConnected.svg';
+import pagesPaths from '../../routes/PagesPaths';
 
 const Container = styled.div`
   height: 100%;
@@ -30,6 +31,8 @@ const Details = styled.span`
 `
 
 const ConnectSocial = ({socialName, details}) => {
+  const linkTo = `${pagesPaths.dashboard}/${pagesPaths.settings.main}/${pagesPaths.settings.socials}`
+
   return (
     <Container>
       <IllustrationContainer>
@@ -41,7 +44,7 @@ const ConnectSocial = ({socialName, details}) => {
       <Details>
         By connecting your account with your {socialName} account, you acknowledge and agree that information you choose to share ...
       </Details>
-      <LinkButtonOutlined>
+      <LinkButtonOutlined to={linkTo}>
         Connect
       </LinkButtonOutlined>
     </Container>

@@ -26,6 +26,7 @@ import { useDispatch } from 'react-redux';
 import { setHeader, setSelectedPage } from '../redux/features/dashboardSlice';
 import { useSelector } from 'react-redux';
 import pagesPaths from '../routes/PagesPaths';
+import tikTokDummy from '../data/TikTokDummy';
 
 const Container = styled.div`
   height: 100%;
@@ -70,42 +71,42 @@ const TikTok = () => {
                           ? DarkFollowersIcon
                           : LightFollowersIcon}
                        header='Followers'
-                       num={numFormatter(700000)}
+                       num={numFormatter(153087694)}
                        percent={10.2}
                        timeframe='This week'/>
           <TopCard icon={isThemeDark
                           ? DarkLikesIcon
                           : LightLikesIcon}
                        header='Likes'
-                       num={numFormatter(2534675)}
+                       num={numFormatter(2547258083)}
                        percent={-24.5}
                        timeframe='This week'/>
           <TopCard icon={isThemeDark
                           ? DarkVideosIcon
                           : LightVideosIcon}
                        header='Videos'
-                       num={numFormatter(1123)}
+                       num={numFormatter(1099)}
                        percent={0.2}
                        timeframe='This week'/>
           <TopCard icon={isThemeDark
                           ? DarkOverallEngagementIcon
                           : LightOverallEngagementIcon}
                        header='Overall Engagement'
-                       num={'10.65%'}
+                       num={'10.15%'}
                        percent={0.55}
                        timeframe='This week'/>
           <TopCard icon={isThemeDark
                           ? DarkEngagementLikesIcon
                           : LightEngagementLikesIcon}
                        header='Engagement - Likes'
-                       num={'10.39%'}
+                       num={'9.95%'}
                        percent={0.12}
                        timeframe='This week'/>
           <TopCard icon={isThemeDark
                           ? DarkEngagementCommentsIcon
                           : LightEngagementCommentsIcon}
                        header='Engagement - Comments'
-                       num={'0.23%'}
+                       num={'0.17%'}
                        percent={-0.04}
                        timeframe='This week'/>
           <TopCard icon={isThemeDark
@@ -118,16 +119,36 @@ const TikTok = () => {
         </TopCards>
       </ScrollContainer>
         <Cards>
-          <ChartCard chart={<LineChart/>}
+          <ChartCard header={'Followers Growth'}
+                     details={"Understand how the followers count for @khaby.lame's TikTok profile is progressing through each day."}
+                     chart={<LineChart data={tikTokDummy.followersGrowth}
+                                       xKey={'date'}
+                                       yKey={'followers'}
+                                       color={'#5ac2d8'}/>}
                      columnStart={1}
                      columnEnd={3}/>
-          <ChartCard chart={<BarChart/>}
+          <ChartCard header={'Video Growth'}
+                     details={"Understand how many videos @khaby.lame is posting day by day."}
+                     chart={<BarChart data={tikTokDummy.videoGrowth}
+                                       xKey={'date'}
+                                       yKey={'videos'}
+                                       color={'#9b1c65'}/>}
                      columnStart={3}
                      columnEnd={5}/>
-          <ChartCard chart={<PieChart/>} 
-                     bottom={<ChartLabelList/>}
+          <ChartCard header={'Engagement'}
+                     details={"Total engagement counter for @khaby.lame's TikTok profile."}
+                     chart={<PieChart data={tikTokDummy.engagement}
+                                      valueKey='value'/>}
+                     bottom={<ChartLabelList data={tikTokDummy.engagement}
+                                             valueKey={'value'}
+                                             nameKey={'name'}/>}
                      minWidth='330px'/>
-          <ChartCard chart={<LineChart/>}
+          <ChartCard header={'Likes Growth'}
+                     details={"Total likes counter for @khaby.lame's TikTok profile progression."}
+                      chart={<LineChart data={tikTokDummy.likesGrowth}
+                                       xKey={'date'}
+                                       yKey={'likes'}
+                                       color={'#a50135'}/>}
                      columnStart={2}
                      columnEnd={5}/>
         </Cards>

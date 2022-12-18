@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { colorArray } from './PieChart'
 
 const List = styled.ul`
   list-style: none;
@@ -32,30 +33,24 @@ const Text = styled.span`
   text-align: end;
 `
 
-const ChartLabelList = () => {
-  const data = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
-  ];
-
-  const COLORS = ['red', '#00C49F', '#FFBB28', '#FF8042'];
+const ChartLabelList = ({data, valueKey, nameKey}) => {
+  const isData = (data && valueKey && nameKey)
 
   return (
-    <List>
-      {data.map((entry, index) => (
-        <Item key={index}>
-          <Color cellColor={COLORS[index % COLORS.length]}/>
-          <Value>
-            {entry.value}
-          </Value>
-          <Text>
-            {entry.name}
-          </Text>
-        </Item>
-      ))}
-    </List>
+    isData && 
+      <List>
+        {data.map((entry, index) => (
+          <Item key={index}>
+            <Color cellColor={colorArray[index % colorArray.length]}/>
+            <Value>
+              {entry[valueKey]}
+            </Value>
+            <Text>
+              {entry[nameKey]}
+            </Text>
+          </Item>
+        ))}
+      </List>
   )
 }
 

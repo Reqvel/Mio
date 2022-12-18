@@ -61,10 +61,10 @@ const LineChartCard = ({ header, details, chart, bottom,
              rowEnd={rowEnd}>
       <Container>
         <Header>
-          Followers Growth
+          {header}
         </Header>
         <Details>
-          Understand how the followers count for @khaby.lame's TikTok profile is progressing through each day.
+          {details}
         </Details>
         <ChartContainer>
           <Chart>
