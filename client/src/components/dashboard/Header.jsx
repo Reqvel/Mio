@@ -59,8 +59,6 @@ const Header = () => {
                 </PageDetails>
             </Left>
             <Right>
-                <ButtonIcon icon={NotificationIcon}/>
-                <ButtonIcon icon={UserIcon}/>
             </Right>
         </Container>
     </Wrapper>
