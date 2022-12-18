@@ -35,10 +35,7 @@ const Subscription = () => {
     dispatch(setHeader({header, details}))
     dispatch(setSelectedOption(pagesPaths.settings.subscription))
   }, [dispatch])
-
-  useEffect(()=>console.log(usersSub),[usersSub])
-  useEffect(()=>console.log(subOptions),[subOptions])
-
+  
   return (
     (isOptsLoading || isUsersLoading)
       ? <LoadingSpinner/>  
