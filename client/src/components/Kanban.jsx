@@ -237,8 +237,8 @@ const Kanban = () => {
             <ColumnsDirective>
               {categories.map((category, index) => (
                 <ColumnDirective key={index}
-                                 headerText={category.name}
-                                 keyField={category.name}
+                                 headerText={category}
+                                 keyField={category}
                                  allowToggle={true}
                                  showAddButton={true} />))}
             </ColumnsDirective>
