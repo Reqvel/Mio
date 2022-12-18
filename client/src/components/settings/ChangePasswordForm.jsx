@@ -79,7 +79,7 @@ const ChangePasswordForm = () => {
         setIsNewPwdSet(true)
       } catch (err) {
         pwdCurrentRef.current.focus()
-        setErrMsg('Error')
+        setErrMsg('Invalid current password')
       }
     } else {
       pwdNewRef.current.focus()

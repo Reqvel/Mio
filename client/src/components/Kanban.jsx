@@ -153,8 +153,8 @@ const Kanban = () => {
   const header = 'Kanban'
   const details = "Don't forget to set the details for the kanban!"
 
-  const {data: categoriesResponse, isFetching: isCategoriesFetching} = useGetKanbanCategoriesQuery()
-  const {data: cellsResponse, isFetching: isCellsFetching} = useGetKanbanEventsQuery()
+  const {data: categoriesResponse, isLoading: isCategoriesLoading} = useGetKanbanCategoriesQuery()
+  const {data: cellsResponse, isLoading: isCellsLoading} = useGetKanbanEventsQuery()
   const [getEvents] = useLazyGetKanbanEventsQuery()
   const [sendChangedEvents] = useSendChangedKanbanEventsMutation()
   const [sendCreatedEvents, {status: createdStatus}] = useSendCreatedKanbanEventsMutation()
@@ -185,22 +185,22 @@ const Kanban = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if(!isCategoriesFetching) {
+    if(!isCategoriesLoading) {
       if(categoriesResponse) {
         setCategories(JSON.parse(JSON.stringify(categoriesResponse)))
       }
     }
 
-    if(!isCellsFetching) {
+    if(!isCellsLoading) {
       if(cellsResponse) {
         setCells(JSON.parse(JSON.stringify(cellsResponse)))
       }
     }
 
-    if(!isCellsFetching && !isCategoriesFetching) {
+    if(!isCellsLoading && !isCategoriesLoading) {
       kanbanRef.current?.addEventListener('dataSourceChanged', handleDataChanged)
     }
-  }, [isCellsFetching, isCategoriesFetching, cellsResponse, categoriesResponse, handleDataChanged])
+  }, [isCellsLoading, isCategoriesLoading, cellsResponse, categoriesResponse, handleDataChanged])
 
   useEffect(() => {
     if(createdStatus === QueryStatus.fulfilled) {
@@ -215,7 +215,7 @@ const Kanban = () => {
   return (
     <Container>
       {
-        (isCellsFetching || isCategoriesFetching)
+        (isCellsLoading || isCategoriesLoading)
         ? <SpinnerContainer>
             <LoadingSpinner/>
           </SpinnerContainer>

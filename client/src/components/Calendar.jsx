@@ -590,7 +590,7 @@ const Calendar = () => {
   const header = 'Calendar'
   const details = "Don't forget to set the details for the calendar!"
 
-  const {data: eventsResponse, isFetching: isEventsFetching} = useGetCalendarEventsQuery()
+  const {data: eventsResponse, isLoading: isEventsLoading} = useGetCalendarEventsQuery()
   const [getEvents] = useLazyGetCalendarEventsQuery()
   const [sendChangedEvents] = useSendChangedCalendarEventsMutation()
   const [sendCreatedEvents, {status: createdStatus}] = useSendCreatedCalendarEventsMutation()
@@ -622,7 +622,7 @@ const Calendar = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if(!isEventsFetching) {
+    if(!isEventsLoading) {
       if(eventsResponse) {
         setEvents(
           prepareToShowCalendarEvents(
@@ -631,7 +631,7 @@ const Calendar = () => {
       }
       calendarRef.current.addEventListener('actionComplete', handleDataChanged)
     }
-  }, [isEventsFetching, eventsResponse, handleDataChanged])
+  }, [isEventsLoading, eventsResponse, handleDataChanged])
 
   useEffect(() => {
     if(createdStatus === QueryStatus.fulfilled) {
@@ -650,7 +650,7 @@ const Calendar = () => {
     <Container>
       <Absolute>
         {
-          isEventsFetching
+          isEventsLoading
             ? <SpinnerContainer>
                 <LoadingSpinner/>
               </SpinnerContainer>
