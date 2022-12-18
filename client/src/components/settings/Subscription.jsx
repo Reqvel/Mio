@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux';
 import PricingCard from './PricingCard';
 import CurrentPlanCard from './CurrentPlanCard';
 import pagesPaths from '../../routes/PagesPaths';
+import { useGetSubscriptionOptionsQuery,
+         useGetUsersSubscriptionQuery } from '../../redux/features/paymentApiSlice';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 const Cards = styled.div`
   display: flex;
@@ -20,39 +23,12 @@ const Current = styled.span`
 `
 
 const Subscription = () => {
-  const data = [
-    {
-      header: 'Free',
-      price: 0,
-      buttonText: 'Try It Free',
-      features: [
-        'features1',
-        'features1',
-        'features1',
-        'features1',
-        'features1',
-      ]
-    },
-    {
-      header: 'Premium',
-      price: 4.99,
-      buttonText: 'Buy Now',
-      features: [
-        'features1',
-        'features1',
-        'features1',
-        'features1',
-        'features1',
-        'features1',
-        'features1',
-        'features1',
-        'features1',
-      ]
-    },
-  ]
+  const {data: subOptions, isLoading: isOptsLoading} = useGetSubscriptionOptionsQuery()
+  const {data: usersSub, isLoading: isUsersLoading} = useGetUsersSubscriptionQuery()
 
   const header = "Subscription"
   const details = "See your current plan or choose a new one"
+  const currentUrl = window.location.href
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -60,22 +36,35 @@ const Subscription = () => {
     dispatch(setSelectedOption(pagesPaths.settings.subscription))
   }, [dispatch])
 
+  useEffect(()=>console.log(usersSub),[usersSub])
+  useEffect(()=>console.log(subOptions),[subOptions])
+
   return (
-    <>
-      <Cards>
-        {data.map((card, index) => (
-          <PricingCard key={index}
-                        header={card.header}
-                        price={card.price}
-                        buttonText={card.buttonText}
-                        features={card.features}/>
-        ))}
-      </Cards>
-      <Current>
-        Current plan
-      </Current>
-      <CurrentPlanCard/>
-    </>
+    (isOptsLoading || isUsersLoading)
+      ? <LoadingSpinner/>  
+      : <>
+        <Cards>
+          {subOptions?.map((card, index) => (
+            <PricingCard key={index}
+                          header={card.name}
+                          price={card.price}
+                          buttonText={card.buttonText}
+                          features={card.features}
+                          isCurrent={
+                            card.stripe_id === usersSub?.product.stripe_id //'prod_MxRBL8v6fMqOS2'
+                          }
+                          productId={card.stripe_id}
+                          redirectTo={currentUrl}/>
+            ))}
+        </Cards>
+        <Current>
+          Current plan
+        </Current>
+        {
+          (usersSub !== undefined) && 
+          <CurrentPlanCard usersSub={usersSub}/>
+        }
+      </>
   )
 }
 

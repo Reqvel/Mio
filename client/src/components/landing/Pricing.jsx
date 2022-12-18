@@ -41,7 +41,7 @@ const Cards = styled.div`
 `;
 
 const Pricing = () => {
-  const {data, isFetching} = useGetSubscriptionOptionsQuery()
+  const {data, isLoading} = useGetSubscriptionOptionsQuery()
 
   return (
     <Wrapper id='pricing'>
@@ -53,7 +53,7 @@ const Pricing = () => {
                 The wise man therefore always holds in these matters to this principle of selection.
             </Details>
             {
-              isFetching 
+              isLoading 
                 ? <LoadingSpinner/>
                 : <Cards>
                     {

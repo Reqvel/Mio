@@ -27,6 +27,7 @@ import Subscription from '../components/settings/Subscription';
 import { default as ChangePasswordFormSettings } from '../components/settings/ChangePasswordForm';
 import Socials from '../components/settings/Socials';
 import Appearance from '../components/settings/Appearance';
+import CancelSubscription from '../components/forms/CancelSubscription';
 
 const AppRoutes = () => {
   return (
@@ -44,6 +45,7 @@ const AppRoutes = () => {
           <Route path={pagesPaths.changePassword} element={ <ChangePasswordForm/> }/>
           <Route path={pagesPaths.resetPasswordCheckEmail} element={ <ResetPasswordCheckEmail/> }/> 
           <Route path={pagesPaths.passwordChanged} element={ <PasswordChanged/> }/> 
+          <Route path={pagesPaths.cancelSubscription} element={ <CancelSubscription/> }/> 
         </Route>
       </Route>
       <Route element={ <PrivateRoute/> }>

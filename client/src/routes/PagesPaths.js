@@ -8,6 +8,7 @@ const pagesPaths = {
     confirmEmail: '/confirm_email',
     emailConfirmed: '/email_confirmed',
     passwordChanged: '/password_changed',
+    cancelSubscription: '/cancel_subscription',
     dashboard: '/dashboard',
     home: '',
     calendar: 'calendar',

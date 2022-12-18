@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import pagesPaths from '../../routes/PagesPaths';
+import { getCurrencySymbol } from '../../utils/GetCurrencySymbol';
+import { LinkButtonOutlined } from '../common/Links'
 
 const Wrapper = styled.div`
   width: 512px;
@@ -33,7 +36,7 @@ const Header = styled.span`
 const Price = styled.span`
   font-size: 1.25rem;
   color: ${props => props.theme.textColor.subtile};
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 `
 
 const Timeframe = styled.span`
@@ -52,22 +55,47 @@ const Lower = styled.div`
   border-radius: 0 0 12px 12px;
 `
 
-const CurrentPlanCard = ({header="Free", price=0, }) => {
+const Description = styled.span`
+  color: ${props => props.theme.textColor.primary};
+`
+
+const Bottom = styled.div`
+  display: flex;
+  justify-content: end;
+  margin-top: 24px;
+`
+
+const CurrentPlanCard = ({usersSub}) => {
+  const currencySymbol = getCurrencySymbol(usersSub.price.currency)
+  const pricePerUnit = Number(usersSub.price.per_unit) / 100;
+  const isCancelable = pricePerUnit !== 0
+
   return (
     <Wrapper>
       <Container>
         <Upper>
           <Header>
-            {header}
+            {usersSub.product.name}
           </Header>
         </Upper>
         <Lower>
           <Price>
-            ${price}&nbsp;
+            {currencySymbol}{pricePerUnit}&nbsp;
             <Timeframe>
-              /month
+              /{usersSub.price.period}
             </Timeframe>
           </Price>
+          <Description>
+            {usersSub.product.description}
+          </Description>
+          {
+            isCancelable && 
+            <Bottom>
+              <LinkButtonOutlined to={pagesPaths.cancelSubscription}>
+                Cancel
+              </LinkButtonOutlined>
+            </Bottom>
+          }
         </Lower>
       </Container>
     </Wrapper>
