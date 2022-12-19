@@ -27,6 +27,9 @@ import { setHeader, setSelectedPage } from '../redux/features/dashboardSlice';
 import { useSelector } from 'react-redux';
 import pagesPaths from '../routes/PagesPaths';
 import tikTokDummy from '../data/TikTokDummy';
+import { useGetUsersInfoQuery } from '../redux/features/dashboardApiSlice';
+import LoadingSpinner from './common/LoadingSpinner';
+import ConnectSocial from './dashboard/ConnectSocial';
 
 const Container = styled.div`
   height: 100%;
@@ -52,11 +55,20 @@ const Cards = styled.div`
   gap: ${props => props.theme.gap.cards.dashboard};
 `
 
+const SpinnerContainer = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const TikTok = () => {
   const { isThemeDark } = useSelector(state => state.app)
   const dispatch = useDispatch()
   const header = 'TikTok'
   const details = "Don't forget to set the details for the TikTok!"
+
+  const {data: userInfo, isLoading: isUserInfoLoading} = useGetUsersInfoQuery()
 
   useEffect(() => {
     dispatch(setHeader({header, details}))
@@ -64,95 +76,103 @@ const TikTok = () => {
   }, [])
 
   return (
-    <Container>
-      <ScrollContainer>
-        <TopCards>
-          <TopCard icon={isThemeDark
-                          ? DarkFollowersIcon
-                          : LightFollowersIcon}
-                       header='Followers'
-                       num={numFormatter(153087694)}
-                       percent={10.2}
-                       timeframe='This week'/>
-          <TopCard icon={isThemeDark
-                          ? DarkLikesIcon
-                          : LightLikesIcon}
-                       header='Likes'
-                       num={numFormatter(2547258083)}
-                       percent={-24.5}
-                       timeframe='This week'/>
-          <TopCard icon={isThemeDark
-                          ? DarkVideosIcon
-                          : LightVideosIcon}
-                       header='Videos'
-                       num={numFormatter(1099)}
-                       percent={0.2}
-                       timeframe='This week'/>
-          <TopCard icon={isThemeDark
-                          ? DarkOverallEngagementIcon
-                          : LightOverallEngagementIcon}
-                       header='Overall Engagement'
-                       num={'10.15%'}
-                       percent={0.55}
-                       timeframe='This week'/>
-          <TopCard icon={isThemeDark
-                          ? DarkEngagementLikesIcon
-                          : LightEngagementLikesIcon}
-                       header='Engagement - Likes'
-                       num={'9.95%'}
-                       percent={0.12}
-                       timeframe='This week'/>
-          <TopCard icon={isThemeDark
-                          ? DarkEngagementCommentsIcon
-                          : LightEngagementCommentsIcon}
-                       header='Engagement - Comments'
-                       num={'0.17%'}
-                       percent={-0.04}
-                       timeframe='This week'/>
-          <TopCard icon={isThemeDark
-                          ? DarkEngagementSharesIcon
-                          : LightEngagementSharesIcon}
-                       header='Engagement - Shares'
-                       num={'0.03%'}
-                       percent={0.01}
-                       timeframe='This week'/>
-        </TopCards>
-      </ScrollContainer>
-        <Cards>
-          <ChartCard header={'Followers Growth'}
-                     details={"Understand how the followers count for @khaby.lame's TikTok profile is progressing through each day."}
-                     chart={<LineChart data={tikTokDummy.followersGrowth}
-                                       xKey={'date'}
-                                       yKey={'followers'}
-                                       color={'#5ac2d8'}/>}
-                     columnStart={1}
-                     columnEnd={3}/>
-          <ChartCard header={'Video Growth'}
-                     details={"Understand how many videos @khaby.lame is posting day by day."}
-                     chart={<BarChart data={tikTokDummy.videoGrowth}
-                                       xKey={'date'}
-                                       yKey={'videos'}
-                                       color={'#9b1c65'}/>}
-                     columnStart={3}
-                     columnEnd={5}/>
-          <ChartCard header={'Engagement'}
-                     details={"Total engagement counter for @khaby.lame's TikTok profile."}
-                     chart={<PieChart data={tikTokDummy.engagement}
-                                      valueKey='value'/>}
-                     bottom={<ChartLabelList data={tikTokDummy.engagement}
-                                             valueKey={'value'}
-                                             nameKey={'name'}/>}
-                     minWidth='330px'/>
-          <ChartCard header={'Likes Growth'}
-                     details={"Total likes counter for @khaby.lame's TikTok profile progression."}
-                      chart={<LineChart data={tikTokDummy.likesGrowth}
-                                       xKey={'date'}
-                                       yKey={'likes'}
-                                       color={'#a50135'}/>}
-                     columnStart={2}
-                     columnEnd={5}/>
-        </Cards>
-    </Container>
+    isUserInfoLoading
+      ? <SpinnerContainer>
+          <LoadingSpinner/>
+        </SpinnerContainer> 
+      : userInfo.social_networks.connected.tiktok
+          ? <Container>
+              <ScrollContainer>
+                <TopCards>
+                  <TopCard icon={isThemeDark
+                                  ? DarkFollowersIcon
+                                  : LightFollowersIcon}
+                              header='Followers'
+                              num={numFormatter(153087694)}
+                              percent={10.2}
+                              timeframe='This week'/>
+                  <TopCard icon={isThemeDark
+                                  ? DarkLikesIcon
+                                  : LightLikesIcon}
+                              header='Likes'
+                              num={numFormatter(2547258083)}
+                              percent={-24.5}
+                              timeframe='This week'/>
+                  <TopCard icon={isThemeDark
+                                  ? DarkVideosIcon
+                                  : LightVideosIcon}
+                              header='Videos'
+                              num={numFormatter(1099)}
+                              percent={0.2}
+                              timeframe='This week'/>
+                  <TopCard icon={isThemeDark
+                                  ? DarkOverallEngagementIcon
+                                  : LightOverallEngagementIcon}
+                              header='Overall Engagement'
+                              num={'10.15%'}
+                              percent={0.55}
+                              timeframe='This week'/>
+                  <TopCard icon={isThemeDark
+                                  ? DarkEngagementLikesIcon
+                                  : LightEngagementLikesIcon}
+                              header='Engagement - Likes'
+                              num={'9.95%'}
+                              percent={0.12}
+                              timeframe='This week'/>
+                  <TopCard icon={isThemeDark
+                                  ? DarkEngagementCommentsIcon
+                                  : LightEngagementCommentsIcon}
+                              header='Engagement - Comments'
+                              num={'0.17%'}
+                              percent={-0.04}
+                              timeframe='This week'/>
+                  <TopCard icon={isThemeDark
+                                  ? DarkEngagementSharesIcon
+                                  : LightEngagementSharesIcon}
+                              header='Engagement - Shares'
+                              num={'0.03%'}
+                              percent={0.01}
+                              timeframe='This week'/>
+                </TopCards>
+              </ScrollContainer>
+                <Cards>
+                  <ChartCard header={'Followers Growth'}
+                            details={"Understand how the followers count for @khaby.lame's TikTok profile is progressing through each day."}
+                            chart={<LineChart data={tikTokDummy.followersGrowth}
+                                              xKey={'date'}
+                                              yKey={'followers'}
+                                              color={'#5ac2d8'}/>}
+                            columnStart={1}
+                            columnEnd={3}/>
+                  <ChartCard header={'Video Growth'}
+                            details={"Understand how many videos @khaby.lame is posting day by day."}
+                            chart={<BarChart data={tikTokDummy.videoGrowth}
+                                              xKey={'date'}
+                                              yKey={'videos'}
+                                              color={'#9b1c65'}/>}
+                            columnStart={3}
+                            columnEnd={5}/>
+                  <ChartCard header={'Engagement'}
+                            details={"Total engagement counter for @khaby.lame's TikTok profile."}
+                            chart={<PieChart data={tikTokDummy.engagement}
+                                              valueKey='value'/>}
+                            bottom={<ChartLabelList data={tikTokDummy.engagement}
+                                                    valueKey={'value'}
+                                                    nameKey={'name'}/>}
+                            minWidth='330px'
+                            columnStart={1}
+                            columnEnd={2}/>
+                  <ChartCard header={'Likes Growth'}
+                            details={"Total likes counter for @khaby.lame's TikTok profile progression."}
+                              chart={<LineChart data={tikTokDummy.likesGrowth}
+                                              xKey={'date'}
+                                              yKey={'likes'}
+                                              color={'#a50135'}/>}
+                            columnStart={2}
+                            columnEnd={5}/>
+                </Cards>
+            </Container>
+          : <ConnectSocial socialName={header}/>
   )
 }
 
