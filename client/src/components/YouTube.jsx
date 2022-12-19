@@ -56,7 +56,6 @@ const YouTube = () => {
   const [shares, setShares] = useState([])
   const [subscribersgained, seSubscribersgained] = useState([])
   const [subscriberslost, setSubscriberslost] = useState([])
-  const [isDataReady, setIsDataReady] = useState(false)
 
   const [getYouTubeStats, {isLoading}] = useGetYouTubeStatsMutation()
   const {data: userInfo, isLoading: isUserInfoLoading} = useGetUsersInfoQuery()
@@ -84,27 +83,17 @@ const YouTube = () => {
     dispatch(setHeader({header, details}))
     dispatch(setSelectedPage(pagesPaths.youTube))
 
-    getData()
-  }, [])
-
-  useEffect(() => {
-    (views.length
-      && likes.length
-      && comments.length
-      && dislikes.length
-      && shares.length
-      && subscribersgained.length
-      && subscriberslost)
-      ? setIsDataReady(true)
-      : setIsDataReady(false)
-  }, [views, likes, comments, dislikes, shares, subscribersgained, subscriberslost])
+    if(userInfo?.social_networks.connected.youtube) {
+      getData()
+    }
+  }, [userInfo])
 
   return (
-    (isLoading || !isDataReady || isUserInfoLoading)
+    (isLoading || isUserInfoLoading)
       ? <SpinnerContainer>
           <LoadingSpinner/>
         </SpinnerContainer> 
-      : userInfo.social_networks.connected.youtube
+      : userInfo?.social_networks.connected.youtube
           ? <Container>
               {
                 isConnected
