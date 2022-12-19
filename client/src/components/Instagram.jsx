@@ -17,7 +17,7 @@ const Container = styled.div`
 const Instagram = () => {
   const dispatch = useDispatch()
   const header = 'Instagram'
-  const details = "Don't forget to set the details for the Instagram!"
+  const details = "Instagram stats support coming soon!"
 
   useEffect(() => {
     dispatch(setHeader({header, details}))

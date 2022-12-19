@@ -105,7 +105,7 @@ const Socials = () => {
                                     ? DarkYouTubeIcon
                                     : LightYouTubeIcon}
                             socialName='YouTube'
-                            details='Some very important details'
+                            details='Connect your YouTube account to get detailed information about your achievements, such as the total number of likes, views, and comments on your videos.'
                             isConnected={isYouTubeConnected}
                             handleConnect={handleConnectYouTube}
                             handleDisconnect={handleDisconnectYouTube}
@@ -115,7 +115,7 @@ const Socials = () => {
                                     ? DarkTikTokIcon
                                     : LightTikTokIcon}
                             socialName='TikTok'
-                            details='Coming soon!'
+                            details='Connect your YouTube account to get detailed information about your achievements, such as the total number of likes, views, shares and comments on your Reels.'
                             isConnected={isTikTokConnected}
                             handleConnect={handleConnectTikTok}
                             handleDisconnect={handleDisconnectTikTok}

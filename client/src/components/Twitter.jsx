@@ -17,7 +17,7 @@ const Container = styled.div`
 const Twitter = () => {
   const dispatch = useDispatch()
   const header = 'Twitter'
-  const details = "Don't forget to set the details for the Twitter!"
+  const details = "Twitter stats support coming soon!"
 
   useEffect(() => {
     dispatch(setHeader({header, details}))

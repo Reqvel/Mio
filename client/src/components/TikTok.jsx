@@ -66,7 +66,7 @@ const TikTok = () => {
   const { isThemeDark } = useSelector(state => state.app)
   const dispatch = useDispatch()
   const header = 'TikTok'
-  const details = "Don't forget to set the details for the TikTok!"
+  const details = "Check your TikTok account statistics"
 
   const {data: userInfo, isLoading: isUserInfoLoading} = useGetUsersInfoQuery()
 

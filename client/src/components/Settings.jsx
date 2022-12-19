@@ -25,7 +25,7 @@ const Cards = styled.div`
 const Settings = () => {
   const dispatch = useDispatch()
   const header = 'Settings'
-  const details = "Don't forget to set the details for the Settings!"
+  const details = "Applications and user related settings"
   const navigate = useNavigate()
   const location = useLocation()
 

@@ -588,7 +588,7 @@ const Calendar = () => {
   const calendarRef = useRef()
   const dispatch = useDispatch()
   const header = 'Calendar'
-  const details = "Don't forget to set the details for the calendar!"
+  const details = "Plan, create and schedule content"
 
   const {data: eventsResponse, isLoading: isEventsLoading} = useGetCalendarEventsQuery()
   const [getEvents] = useLazyGetCalendarEventsQuery()

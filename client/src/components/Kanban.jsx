@@ -151,7 +151,7 @@ const Kanban = () => {
   const kanbanRef = useRef()
   const dispatch = useDispatch()
   const header = 'Kanban'
-  const details = "Don't forget to set the details for the kanban!"
+  const details = "Get a high-level view of your project in progress in real-time."
 
   const {data: categoriesResponse, isLoading: isCategoriesLoading} = useGetKanbanCategoriesQuery()
   const {data: cellsResponse, isLoading: isCellsLoading} = useGetKanbanEventsQuery()

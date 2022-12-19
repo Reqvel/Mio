@@ -46,7 +46,7 @@ const YouTube = () => {
   const { isThemeDark } = useSelector(state => state.app)
   const dispatch = useDispatch()
   const header = 'YouTube'
-  const details = "Don't forget to set the details for the YouTube!"
+  const details = "Check your YouTube account statistics for the past year."
   const isConnected = true
 
   const [views, setViews] = useState([])
@@ -99,7 +99,7 @@ const YouTube = () => {
                 isConnected
                   ? <Cards>
                       <ChartCard header={'Likes'}
-                                details={"fill this"}
+                                details={"Total number of likes on your videos in the last year"}
                                 chart={<LineChart data={likes}
                                                   xKey={'on_date'}
                                                   yKey={'value'}
@@ -107,7 +107,7 @@ const YouTube = () => {
                                 columnStart={1}
                                 columnEnd={4}/>
                       <ChartCard header={'Views'}
-                                details={"fill this"}
+                                details={"Total number of views on your videos in the last year"}
                                 chart={<BarChart data={views}
                                                   xKey={'on_date'}
                                                   yKey={'value'}
@@ -115,7 +115,7 @@ const YouTube = () => {
                                 columnStart={4}
                                 columnEnd={7}/>
                       <ChartCard header={'Comments'}
-                                details={"fill this"}
+                                details={"Total number of comments on your videos in the last year"}
                                 chart={<LineChart data={comments}
                                                   xKey={'on_date'}
                                                   yKey={'value'}
@@ -123,7 +123,7 @@ const YouTube = () => {
                                 columnStart={1}
                                 columnEnd={3}/>
                       <ChartCard header={'Dislikes'}
-                                details={"fill this"}
+                                details={"Total number of dislikes on your videos in the last year"}
                                 chart={<BarChart data={dislikes}
                                                   xKey={'on_date'}
                                                   yKey={'value'}
@@ -131,7 +131,7 @@ const YouTube = () => {
                                 columnStart={3}
                                 columnEnd={7}/>
                       <ChartCard header={'Shares'}
-                                details={"fill this"}
+                                details={"Total number of shares of your videos in the last year"}
                                 chart={<BarChart data={shares}
                                                   xKey={'on_date'}
                                                   yKey={'value'}
@@ -139,7 +139,7 @@ const YouTube = () => {
                                 columnStart={1}
                                 columnEnd={3}/>
                       <ChartCard header={'Subscribers gained'}
-                                details={"fill this"}
+                                details={"Number of subscribers gained in the last year"}
                                 chart={<LineChart data={subscribersgained}
                                                   xKey={'on_date'}
                                                   yKey={'value'}
@@ -147,7 +147,7 @@ const YouTube = () => {
                                 columnStart={3}
                                 columnEnd={5}/>
                       <ChartCard header={'Subscribers lost'}
-                                details={"fill this"}
+                                details={"Number of subscribers lost in the last year"}
                                 chart={<BarChart data={subscriberslost}
                                                   xKey={'on_date'}
                                                   yKey={'value'}
