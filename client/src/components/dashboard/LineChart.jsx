@@ -14,6 +14,8 @@ const LineChart = ({data, xKey, yKey, color}) => {
       <ResponsiveContainer>
         <LineChartRecharts data={data}
                             margin={{
+                              top: 4,
+                              right: 4,
                               bottom: 24,
                             }}>
           <XAxis tickFormatter={dateFormatter}

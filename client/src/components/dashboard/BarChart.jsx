@@ -15,6 +15,8 @@ const BarChart = ({data, xKey, yKey, color}) => {
       <ResponsiveContainer>
         <BarChartRecharts data={data}
                             margin={{
+                              top: 4,
+                              right: 4,
                               bottom: 24,
                             }}>
           <XAxis tickFormatter={dateFormatter}
