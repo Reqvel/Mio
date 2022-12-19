@@ -61,6 +61,10 @@ const darkTheme = {
           upperColor: '#2F3032',
           lowerColor: '#333538',
         },
+        social: {
+          primaryColor: '#2F3032',
+          secondaryColor: '#333538',
+        },
       },
       inputField: {
         borderColor: '#707070',

@@ -61,6 +61,10 @@ const lightTheme = {
         upperColor: '#EBEBEB',
         lowerColor: '#F7F7F7',
       },
+      social: {
+        primaryColor: '#EBEBEB',
+        secondaryColor: '#F7F7F7',
+      },
     },
     inputField: {
       borderColor: '#989898',
