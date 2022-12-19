@@ -70,11 +70,11 @@ const Intro = () => {
                     management
                 </Header>
                 <Details>
-                    Our Many-In-One social media managment platform allows content creators to plan, track and see ... TODO
+                    Our Many-In-One social media management platform allows content creators to plan, track and adjust their social media workflow
                 </Details>
             </Text>
-            <LinkButtonBig to={pagesPaths.signIn}>
-              Start Free Trial
+            <LinkButtonBig to={pagesPaths.signUp}>
+              Sign up for free
             </LinkButtonBig>
         </Left>
         <Right>

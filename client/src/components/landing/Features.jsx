@@ -42,17 +42,18 @@ const Features = () => {
                                       ? DarkCalendarIcon
                                       : LightCalendarIcon}
                              header='Calendar'
-                             details='Illuminate business-critical insights by tapping into the world’s largest and most transparent focus group: social media.'/>
+                             details='Plan, create and schedule content,
+                             all in one visual calendar'/>
                 <FeatureCard icon={ isThemeDark
                                       ? DarkStatisticsIcon
                                       : LightStatisticsIcon}
                              header='Statistics'
-                             details='Illuminate business-critical insights by tapping into the world’s largest and most transparent focus group: social media.'/>
+                             details='Check out full analysis of your results and data-driven improvement recommendations. Benchmark your performance against competitor'/>
                 <FeatureCard icon={ isThemeDark
                                       ? DarkKanbanIcon
                                       : LightKanbanIcon}
                              header='Kanban'
-                             details='Illuminate business-critical insights by tapping into the world’s largest and most transparent focus group: social media.'/>
+                             details='Get a high-level view of your project in progress in real-time. Just drag & drop cards to move tasks through each workflow stage.'/>
             </Cards>
         </Container>
     </Wrapper>

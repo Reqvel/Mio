@@ -47,10 +47,10 @@ const Pricing = () => {
     <Wrapper id='pricing'>
         <Container>
             <Header>
-                Pricing
+              Pricing
             </Header>
             <Details>
-                The wise man therefore always holds in these matters to this principle of selection.
+              Completely free to get started. Or choose extended subscription for more features
             </Details>
             {
               isLoading 

@@ -49,7 +49,9 @@ const AboutUs = () => {
             About Our Project
           </Header>
           <Details>
-            Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc
+          A web application for content creators that aims to unify and facilitate the monitoring of statistics on selected social networks. 
+          It also allows you to create a calendar plan and track the progress of tasks.
+          Our target audience are content creators, regardless of the size of their audience, on platforms such as Instagram, YouTube and TikTok.
           </Details>
         </Container>
     </Wrapper>
