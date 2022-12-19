@@ -68,7 +68,11 @@ const CancelSubscription = () => {
       navigate(redirectTo)
     } catch (err) {
       pwdRef.current.focus()
-      setErrMsg('Error')
+      if(err.data?.message) {
+        setErrMsg(err.data.message)
+      } else {
+        setErrMsg('Invalid password')
+      }
     }
   }
 
